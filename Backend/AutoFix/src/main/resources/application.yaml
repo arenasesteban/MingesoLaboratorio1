@@ -1,0 +1,12 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: AutoFix
+  datasource:
+    password: 12345678
+    url: jdbc:postgresql://localhost:5432/AutoFixDB
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create

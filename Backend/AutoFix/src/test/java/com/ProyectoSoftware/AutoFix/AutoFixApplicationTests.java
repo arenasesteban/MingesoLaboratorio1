@@ -1,10 +1,10 @@
-package com.ProyectoSoftware.MingesoLaboratorio;
+package com.ProyectoSoftware.AutoFix;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MingesoLaboratorioApplicationTests {
+class AutoFixApplicationTests {
 
 	@Test
 	void contextLoads() {

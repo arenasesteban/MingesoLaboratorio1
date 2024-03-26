@@ -1,13 +1,13 @@
-package com.ProyectoSoftware.MingesoLaboratorio;
+package com.ProyectoSoftware.AutoFix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MingesoLaboratorioApplication {
+public class AutoFixApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MingesoLaboratorioApplication.class, args);
+		SpringApplication.run(AutoFixApplication.class, args);
 	}
 
 }
