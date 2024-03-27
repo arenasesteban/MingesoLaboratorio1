@@ -1,13 +1,13 @@
-package com.ProyectoSoftware.AutoFix;
+package com.proyectosw.autofix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AutoFixApplication {
+public class AutofixApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AutoFixApplication.class, args);
+		SpringApplication.run(AutofixApplication.class, args);
 	}
 
 }

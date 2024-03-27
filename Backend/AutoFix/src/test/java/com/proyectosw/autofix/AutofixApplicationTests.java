@@ -1,10 +1,10 @@
-package com.ProyectoSoftware.AutoFix;
+package com.proyectosw.autofix;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AutoFixApplicationTests {
+class AutofixApplicationTests {
 
 	@Test
 	void contextLoads() {
