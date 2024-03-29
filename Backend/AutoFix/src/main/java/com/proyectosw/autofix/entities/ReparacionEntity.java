@@ -13,6 +13,9 @@ import lombok.NoArgsConstructor;
 public class ReparacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
-    private Long id_reparacion;
+    private Long idReparacion;
+
+    private String tipoReparacion;
+    private String tipoMotor;
+    private Double monto;
 }

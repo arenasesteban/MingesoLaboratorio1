@@ -15,12 +15,12 @@ import java.time.LocalDate;
 public class VehiculoEntity {
     @Id
     @Column(unique = true, nullable = false)
-    private String numero_patente;
+    private String patente;
 
     private String marca;
     private String modelo;
-    private String tipo_auto;
-    private LocalDate ano_fabricacion;
-    private String tipo_motor;
-    private Integer numero_asientos;
+    private String tipoAuto;
+    private LocalDate anoFabricacion;
+    private String tipoMotor;
+    private Integer numeroAsientos;
 }
