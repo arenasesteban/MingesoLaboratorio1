@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "registro")
@@ -15,10 +16,9 @@ import java.time.LocalDate;
 public class RegistroEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     private Long idRegistro;
 
-    private String patente; // FK - vehiculo
-    private Integer idReparacion; // FK - lista reparaciones
     private LocalDate fechaIngreso;
     private LocalDate horaIngreso;
     private Integer montoTotal;
@@ -26,4 +26,11 @@ public class RegistroEntity {
     private LocalDate horaSalida;
     private LocalDate fechaRetiro;
     private LocalDate horaRetiro;
+
+    @ManyToOne
+    @JoinColumn(name = "patente")
+    private VehiculoEntity vehiculo;
+
+    @OneToMany(mappedBy = "registro")
+    private List<ReparacionEntity> reparaciones;
 }

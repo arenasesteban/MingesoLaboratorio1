@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "vehiculo")
@@ -23,4 +24,7 @@ public class VehiculoEntity {
     private LocalDate anoFabricacion;
     private String tipoMotor;
     private Integer numeroAsientos;
+
+    @OneToMany(mappedBy = "vehiculo")
+    private List<RegistroEntity> registros;
 }
