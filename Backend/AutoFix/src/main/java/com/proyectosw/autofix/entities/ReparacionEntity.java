@@ -20,7 +20,6 @@ public class ReparacionEntity {
     private String tipoMotor;
     private Double monto;
 
-    @ManyToOne
-    @JoinColumn(name = "idRegistro")
-    private RegistroEntity registro;
+    // Relacion many-to-one: Reparacion - Registro
+    private Long idRegistro;
 }

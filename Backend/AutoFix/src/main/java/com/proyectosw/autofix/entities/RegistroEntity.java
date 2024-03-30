@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "registro")
@@ -27,10 +26,6 @@ public class RegistroEntity {
     private LocalDate fechaRetiro;
     private LocalDate horaRetiro;
 
-    @ManyToOne
-    @JoinColumn(name = "patente")
-    private VehiculoEntity vehiculo;
-
-    @OneToMany(mappedBy = "registro")
-    private List<ReparacionEntity> reparaciones;
+    // Relacion many-to-one: Registro - Vehiculo
+    private String patente;
 }
