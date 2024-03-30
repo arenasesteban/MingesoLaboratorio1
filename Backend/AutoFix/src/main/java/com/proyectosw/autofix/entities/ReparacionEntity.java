@@ -28,5 +28,4 @@ public class ReparacionEntity {
 
     // Relacion many-to-one: Reparacion - Vehiculo
     private String patente;
-
 }
