@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/RegistroEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/ReparacionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/ReparacionEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +17,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -83,7 +86,10 @@
       <workItem from="1711673370985" duration="2956000" />
       <workItem from="1711724947003" duration="4771000" />
       <workItem from="1711751778031" duration="118000" />
-      <workItem from="1711753215036" duration="3029000" />
+      <workItem from="1711753215036" duration="4323000" />
+      <workItem from="1711812419744" duration="4310000" />
+      <workItem from="1711820765833" duration="606000" />
+      <workItem from="1711827787476" duration="2496000" />
     </task>
     <servers />
   </component>

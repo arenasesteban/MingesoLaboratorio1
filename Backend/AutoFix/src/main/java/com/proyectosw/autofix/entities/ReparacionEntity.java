@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "reparacion")
 @Data
@@ -16,10 +18,15 @@ public class ReparacionEntity {
     @Column(unique = true, nullable = false)
     private Long idReparacion;
 
-    private String tipoReparacion;
-    private String tipoMotor;
-    private Double monto;
+    private LocalDate fechaIngreso;
+    private LocalDate horaIngreso;
+    private Integer montoTotal;
+    private LocalDate fechaSalida;
+    private LocalDate horaSalida;
+    private LocalDate fechaRetiro;
+    private LocalDate horaRetiro;
 
-    // Relacion many-to-one: Reparacion - Registro
-    private Long idRegistro;
+    // Relacion many-to-one: Reparacion - Vehiculo
+    private String patente;
+
 }
