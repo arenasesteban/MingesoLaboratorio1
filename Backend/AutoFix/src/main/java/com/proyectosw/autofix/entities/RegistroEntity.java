@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "registro")
@@ -19,12 +20,12 @@ public class RegistroEntity {
     private Long idRegistro;
 
     private LocalDate fechaIngreso;
-    private LocalDate horaIngreso;
+    private LocalTime horaIngreso;
     private Integer montoTotal;
     private LocalDate fechaSalida;
-    private LocalDate horaSalida;
+    private LocalTime  horaSalida;
     private LocalDate fechaRetiro;
-    private LocalDate horaRetiro;
+    private LocalTime  horaRetiro;
 
     // Relacion many-to-one: Reparacion - Vehiculo
     private String patente;
