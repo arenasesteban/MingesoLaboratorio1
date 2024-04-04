@@ -16,12 +16,9 @@ public class DetalleEntity {
     @Column(unique = true, nullable = false)
     private Long idDetalle;
 
-    private Integer descuentoPorNumeroReparaciones;
-    private Integer descuentoPorDiaAtencion;
-    private Integer descuentoPorBonos;
-    private Integer recargoPorKilometraje;
-    private Integer recargoPorAntiguedad;
-    private Integer recargoPorRetrasoRecogida;
+    private Integer reparaciones;
+    private Integer descuentos;
+    private Integer recargos;
     private Integer iva;
 
     // Relacion one-to-one: Detalle - Reparacion

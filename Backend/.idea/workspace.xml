@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/controllers/RegistroController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/RegistroEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/RegistroRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/controllers/ReparacionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/DetalleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/DetalleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/ReparacionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/ReparacionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/TipoReparacionEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/ReparacionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/ReparacionService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,31 +49,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.AutofixApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Esteban Usach/2024.1/MINGESO/payroll-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AutofixApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Esteban Usach/2024.1/MINGESO/payroll-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="AutofixApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="autofix" />
@@ -87,7 +100,9 @@
       <workItem from="1711753215036" duration="4323000" />
       <workItem from="1711812419744" duration="4310000" />
       <workItem from="1711820765833" duration="606000" />
-      <workItem from="1711827787476" duration="4036000" />
+      <workItem from="1711827787476" duration="4842000" />
+      <workItem from="1711845243200" duration="2513000" />
+      <workItem from="1712182253462" duration="4301000" />
     </task>
     <servers />
   </component>
