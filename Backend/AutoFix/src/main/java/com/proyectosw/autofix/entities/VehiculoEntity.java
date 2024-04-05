@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "vehiculo")
 @Data
@@ -20,7 +18,10 @@ public class VehiculoEntity {
     private String marca;
     private String modelo;
     private String tipoAuto;
-    private LocalDate anoFabricacion;
+    private Integer anoFabricacion;
     private String tipoMotor;
     private Integer numeroAsientos;
+
+    // Deberia ser agregado a la hora de que se vaya a hacer una reparacion y no cuando es registrado
+    private Integer kilometraje;
 }

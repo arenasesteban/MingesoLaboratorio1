@@ -1,6 +1,7 @@
 package com.proyectosw.autofix.entities;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,10 +18,18 @@ public class DetalleEntity {
     private Long idDetalle;
 
     private Integer reparaciones;
-    private Integer descuentos;
     private Integer recargos;
+    private Integer descuentos;
     private Integer iva;
 
     // Relacion one-to-one: Detalle - Reparacion
-    private Integer idReparacion;
+    private Long idRegistro;
+
+    public DetalleEntity(Integer reparaciones, Integer recargos, Integer descuentos, Integer iva, Long idRegistro) {
+        this.reparaciones = reparaciones;
+        this.recargos = recargos;
+        this.descuentos = descuentos;
+        this.iva = iva;
+        this.idRegistro = idRegistro;
+    }
 }

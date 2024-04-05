@@ -15,11 +15,24 @@ public class ReparacionService {
 
     public List<ReparacionEntity> crearReparacion(List<ReparacionEntity> reparaciones, Integer idRegistro) {
         List<ReparacionEntity> reparacionesGuardados = new ArrayList<>();
+
         for(ReparacionEntity reparacion : reparaciones) {
             reparacion.setIdRegistro(idRegistro);
             ReparacionEntity reparacionGuardado = reparacionRespository.save(reparacion);
             reparacionesGuardados.add(reparacionGuardado);
         }
+
         return reparacionesGuardados;
+    }
+
+    public int calcularTotalReparaciones(Long idRegistro) {
+        List<ReparacionEntity> reparaciones = reparacionRespository.findByIdRegistro(idRegistro);
+        int sumaReparaciones = 0;
+
+        for(ReparacionEntity reparacion : reparaciones) {
+            sumaReparaciones += reparacion.getPrecio();
+        }
+
+        return sumaReparaciones;
     }
 }

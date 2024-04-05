@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VehiculoRepository extends JpaRepository<VehiculoEntity, String> {
 
+    VehiculoEntity findByPatente(String patente);
 }

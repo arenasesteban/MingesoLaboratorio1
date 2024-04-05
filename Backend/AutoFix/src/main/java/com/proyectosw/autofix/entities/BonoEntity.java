@@ -6,18 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "reparacion")
+@Table(name = "bono")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReparacionEntity {
+public class BonoEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long idReparacion;
+    private Long idBono;
 
-    private String tipoReparacion;
-    private Integer precio;
-
-    // Relacion many-to-one: Reparacion - Registro
-    private Long idRegistro;
+    private String marca;
+    private Integer cantidadBonos;
+    private Integer montoPorBonos;
 }
