@@ -4,7 +4,6 @@ import com.proyectosw.autofix.entities.RegistroEntity;
 import com.proyectosw.autofix.entities.VehiculoEntity;
 import com.proyectosw.autofix.repositories.RegistroRepository;
 import com.proyectosw.autofix.repositories.VehiculoRepository;
-import org.apache.el.parser.BooleanNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/controllers/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/controllers/RegistroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/VehiculoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/VehiculoEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/RegistroRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/RegistroRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/ReparacionRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/ReparacionRespository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/VehiculoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/VehiculoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/ReparacionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/ReparacionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/controllers/DetalleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/controllers/DetalleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/repositories/DetalleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/repositories/DetalleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/services/DetalleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/services/DetalleService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +103,8 @@
       <workItem from="1712197955491" duration="480000" />
       <workItem from="1712231766588" duration="9509000" />
       <workItem from="1712246834268" duration="21276000" />
-      <workItem from="1712274072136" duration="1495000" />
+      <workItem from="1712274072136" duration="2528000" />
+      <workItem from="1712284004964" duration="2490000" />
     </task>
     <servers />
   </component>

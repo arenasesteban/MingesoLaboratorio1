@@ -13,7 +13,7 @@ public class ReparacionService {
     @Autowired
     ReparacionRespository reparacionRespository;
 
-    public List<ReparacionEntity> crearReparacion(List<ReparacionEntity> reparaciones, Integer idRegistro) {
+    public List<ReparacionEntity> crearReparacion(List<ReparacionEntity> reparaciones, Long idRegistro) {
         List<ReparacionEntity> reparacionesGuardados = new ArrayList<>();
 
         for(ReparacionEntity reparacion : reparaciones) {

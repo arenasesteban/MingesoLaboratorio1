@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DetalleRepository extends JpaRepository<DetalleEntity, Long> {
-
+    DetalleEntity findByIdRegistro(Long idRegistro);
 }
