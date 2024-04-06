@@ -11,6 +11,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
+import java.util.List;
 
 @Service
 public class RegistroService {
@@ -39,13 +40,23 @@ public class RegistroService {
 
         int sumaReparaciones = reparacionService.calcularTotalReparaciones(registro.getIdRegistro());
 
+        System.out.println(sumaReparaciones);
+
         double recargoPorKilometraje = sumaReparaciones * recargoPorKilometraje(vehiculo.getKilometraje(), vehiculo.getTipoAuto());
         double recargoPorAntiguedad = sumaReparaciones * recargoPorAntiguedad(vehiculo.getAnoFabricacion(), vehiculo.getTipoAuto());
         double recargoPorRestrasoRecogida = sumaReparaciones * recargoPorRetrasoRecogida(registro.getFechaSalida(), registro.getFechaRetiro());
 
+        System.out.println(recargoPorKilometraje);
+        System.out.println(recargoPorAntiguedad);
+        System.out.println(recargoPorRestrasoRecogida);
+
         double descuentoPorNumeroReparacion = sumaReparaciones * descuentoPorNumeroReparaciones(registro.getPatente(), vehiculo.getTipoMotor());
         double descuentoPorDiaAtencion = sumaReparaciones * descuentoPorDiaAtencion(registro.getFechaIngreso(), registro.getHoraIngreso());
         int descuentoPorBonos = descuentoPorBonos(vehiculo.getMarca(), bono);
+
+        System.out.println(descuentoPorNumeroReparacion);
+        System.out.println(descuentoPorDiaAtencion);
+        System.out.println(descuentoPorBonos);
 
         int recargos = (int) (recargoPorKilometraje + recargoPorAntiguedad + recargoPorRestrasoRecogida);
         int descuentos = (int) (descuentoPorNumeroReparacion + descuentoPorDiaAtencion + descuentoPorBonos);
@@ -61,8 +72,7 @@ public class RegistroService {
     }
 
     public double descuentoPorNumeroReparaciones(String patente, String tipoAuto) {
-        // Sola esta contando un registro y no la cantidad de reparaciones en total
-        Integer numeroReparaciones = registroRepository.contarPorPatente(patente);
+        Integer numeroReparaciones = contarReparaciones(patente);
         double descuento = .0;
 
         if(numeroReparaciones >= 1 && numeroReparaciones <= 2) {
@@ -216,5 +226,17 @@ public class RegistroService {
     public double recargoPorRetrasoRecogida(LocalDate fechaSalida, LocalDate fechaRetiro) {
         int retraso = Period.between(fechaSalida, fechaRetiro).getDays();
         return retraso * .05;
+    }
+
+    public int contarReparaciones(String patente) {
+        LocalDate fechaInicio = LocalDate.now().minusMonths(12);
+        List<RegistroEntity> registros = registroRepository.findByPatenteAndFechaSalidaAfter(patente, fechaInicio);
+        int cantidadReparaciones = 0;
+
+        for(RegistroEntity registro : registros) {
+            cantidadReparaciones += reparacionService.contarReparaciones(registro.getIdRegistro());
+        }
+
+        return cantidadReparaciones;
     }
 }

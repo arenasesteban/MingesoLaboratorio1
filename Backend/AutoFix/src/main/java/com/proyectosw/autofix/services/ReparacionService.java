@@ -5,6 +5,7 @@ import com.proyectosw.autofix.repositories.ReparacionRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,5 +35,10 @@ public class ReparacionService {
         }
 
         return sumaReparaciones;
+    }
+
+    public int contarReparaciones(Long idRegistro) {
+        List<ReparacionEntity> reparaciones = reparacionRespository.findByIdRegistro(idRegistro);
+        return reparaciones.toArray().length;
     }
 }

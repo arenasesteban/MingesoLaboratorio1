@@ -21,7 +21,5 @@ public class VehiculoEntity {
     private Integer anoFabricacion;
     private String tipoMotor;
     private Integer numeroAsientos;
-
-    // Deberia ser agregado a la hora de que se vaya a hacer una reparacion y no cuando es registrado
     private Integer kilometraje;
 }
