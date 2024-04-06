@@ -15,6 +15,7 @@ public class DetalleController {
     @Autowired
     DetalleService detalleService;
 
+    // [1]
     @GetMapping("/")
     public ResponseEntity<DetalleEntity> obtenerDetalle(@RequestParam Long idRegistro) {
         DetalleEntity detalle = detalleService.obtenerDetalle(idRegistro);

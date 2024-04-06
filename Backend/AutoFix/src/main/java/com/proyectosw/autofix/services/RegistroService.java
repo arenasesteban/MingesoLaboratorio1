@@ -29,7 +29,7 @@ public class RegistroService {
     @Autowired
     BonoService bonoService;
 
-    public RegistroEntity registrarRegistro(RegistroEntity registro) {
+    public RegistroEntity crearRegistro(RegistroEntity registro) {
         return registroRepository.save(registro);
     }
 
@@ -45,7 +45,7 @@ public class RegistroService {
 
         double descuentoPorNumeroReparacion = sumaReparaciones * descuentoPorNumeroReparaciones(registro.getPatente(), vehiculo.getTipoMotor());
         double descuentoPorDiaAtencion = sumaReparaciones * descuentoPorDiaAtencion(registro.getFechaIngreso(), registro.getHoraIngreso());
-        int descuentoPorBonos = sumaReparaciones * descuentoPorBonos(vehiculo.getMarca(), bono);
+        int descuentoPorBonos = descuentoPorBonos(vehiculo.getMarca(), bono);
 
         int recargos = (int) (recargoPorKilometraje + recargoPorAntiguedad + recargoPorRestrasoRecogida);
         int descuentos = (int) (descuentoPorNumeroReparacion + descuentoPorDiaAtencion + descuentoPorBonos);
@@ -61,6 +61,7 @@ public class RegistroService {
     }
 
     public double descuentoPorNumeroReparaciones(String patente, String tipoAuto) {
+        // Sola esta contando un registro y no la cantidad de reparaciones en total
         Integer numeroReparaciones = registroRepository.contarPorPatente(patente);
         double descuento = .0;
 

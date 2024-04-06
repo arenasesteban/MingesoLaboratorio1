@@ -15,4 +15,10 @@ public class VehiculoService {
     public VehiculoEntity registrarVehiculo(VehiculoEntity vehiculo) {
         return vehiculoRepository.save(vehiculo);
     }
+
+    public VehiculoEntity actualizarVehiculo(String patente, Integer kilometraje) {
+        VehiculoEntity vehiculo = vehiculoRepository.findByPatente(patente);
+        vehiculo.setKilometraje(kilometraje);
+        return vehiculoRepository.save(vehiculo);
+    }
 }

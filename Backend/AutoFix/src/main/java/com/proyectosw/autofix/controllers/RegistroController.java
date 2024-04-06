@@ -12,12 +12,14 @@ public class RegistroController {
     @Autowired
     RegistroService registroService;
 
+    // [1]
     @PostMapping("/")
-    public ResponseEntity<RegistroEntity> registrarRegistro(@RequestBody RegistroEntity registro) {
-        RegistroEntity registroNuevo = registroService.registrarRegistro(registro);
+    public ResponseEntity<RegistroEntity> crearRegistro(@RequestBody RegistroEntity registro) {
+        RegistroEntity registroNuevo = registroService.crearRegistro(registro);
         return ResponseEntity.ok(registroNuevo);
     }
 
+    // [1]
     @GetMapping("/calcular-total")
     public ResponseEntity<RegistroEntity> calcularTotal(@RequestParam Long idRegistro, @RequestParam Boolean bono) {
         RegistroEntity registroActualizado = registroService.calcularTotal(idRegistro, bono);

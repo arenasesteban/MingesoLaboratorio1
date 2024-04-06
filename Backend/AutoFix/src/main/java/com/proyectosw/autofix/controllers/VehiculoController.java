@@ -12,9 +12,17 @@ public class VehiculoController {
     @Autowired
     VehiculoService vehiculoService;
 
+    // [1]
     @PostMapping("/")
     public ResponseEntity<VehiculoEntity> registarVehiculo(@RequestBody VehiculoEntity vehiculo) {
         VehiculoEntity vehiculoNuevo = vehiculoService.registrarVehiculo(vehiculo);
         return ResponseEntity.ok(vehiculoNuevo);
+    }
+
+    // [1]
+    @PutMapping("/")
+    public ResponseEntity<VehiculoEntity> actualizarVehiculo(@RequestParam String patente, @RequestParam Integer kilometraje) {
+        VehiculoEntity vehiculo = vehiculoService.actualizarVehiculo(patente, kilometraje);
+        return ResponseEntity.ok(vehiculo);
     }
 }

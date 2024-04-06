@@ -11,7 +11,7 @@ public class DetalleService {
     DetalleRepository detalleRepository;
 
     public void crearDetalle(Integer sumaReparaciones, Integer recargos, Integer descuentos, Integer iva, Long idRegistro) {
-        new DetalleEntity(sumaReparaciones, recargos, descuentos, iva, idRegistro);
+        detalleRepository.save(new DetalleEntity(sumaReparaciones, recargos, descuentos, iva, idRegistro));
     }
 
     public DetalleEntity obtenerDetalle(Long idRegistro) {
