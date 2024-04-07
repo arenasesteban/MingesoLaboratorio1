@@ -13,4 +13,7 @@ public interface RegistroRepository extends JpaRepository<RegistroEntity, Long> 
     RegistroEntity findByIdRegistro(Long idRegistro);
 
     List<RegistroEntity> findByPatenteAndFechaSalidaAfter(String patente, LocalDate fechaInicio);
+
+    @Query("SELECT DISTINCT(r.patente) FROM RegistroEntity r WHERE r.idRegistro = :idRegistro")
+    String findPatenteByIdRegistro(Long idRegistro);
 }

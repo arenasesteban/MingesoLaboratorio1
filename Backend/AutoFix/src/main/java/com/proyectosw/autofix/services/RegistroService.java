@@ -11,6 +11,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -238,5 +239,20 @@ public class RegistroService {
         }
 
         return cantidadReparaciones;
+    }
+
+    public int obtenerNumeroTiposAutos(List<Long> idRegistros) {
+        List<String> tiposAutos = new ArrayList<>();
+
+        for(Long idRegistro : idRegistros) {
+            String patente = registroRepository.findPatenteByIdRegistro(idRegistro);
+            String tipoAuto = vehiculoRepository.findByPatente(patente).getTipoAuto();
+
+            if(!tiposAutos.contains(tipoAuto)) {
+                tiposAutos.add(tipoAuto);
+            }
+        }
+
+        return tiposAutos.size();
     }
 }

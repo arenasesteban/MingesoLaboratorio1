@@ -15,6 +15,7 @@ public class ReparacionEntity {
     @Column(unique = true, nullable = false)
     private Long idReparacion;
 
+    private Integer numeroReparacion;
     private String tipoReparacion;
     private Integer precio;
 

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Backend.iml" filepath="$PROJECT_DIR$/.idea/Backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autofix/autofix.iml" filepath="$PROJECT_DIR$/autofix/autofix.iml" />
     </modules>
   </component>
 </project>
