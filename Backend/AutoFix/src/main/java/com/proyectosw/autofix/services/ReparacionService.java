@@ -1,6 +1,7 @@
 package com.proyectosw.autofix.services;
 
 import com.proyectosw.autofix.dtos.ReparacionPorTipoAuto;
+import com.proyectosw.autofix.dtos.ReparacionPorTipoMotor;
 import com.proyectosw.autofix.entities.ReparacionEntity;
 import com.proyectosw.autofix.repositories.ReparacionRespository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +62,25 @@ public class ReparacionService {
         }
 
         return reparacionesPorTipoAuto;
+    }
+
+    public List<ReparacionPorTipoMotor> reporteReparacionPorTipoMotor() {
+        List<ReparacionPorTipoMotor> reparacionesTipoMotor = new ArrayList<>();
+
+        for(int numeroReparacion = 1; numeroReparacion <= 11; numeroReparacion++) {
+            List<Long> idRegistros = reparacionRespository.findIdRegistroByNumeroReparacion(numeroReparacion);
+
+            String tipoReparacion = reparacionRespository.getByIdRegistro(idRegistros.get(0)).getTipoReparacion();
+            int cantidadGasolina = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina");
+            int cantidadDiesel = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel");
+            int cantidadHibrido = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido");
+            int cantidadElectrico = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Electrico");
+            int montoTotal = reparacionRespository.sumPrecioByNumeroReparacion(numeroReparacion);
+
+            ReparacionPorTipoMotor reparacionPorTipoMotor = new ReparacionPorTipoMotor(tipoReparacion, cantidadGasolina, cantidadDiesel, cantidadHibrido, cantidadElectrico, montoTotal);
+            reparacionesTipoMotor.add(reparacionPorTipoMotor);
+        }
+
+        return reparacionesTipoMotor;
     }
 }

@@ -1,6 +1,7 @@
 package com.proyectosw.autofix.controllers;
 
 import com.proyectosw.autofix.dtos.ReparacionPorTipoAuto;
+import com.proyectosw.autofix.dtos.ReparacionPorTipoMotor;
 import com.proyectosw.autofix.entities.ReparacionEntity;
 import com.proyectosw.autofix.services.ReparacionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,12 @@ public class ReparacionController {
     @GetMapping("/reparaciones-por-tipo-auto")
     public ResponseEntity<List<ReparacionPorTipoAuto>> reporteReparacionPorTipoAuto() {
         List<ReparacionPorTipoAuto> reparacionesPorTipoAuto= reparacionService.reporteReparacionPorTipoAuto();
-        return  ResponseEntity.ok(reparacionesPorTipoAuto);
+        return ResponseEntity.ok(reparacionesPorTipoAuto);
+    }
+
+    @GetMapping("/reparaciones-por-tipo-motor")
+    public ResponseEntity<List<ReparacionPorTipoMotor>> reporteReparacionPorTipoMotor() {
+        List<ReparacionPorTipoMotor> reparacionesPorTipoMotor= reparacionService.reporteReparacionPorTipoMotor();
+        return ResponseEntity.ok(reparacionesPorTipoMotor);
     }
 }

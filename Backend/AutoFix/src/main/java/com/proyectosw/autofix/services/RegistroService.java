@@ -1,5 +1,6 @@
 package com.proyectosw.autofix.services;
 
+import com.proyectosw.autofix.dtos.ReparacionPorTipoMotor;
 import com.proyectosw.autofix.entities.RegistroEntity;
 import com.proyectosw.autofix.entities.VehiculoEntity;
 import com.proyectosw.autofix.repositories.RegistroRepository;
@@ -254,5 +255,16 @@ public class RegistroService {
         }
 
         return tiposAutos.size();
+    }
+
+    public int obtenerNumeroPorTiposMotores(List<Long> idRegistros, String tipoMotor) {
+        int numeroAutos = 0;
+
+        for(Long idRegistro : idRegistros) {
+            String patente = registroRepository.findPatenteByIdRegistro(idRegistro);
+            numeroAutos += vehiculoRepository.countTipoMotor(patente, tipoMotor);
+        }
+
+        return numeroAutos;
     }
 }
