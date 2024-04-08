@@ -31,22 +31,6 @@ public class ReparacionService {
         return reparacionesGuardados;
     }
 
-    public int calcularTotalReparaciones(Long idRegistro) {
-        List<ReparacionEntity> reparaciones = reparacionRespository.findByIdRegistro(idRegistro);
-        int sumaReparaciones = 0;
-
-        for(ReparacionEntity reparacion : reparaciones) {
-            sumaReparaciones += reparacion.getPrecio();
-        }
-
-        return sumaReparaciones;
-    }
-
-    public int contarReparaciones(Long idRegistro) {
-        List<ReparacionEntity> reparaciones = reparacionRespository.findByIdRegistro(idRegistro);
-        return reparaciones.toArray().length;
-    }
-
     public List<ReparacionPorTipoAuto> reporteReparacionPorTipoAuto() {
         List<ReparacionPorTipoAuto> reparacionesPorTipoAuto = new ArrayList<>();
 

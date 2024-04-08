@@ -29,6 +29,7 @@ public class VehiculoController {
         return ResponseEntity.ok(vehiculo);
     }
 
+    // [0]
     @GetMapping("/tiempo-reparacion-por-marca")
     public ResponseEntity<List<TiempoReparacionPorMarca>> reporteTiempoReparacionPorMarca() {
         List<TiempoReparacionPorMarca> tiempoReparacionesPorMarca = vehiculoService.reporteTiempoReparacionPorMarca();

@@ -3,9 +3,17 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>18154</IntrospectionStateNumber>
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G</Grants>
+      <IntrospectionStateNumber>18180</IntrospectionStateNumber>
       <ServerVersion>16.1</ServerVersion>
-      <StartupTime>1712405900</StartupTime>
+      <StartupTime>1712597026</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -230,7 +238,7 @@ false America/Rio_Branco
 false America/Rosario
 true America/Santa_Isabel
 false America/Santarem
-true America/Santiago
+false America/Santiago
 false America/Santo_Domingo
 false America/Sao_Paulo
 true America/Scoresbysund
@@ -428,7 +436,7 @@ false CHAST
 false CHUT
 false CKT
 true CLST
-true CLT
+false CLT
 false COT
 false CST
 true CST6CDT
@@ -441,13 +449,13 @@ true Canada/Newfoundland
 true Canada/Pacific
 false Canada/Saskatchewan
 false Canada/Yukon
-true Chile/Continental
-true Chile/EasterIsland
+false Chile/Continental
+false Chile/EasterIsland
 true Cuba
 false DAVT
 false DDUT
-true EASST
-true EAST
+false EASST
+false EAST
 false EAT
 true EDT
 true EEST
@@ -683,7 +691,7 @@ false Pacific/Auckland
 false Pacific/Bougainville
 false Pacific/Chatham
 false Pacific/Chuuk
-true Pacific/Easter
+false Pacific/Easter
 false Pacific/Efate
 false Pacific/Enderbury
 false Pacific/Fakaofo
@@ -800,7 +808,7 @@ false Zulu
 14697||10|C|G
 14697||-9223372036854775808|U|G
 14697||10|U|G</Grants>
-      <IntrospectionStateNumber>18154</IntrospectionStateNumber>
+      <IntrospectionStateNumber>18180</IntrospectionStateNumber>
       <ObjectId>39789</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -821,50 +829,50 @@ false Zulu
       <ObjectId>40009</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <role id="7" parent="1" name="pg_database_owner">
+    <role id="7" parent="1" name="pg_checkpoint">
+      <ObjectId>4544</ObjectId>
+    </role>
+    <role id="8" parent="1" name="pg_create_subscription">
+      <ObjectId>6304</ObjectId>
+    </role>
+    <role id="9" parent="1" name="pg_database_owner">
       <ObjectId>6171</ObjectId>
     </role>
-    <role id="8" parent="1" name="pg_read_all_data">
-      <ObjectId>6181</ObjectId>
+    <role id="10" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
     </role>
-    <role id="9" parent="1" name="pg_write_all_data">
-      <ObjectId>6182</ObjectId>
-    </role>
-    <role id="10" parent="1" name="pg_monitor">
+    <role id="11" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
       <RoleGrants>3374
 3375
 3377</RoleGrants>
     </role>
-    <role id="11" parent="1" name="pg_read_all_settings">
+    <role id="12" parent="1" name="pg_read_all_data">
+      <ObjectId>6181</ObjectId>
+    </role>
+    <role id="13" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
     </role>
-    <role id="12" parent="1" name="pg_read_all_stats">
+    <role id="14" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
     </role>
-    <role id="13" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
-    </role>
-    <role id="14" parent="1" name="pg_read_server_files">
+    <role id="15" parent="1" name="pg_read_server_files">
       <ObjectId>4569</ObjectId>
     </role>
-    <role id="15" parent="1" name="pg_write_server_files">
-      <ObjectId>4570</ObjectId>
-    </role>
-    <role id="16" parent="1" name="pg_execute_server_program">
-      <ObjectId>4571</ObjectId>
-    </role>
-    <role id="17" parent="1" name="pg_signal_backend">
+    <role id="16" parent="1" name="pg_signal_backend">
       <ObjectId>4200</ObjectId>
     </role>
-    <role id="18" parent="1" name="pg_checkpoint">
-      <ObjectId>4544</ObjectId>
+    <role id="17" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
     </role>
-    <role id="19" parent="1" name="pg_use_reserved_connections">
+    <role id="18" parent="1" name="pg_use_reserved_connections">
       <ObjectId>4550</ObjectId>
     </role>
-    <role id="20" parent="1" name="pg_create_subscription">
-      <ObjectId>6304</ObjectId>
+    <role id="19" parent="1" name="pg_write_all_data">
+      <ObjectId>6182</ObjectId>
+    </role>
+    <role id="20" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
     </role>
     <role id="21" parent="1" name="postgres">
       <BypassRls>1</BypassRls>
@@ -4236,345 +4244,11 @@ false Zulu
     <schema id="267" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>18154</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-04-06.20:25:33</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>18180</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-04-08.23:30:23</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <sequence id="268" parent="267" name="bono_id_bono_seq">
-      <DasType>bigint|0s</DasType>
-      <ObjectId>49250</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>18076</StateNumber>
-      <OwnerName>postgres</OwnerName>
-    </sequence>
-    <sequence id="269" parent="267" name="detalle_id_detalle_seq">
-      <DasType>bigint|0s</DasType>
-      <ObjectId>49291</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>18128</StateNumber>
-      <OwnerName>postgres</OwnerName>
-    </sequence>
-    <sequence id="270" parent="267" name="registro_id_registro_seq">
-      <DasType>bigint|0s</DasType>
-      <ObjectId>49264</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>18078</StateNumber>
-      <OwnerName>postgres</OwnerName>
-    </sequence>
-    <table id="271" parent="267" name="bono">
-      <ObjectId>49251</ObjectId>
-      <StateNumber>18076</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <table id="272" parent="267" name="detalle">
-      <ObjectId>49292</ObjectId>
-      <StateNumber>18128</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <table id="273" parent="267" name="registro">
-      <ObjectId>49265</ObjectId>
-      <StateNumber>18078</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <table id="274" parent="267" name="reparacion">
-      <ObjectId>49271</ObjectId>
-      <StateNumber>18079</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <table id="275" parent="267" name="vehiculo">
-      <ObjectId>49284</ObjectId>
-      <StateNumber>18093</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <column id="276" parent="271" name="id_bono">
-      <DasType>bigint|0s</DasType>
-      <DefaultExpression>nextval(&apos;bono_id_bono_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>18076</StateNumber>
-      <SequenceId>49250</SequenceId>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="277" parent="271" name="cantidad_bonos">
-      <DasType>integer|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>18076</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="278" parent="271" name="marca">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>18076</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="279" parent="271" name="monto_por_bonos">
-      <DasType>integer|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>18076</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="280" parent="271" name="bono_pkey">
-      <ColNames>id_bono</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49255</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18076</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="281" parent="271" name="bono_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49256</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18076</StateNumber>
-      <UnderlyingIndexId>49255</UnderlyingIndexId>
-    </key>
-    <column id="282" parent="272" name="id_detalle">
-      <DasType>bigint|0s</DasType>
-      <DefaultExpression>nextval(&apos;detalle_id_detalle_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>18128</StateNumber>
-      <SequenceId>49291</SequenceId>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="283" parent="272" name="descuentos">
-      <DasType>integer|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>18128</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="284" parent="272" name="id_registro">
-      <DasType>bigint|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>18128</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="285" parent="272" name="iva">
-      <DasType>integer|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>18128</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="286" parent="272" name="recargos">
-      <DasType>integer|0s</DasType>
-      <Position>5</Position>
-      <StateNumber>18128</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="287" parent="272" name="reparaciones">
-      <DasType>integer|0s</DasType>
-      <Position>6</Position>
-      <StateNumber>18128</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="288" parent="272" name="detalle_pkey">
-      <ColNames>id_detalle</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49296</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18128</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="289" parent="272" name="detalle_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49297</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18128</StateNumber>
-      <UnderlyingIndexId>49296</UnderlyingIndexId>
-    </key>
-    <column id="290" parent="273" name="id_registro">
-      <DasType>bigint|0s</DasType>
-      <DefaultExpression>nextval(&apos;registro_id_registro_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>18078</StateNumber>
-      <SequenceId>49264</SequenceId>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="291" parent="273" name="fecha_ingreso">
-      <DasType>date|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>18078</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="292" parent="273" name="fecha_retiro">
-      <DasType>date|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>18078</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="293" parent="273" name="fecha_salida">
-      <DasType>date|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>18078</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="294" parent="273" name="hora_ingreso">
-      <DasType>time(6)|0s</DasType>
-      <Position>5</Position>
-      <StateNumber>18078</StateNumber>
-      <TypeId>1083</TypeId>
-    </column>
-    <column id="295" parent="273" name="hora_retiro">
-      <DasType>time(6)|0s</DasType>
-      <Position>6</Position>
-      <StateNumber>18078</StateNumber>
-      <TypeId>1083</TypeId>
-    </column>
-    <column id="296" parent="273" name="hora_salida">
-      <DasType>time(6)|0s</DasType>
-      <Position>7</Position>
-      <StateNumber>18078</StateNumber>
-      <TypeId>1083</TypeId>
-    </column>
-    <column id="297" parent="273" name="monto_total">
-      <DasType>integer|0s</DasType>
-      <Position>8</Position>
-      <StateNumber>18078</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="298" parent="273" name="patente">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>9</Position>
-      <StateNumber>18078</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="299" parent="273" name="registro_pkey">
-      <ColNames>id_registro</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49269</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18078</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="300" parent="273" name="registro_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49270</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18078</StateNumber>
-      <UnderlyingIndexId>49269</UnderlyingIndexId>
-    </key>
-    <column id="301" parent="274" name="id_reparacion">
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>18079</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="302" parent="274" name="id_registro">
-      <DasType>bigint|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>18079</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="303" parent="274" name="precio">
-      <DasType>integer|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>18079</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="304" parent="274" name="tipo_reparacion">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>18079</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="305" parent="274" name="reparacion_pkey">
-      <ColNames>id_reparacion</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49274</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18079</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="306" parent="274" name="reparacion_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49275</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18079</StateNumber>
-      <UnderlyingIndexId>49274</UnderlyingIndexId>
-    </key>
-    <column id="307" parent="275" name="patente">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>18093</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="308" parent="275" name="ano_fabricacion">
-      <DasType>integer|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>18093</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="309" parent="275" name="kilometraje">
-      <DasType>integer|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>18093</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="310" parent="275" name="marca">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>18093</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="311" parent="275" name="modelo">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>5</Position>
-      <StateNumber>18093</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="312" parent="275" name="numero_asientos">
-      <DasType>integer|0s</DasType>
-      <Position>6</Position>
-      <StateNumber>18093</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="313" parent="275" name="tipo_auto">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>7</Position>
-      <StateNumber>18093</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="314" parent="275" name="tipo_motor">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>8</Position>
-      <StateNumber>18093</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="315" parent="275" name="vehiculo_pkey">
-      <ColNames>patente</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49289</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18093</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationNames>default</CollationNames>
-      <CollationIds>100</CollationIds>
-      <CollationParentNames>pg_catalog</CollationParentNames>
-    </index>
-    <key id="316" parent="275" name="vehiculo_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>49290</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>18093</StateNumber>
-      <UnderlyingIndexId>49289</UnderlyingIndexId>
-    </key>
   </database-model>
 </dataSource>

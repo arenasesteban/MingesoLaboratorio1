@@ -21,8 +21,8 @@ public class RegistroController {
 
     // [1]
     @GetMapping("/calcular-total")
-    public ResponseEntity<RegistroEntity> calcularTotal(@RequestParam Long idRegistro, @RequestParam Boolean bono) {
-        RegistroEntity registroActualizado = registroService.calcularTotal(idRegistro, bono);
+    public ResponseEntity<RegistroEntity> calcularTotal(@RequestParam Long idRegistro, @RequestParam int descuentoPorBono) {
+        RegistroEntity registroActualizado = registroService.calcularTotal(idRegistro, descuentoPorBono);
         return ResponseEntity.ok(registroActualizado);
     }
 }

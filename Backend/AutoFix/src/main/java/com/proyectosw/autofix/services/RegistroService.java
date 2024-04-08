@@ -1,11 +1,10 @@
 package com.proyectosw.autofix.services;
 
-import com.proyectosw.autofix.dtos.ReparacionPorTipoMotor;
-import com.proyectosw.autofix.dtos.TiempoReparacionPorMarca;
 import com.proyectosw.autofix.entities.RegistroEntity;
 import com.proyectosw.autofix.entities.ReparacionEntity;
 import com.proyectosw.autofix.entities.VehiculoEntity;
 import com.proyectosw.autofix.repositories.RegistroRepository;
+import com.proyectosw.autofix.repositories.ReparacionRespository;
 import com.proyectosw.autofix.repositories.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,44 +26,40 @@ public class RegistroService {
     VehiculoRepository vehiculoRepository;
 
     @Autowired
-    ReparacionService reparacionService;
+    ReparacionRespository reparacionRespository;
 
     @Autowired
     DetalleService detalleService;
-
-    @Autowired
-    BonoService bonoService;
 
     public RegistroEntity crearRegistro(RegistroEntity registro) {
         return registroRepository.save(registro);
     }
 
-    public RegistroEntity calcularTotal(Long idRegistro, Boolean bono) {
+    public RegistroEntity calcularTotal(Long idRegistro, int descuentoPorBono) {
         RegistroEntity registro = registroRepository.findByIdRegistro(idRegistro);
         VehiculoEntity vehiculo = vehiculoRepository.findByPatente(registro.getPatente());
 
-        int sumaReparaciones = reparacionService.calcularTotalReparaciones(registro.getIdRegistro());
+        int sumaReparaciones = calcularTotalReparaciones(registro.getIdRegistro());
 
-        System.out.println(sumaReparaciones);
+//        System.out.println(sumaReparaciones);
 
         double recargoPorKilometraje = sumaReparaciones * recargoPorKilometraje(vehiculo.getKilometraje(), vehiculo.getTipoAuto());
         double recargoPorAntiguedad = sumaReparaciones * recargoPorAntiguedad(vehiculo.getAnoFabricacion(), vehiculo.getTipoAuto());
         double recargoPorRestrasoRecogida = sumaReparaciones * recargoPorRetrasoRecogida(registro.getFechaSalida(), registro.getFechaRetiro());
 
-        System.out.println(recargoPorKilometraje);
-        System.out.println(recargoPorAntiguedad);
-        System.out.println(recargoPorRestrasoRecogida);
+//        System.out.println(recargoPorKilometraje);
+//        System.out.println(recargoPorAntiguedad);
+//        System.out.println(recargoPorRestrasoRecogida);
 
         double descuentoPorNumeroReparacion = sumaReparaciones * descuentoPorNumeroReparaciones(registro.getPatente(), vehiculo.getTipoMotor());
         double descuentoPorDiaAtencion = sumaReparaciones * descuentoPorDiaAtencion(registro.getFechaIngreso(), registro.getHoraIngreso());
-        int descuentoPorBonos = descuentoPorBonos(vehiculo.getMarca(), bono);
 
-        System.out.println(descuentoPorNumeroReparacion);
-        System.out.println(descuentoPorDiaAtencion);
-        System.out.println(descuentoPorBonos);
+//        System.out.println(descuentoPorNumeroReparacion);
+//        System.out.println(descuentoPorDiaAtencion);
+//        System.out.println(descuentoPorBono);
 
         int recargos = (int) (recargoPorKilometraje + recargoPorAntiguedad + recargoPorRestrasoRecogida);
-        int descuentos = (int) (descuentoPorNumeroReparacion + descuentoPorDiaAtencion + descuentoPorBonos);
+        int descuentos = (int) (descuentoPorNumeroReparacion + descuentoPorDiaAtencion + descuentoPorBono);
         int iva = (int) ((sumaReparaciones + recargos - descuentos) * .19);
 
         int montoTotal = (sumaReparaciones + recargos - descuentos) + iva;
@@ -76,8 +71,19 @@ public class RegistroService {
         return registroRepository.save(registro);
     }
 
+    public int calcularTotalReparaciones(Long idRegistro) {
+        List<ReparacionEntity> reparaciones = reparacionRespository.findByIdRegistro(idRegistro);
+        int sumaReparaciones = 0;
+
+        for(ReparacionEntity reparacion : reparaciones) {
+            sumaReparaciones += reparacion.getPrecio();
+        }
+
+        return sumaReparaciones;
+    }
+
     public double descuentoPorNumeroReparaciones(String patente, String tipoAuto) {
-        Integer numeroReparaciones = contarReparaciones(patente);
+        int numeroReparaciones = contarReparaciones(patente);
         double descuento = .0;
 
         if(numeroReparaciones >= 1 && numeroReparaciones <= 2) {
@@ -128,16 +134,6 @@ public class RegistroService {
             if(!horaIngreso.isBefore(LocalTime.of(9, 0)) && !horaIngreso.isAfter(LocalTime.of(12, 0))) {
                 descuento = .1;
             }
-        }
-
-        return descuento;
-    }
-
-    public int descuentoPorBonos(String marca, Boolean bono) {
-        int descuento = 0;
-
-        if(bono) {
-            return bonoService.aplicarBono(marca);
         }
 
         return descuento;
@@ -239,7 +235,7 @@ public class RegistroService {
         int cantidadReparaciones = 0;
 
         for(RegistroEntity registro : registros) {
-            cantidadReparaciones += reparacionService.contarReparaciones(registro.getIdRegistro());
+            cantidadReparaciones += reparacionRespository.findByIdRegistro(registro.getIdRegistro()).size();
         }
 
         return cantidadReparaciones;

@@ -23,12 +23,14 @@ public class ReparacionController {
         return ResponseEntity.ok(reparacionesNuevo);
     }
 
+    // [0]
     @GetMapping("/reparaciones-por-tipo-auto")
     public ResponseEntity<List<ReparacionPorTipoAuto>> reporteReparacionPorTipoAuto() {
         List<ReparacionPorTipoAuto> reparacionesPorTipoAuto= reparacionService.reporteReparacionPorTipoAuto();
         return ResponseEntity.ok(reparacionesPorTipoAuto);
     }
 
+    // [0]
     @GetMapping("/reparaciones-por-tipo-motor")
     public ResponseEntity<List<ReparacionPorTipoMotor>> reporteReparacionPorTipoMotor() {
         List<ReparacionPorTipoMotor> reparacionesPorTipoMotor= reparacionService.reporteReparacionPorTipoMotor();
