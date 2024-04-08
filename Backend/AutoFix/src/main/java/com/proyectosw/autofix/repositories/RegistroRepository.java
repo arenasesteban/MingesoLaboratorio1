@@ -16,4 +16,6 @@ public interface RegistroRepository extends JpaRepository<RegistroEntity, Long> 
 
     @Query("SELECT r.patente FROM RegistroEntity r WHERE r.idRegistro = :idRegistro")
     String findPatenteByIdRegistro(Long idRegistro);
+
+    List<RegistroEntity> findRegistroEntitiesByPatente(String patente);
 }

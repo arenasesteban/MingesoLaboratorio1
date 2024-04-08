@@ -1,7 +1,9 @@
 package com.proyectosw.autofix.services;
 
 import com.proyectosw.autofix.dtos.ReparacionPorTipoMotor;
+import com.proyectosw.autofix.dtos.TiempoReparacionPorMarca;
 import com.proyectosw.autofix.entities.RegistroEntity;
+import com.proyectosw.autofix.entities.ReparacionEntity;
 import com.proyectosw.autofix.entities.VehiculoEntity;
 import com.proyectosw.autofix.repositories.RegistroRepository;
 import com.proyectosw.autofix.repositories.VehiculoRepository;
@@ -12,6 +14,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -266,5 +269,26 @@ public class RegistroService {
         }
 
         return numeroAutos;
+    }
+
+    public long calcularPromedioTiempoReparacion(List<String> patentes) {
+        long sumaDiasReparacion = 0L;
+        int cantidadRegistros = 0;
+
+        for(String patente : patentes) {
+            List<RegistroEntity> registros = registroRepository.findRegistroEntitiesByPatente(patente);
+
+            for(RegistroEntity registro : registros) {
+                sumaDiasReparacion += ChronoUnit.DAYS.between(registro.getFechaIngreso(), registro.getFechaSalida());
+            }
+
+            cantidadRegistros += registros.size();
+        }
+
+        if(cantidadRegistros != 0) {
+            return sumaDiasReparacion / (long) cantidadRegistros;
+        }
+
+        return -1;
     }
 }

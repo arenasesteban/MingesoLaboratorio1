@@ -1,10 +1,13 @@
 package com.proyectosw.autofix.controllers;
 
+import com.proyectosw.autofix.dtos.TiempoReparacionPorMarca;
 import com.proyectosw.autofix.entities.VehiculoEntity;
 import com.proyectosw.autofix.services.VehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/vehiculo")
@@ -24,5 +27,11 @@ public class VehiculoController {
     public ResponseEntity<VehiculoEntity> actualizarVehiculo(@RequestParam String patente, @RequestParam Integer kilometraje) {
         VehiculoEntity vehiculo = vehiculoService.actualizarVehiculo(patente, kilometraje);
         return ResponseEntity.ok(vehiculo);
+    }
+
+    @GetMapping("/tiempo-reparacion-por-marca")
+    public ResponseEntity<List<TiempoReparacionPorMarca>> reporteTiempoReparacionPorMarca() {
+        List<TiempoReparacionPorMarca> tiempoReparacionesPorMarca = vehiculoService.reporteTiempoReparacionPorMarca();
+        return ResponseEntity.ok(tiempoReparacionesPorMarca);
     }
 }
