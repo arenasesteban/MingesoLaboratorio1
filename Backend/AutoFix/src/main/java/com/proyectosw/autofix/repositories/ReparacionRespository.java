@@ -11,7 +11,7 @@ import java.util.List;
 public interface ReparacionRespository extends JpaRepository<ReparacionEntity, Long> {
     List<ReparacionEntity> findByIdRegistro(Long idRegistro);
 
-    ReparacionEntity getByIdRegistro(Long idRegistro);
+    ReparacionEntity findFirstByIdRegistro(Long idRegistro);
 
     @Query("SELECT r.idRegistro FROM ReparacionEntity r WHERE r.numeroReparacion = :numeroReparacion")
     List<Long> findIdRegistroByNumeroReparacion(Integer numeroReparacion);

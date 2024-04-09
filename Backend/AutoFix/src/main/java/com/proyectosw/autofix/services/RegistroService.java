@@ -41,22 +41,22 @@ public class RegistroService {
 
         int sumaReparaciones = calcularTotalReparaciones(registro.getIdRegistro());
 
-//        System.out.println(sumaReparaciones);
+        System.out.println(sumaReparaciones);
 
         double recargoPorKilometraje = sumaReparaciones * recargoPorKilometraje(vehiculo.getKilometraje(), vehiculo.getTipoAuto());
         double recargoPorAntiguedad = sumaReparaciones * recargoPorAntiguedad(vehiculo.getAnoFabricacion(), vehiculo.getTipoAuto());
         double recargoPorRestrasoRecogida = sumaReparaciones * recargoPorRetrasoRecogida(registro.getFechaSalida(), registro.getFechaRetiro());
 
-//        System.out.println(recargoPorKilometraje);
-//        System.out.println(recargoPorAntiguedad);
-//        System.out.println(recargoPorRestrasoRecogida);
+        System.out.println(recargoPorKilometraje);
+        System.out.println(recargoPorAntiguedad);
+        System.out.println(recargoPorRestrasoRecogida);
 
         double descuentoPorNumeroReparacion = sumaReparaciones * descuentoPorNumeroReparaciones(registro.getPatente(), vehiculo.getTipoMotor());
         double descuentoPorDiaAtencion = sumaReparaciones * descuentoPorDiaAtencion(registro.getFechaIngreso(), registro.getHoraIngreso());
 
-//        System.out.println(descuentoPorNumeroReparacion);
-//        System.out.println(descuentoPorDiaAtencion);
-//        System.out.println(descuentoPorBono);
+        System.out.println(descuentoPorNumeroReparacion);
+        System.out.println(descuentoPorDiaAtencion);
+        System.out.println(descuentoPorBono);
 
         int recargos = (int) (recargoPorKilometraje + recargoPorAntiguedad + recargoPorRestrasoRecogida);
         int descuentos = (int) (descuentoPorNumeroReparacion + descuentoPorDiaAtencion + descuentoPorBono);

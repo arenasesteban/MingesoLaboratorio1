@@ -37,7 +37,7 @@ public class ReparacionService {
         for(int numeroReparacion = 1; numeroReparacion <= 11; numeroReparacion++) {
             List<Long> idRegistros = reparacionRespository.findIdRegistroByNumeroReparacion(numeroReparacion);
 
-            String tipoReparacion = reparacionRespository.getByIdRegistro(idRegistros.get(0)).getTipoReparacion();
+            String tipoReparacion = reparacionRespository.findFirstByIdRegistro(idRegistros.get(0)).getTipoReparacion();
             int numeroTiposAutos = registroService.obtenerNumeroTiposAutos(idRegistros);
             int montoTotal = reparacionRespository.sumPrecioByNumeroReparacion(numeroReparacion);
 
@@ -54,7 +54,7 @@ public class ReparacionService {
         for(int numeroReparacion = 1; numeroReparacion <= 11; numeroReparacion++) {
             List<Long> idRegistros = reparacionRespository.findIdRegistroByNumeroReparacion(numeroReparacion);
 
-            String tipoReparacion = reparacionRespository.getByIdRegistro(idRegistros.get(0)).getTipoReparacion();
+            String tipoReparacion = reparacionRespository.findFirstByIdRegistro(idRegistros.get(0)).getTipoReparacion();
             int cantidadGasolina = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina");
             int cantidadDiesel = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel");
             int cantidadHibrido = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido");
