@@ -230,7 +230,7 @@ public class RegistroService {
     }
 
     public int contarReparaciones(String patente) {
-        LocalDate fechaInicio = LocalDate.now().minusMonths(12);
+        LocalDate fechaInicio = LocalDate.now().minusMonths(12).minusDays(1);
         List<RegistroEntity> registros = registroRepository.findByPatenteAndFechaSalidaAfter(patente, fechaInicio);
         int cantidadReparaciones = 0;
 
@@ -257,11 +257,16 @@ public class RegistroService {
     }
 
     public int obtenerNumeroPorTiposMotores(List<Long> idRegistros, String tipoMotor) {
+        List<String> patentes = new ArrayList<>();
         int numeroAutos = 0;
 
         for(Long idRegistro : idRegistros) {
             String patente = registroRepository.findPatenteByIdRegistro(idRegistro);
-            numeroAutos += vehiculoRepository.countTipoMotor(patente, tipoMotor);
+
+            if(!patentes.contains(patente)) {
+                numeroAutos += vehiculoRepository.countTipoMotor(patente, tipoMotor);
+                patentes.add(patente);
+            }
         }
 
         return numeroAutos;

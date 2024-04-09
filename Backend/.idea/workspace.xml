@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/ReparacionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/entities/ReparacionEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +108,8 @@
       <workItem from="1712533839451" duration="6244000" />
       <workItem from="1712597158127" duration="5162000" />
       <workItem from="1712617880251" duration="4291000" />
-      <workItem from="1712629723569" duration="10062000" />
+      <workItem from="1712629723569" duration="10361000" />
+      <workItem from="1712676631397" duration="1664000" />
     </task>
     <servers />
   </component>
