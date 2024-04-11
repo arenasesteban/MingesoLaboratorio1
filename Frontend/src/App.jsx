@@ -11,7 +11,7 @@ export default function App() {
             </div>
                 <div className="col-span-5">
                     <div className="">
-                        {/* NavBar */}
+                        <NavBar />
                     </div>
                     <div className="">
                         {/* Contenido */}

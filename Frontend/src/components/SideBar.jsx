@@ -9,11 +9,10 @@ export default function SideBar() {
 
     return (
         <aside className="bg-cyan-600 h-screen flex flex-col">
-            <div className="py-3 px-8 mx-3">
-                <img src="" alt="" className="h-8 w-auto" />
-                <span className="text-white font-bold text-3xl">Auto<span className="font-normal">Fix</span></span>
+            <div className="">
+                <img src="src\assets\autofix.png" alt="" className="h-auto w-auto" />
             </div>
-            <div className="flex flex-col mx-4 my-2">
+            <div className="flex flex-col mx-4">
                 <ul>
                     <li>
                         <a href="#" className="flex gap-3 items-center py-3 px-8 my-3 text-white font-semibold rounded-lg hover:bg-white hover:text-cyan-600">
