@@ -5,11 +5,11 @@ import NavBar from './components/NavBar';
 
 export default function App() {
     return (
-        <div className="grid grid-cols-6 h-screen">
-            <div className="col-span-1">
+        <div className="grid grid-cols-10 h-screen">
+            <div className="col-span-2">
                 <SideBar />
             </div>
-                <div className="col-span-5">
+                <div className="col-span-8">
                     <div className="">
                         <NavBar />
                     </div>
