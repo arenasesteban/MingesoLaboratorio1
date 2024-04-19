@@ -1,31 +1,35 @@
-import React from 'react';
-import BotonNuevo from './BotonNuevo';
-import BotonEliminar from './BotonEliminar';
+import React from "react";
 
-export default function Bonos() {
+export default function ReparacionTipoMotor() {
     return (
         <div className="flex justify-start m-12 p-16 bg-gray-100 shadow-lg border border-gray-300 rounded-md">   
-            <div className="w-full flex flex-col">
+            <div className="w-full h-full flex flex-col gap-4">
                 <div className="flex justify-between items-center border-b border-gray-300 pb-4">
-                    <div className="text-3xl font-bold text-gray-700 uppercase">
-                        <h1>Administración de Bonos</h1>
+                    <div className="flex items-center text-gray-700">
+                        <h1 className="text-3xl font-bold uppercase pr-4 mr-2 border-r border-gray-400">Reporte</h1>
+                        <h6 className="text-2xl font-light">Número de reparaciones por cada tipo de motor</h6>
                     </div>
-                    <BotonNuevo tipoElemento={"Nuevo bono"}/>   
                 </div>
                 <table className="bg-white text-left shadow-md w-full mt-6">
                     <thead className="text-gray-700 uppercase border-b">
                         <tr>
                             <th scope="col" className="px-6 py-4">
-                                Marca vehiculo
+                                Tipo reparación
                             </th>
                             <th scope="col" className="px-6 py-4">
-                                Monto bono
+                                Gasolina
                             </th>
                             <th scope="col" className="px-6 py-4">
-                                Cantidad de bono
+                                Diesel
                             </th>
-                            <th scope="col" class="px-6 py-4">
-                                Acción
+                            <th scope="col" className="px-6 py-4">
+                                Hibrido
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                                Electrico
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                                Monto total
                             </th>
                         </tr>
                     </thead>
@@ -38,7 +42,10 @@ export default function Bonos() {
                             <td class="px-6 py-3">
                             </td>
                             <td class="px-6 py-3">
-                                <BotonEliminar />
+                            </td>
+                            <td class="px-6 py-3">
+                            </td>
+                            <td class="px-6 py-3">
                             </td>
                         </tr>
                     </tbody>

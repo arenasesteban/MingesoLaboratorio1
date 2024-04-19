@@ -1,31 +1,26 @@
-import React from 'react';
-import BotonNuevo from './BotonNuevo';
-import BotonEliminar from './BotonEliminar';
+import React from "react";
 
-export default function Bonos() {
+export default function ReparacionTipoVehiculo() {
     return (
         <div className="flex justify-start m-12 p-16 bg-gray-100 shadow-lg border border-gray-300 rounded-md">   
-            <div className="w-full flex flex-col">
+            <div className="w-full h-full flex flex-col gap-4">
                 <div className="flex justify-between items-center border-b border-gray-300 pb-4">
-                    <div className="text-3xl font-bold text-gray-700 uppercase">
-                        <h1>Administración de Bonos</h1>
+                    <div className="flex items-center text-gray-700">
+                        <h1 className="text-3xl font-bold uppercase pr-4 mr-2 border-r border-gray-400">Reporte</h1>
+                        <h6 className="text-2xl font-light">Número de reparaciones por cada tipo de vehiculo</h6>
                     </div>
-                    <BotonNuevo tipoElemento={"Nuevo bono"}/>   
                 </div>
                 <table className="bg-white text-left shadow-md w-full mt-6">
                     <thead className="text-gray-700 uppercase border-b">
                         <tr>
                             <th scope="col" className="px-6 py-4">
-                                Marca vehiculo
+                                Tipo reparación
                             </th>
                             <th scope="col" className="px-6 py-4">
-                                Monto bono
+                                Número de tipos de autos
                             </th>
                             <th scope="col" className="px-6 py-4">
-                                Cantidad de bono
-                            </th>
-                            <th scope="col" class="px-6 py-4">
-                                Acción
+                                Monto total
                             </th>
                         </tr>
                     </thead>
@@ -36,9 +31,6 @@ export default function Bonos() {
                             <td class="px-6 py-3">
                             </td>
                             <td class="px-6 py-3">
-                            </td>
-                            <td class="px-6 py-3">
-                                <BotonEliminar />
                             </td>
                         </tr>
                     </tbody>

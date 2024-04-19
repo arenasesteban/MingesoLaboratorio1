@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 import BotonNuevo from './BotonNuevo';
-import BotonEliminar from './BotonEliminar';
+import BotonEliminar from "./BotonEliminar";
 
-export default function Bonos() {
+export default function Vehiculos() {
     return (
         <div className="flex justify-start m-12 p-16 bg-gray-100 shadow-lg border border-gray-300 rounded-md">   
-            <div className="w-full flex flex-col">
+            <div className="w-full h-full flex flex-col">
                 <div className="flex justify-between items-center border-b border-gray-300 pb-4">
                     <div className="text-3xl font-bold text-gray-700 uppercase">
-                        <h1>Administración de Bonos</h1>
+                        <h1>Vehiculos registrados</h1>
                     </div>
-                    <BotonNuevo tipoElemento={"Nuevo bono"}/>   
+                    <BotonNuevo tipoElemento={"Registrar vehiculo"}/>
                 </div>
                 <table className="bg-white text-left shadow-md w-full mt-6">
                     <thead className="text-gray-700 uppercase border-b">
