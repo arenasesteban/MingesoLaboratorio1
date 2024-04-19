@@ -1,8 +1,23 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import BotonNuevo from './BotonNuevo';
-import BotonEliminar from "./BotonEliminar";
+import vehiculoService from "../services/vehiculo.service";
 
 export default function Vehiculos() {
+    const [vehiculos, setVehiculos] = useState([]);
+
+    async function buscarVehiculos() {
+        try {
+            const response = await vehiculoService.obtenerVehiculos();
+            setVehiculos(response.data);
+        } catch (error) {
+            console.error('Error al obtener los vehículos:', error);
+        }
+    }
+
+    useEffect(() => {
+        buscarVehiculos();
+    }, [])
+
     return (
         <div className="flex h-4/5 m-9 p-12 bg-gray-100 shadow-md border border-gray-300 rounded-md">   
             <div className="flex flex-col w-full">
@@ -27,13 +42,16 @@ export default function Vehiculos() {
                                         Modelo
                                     </th>
                                     <th scope="col" class="px-6 py-4">
-                                        Tipo vehiculo
+                                        Tipo
                                     </th>
                                     <th scope="col" className="px-6 py-4">
-                                        Tipo motor
+                                        Motor
                                     </th>
                                     <th scope="col" className="px-6 py-4">
-                                        Numero asientos
+                                        Año fabricación
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        Asientos
                                     </th>
                                     <th scope="col" className="px-6 py-4">
                                         Kilometraje
@@ -41,24 +59,36 @@ export default function Vehiculos() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {
-                                    bonos.map((bono, index) => (
+                                {
+                                    vehiculos.map((vehiculo, index) => (
                                         <tr key={index} class="bg-white border-b hover:bg-gray-50">
                                             <td scope="row" class="px-6 py-4 font-medium text-gray-900">
-                                                {bono.marca}
+                                                {vehiculo.patente}
                                             </td>
                                             <td class="px-6 py-3">
-                                                {bono.cantidad}
+                                                {vehiculo.marca}
                                             </td>
                                             <td class="px-6 py-3">
-                                                $ {bono.valor}
+                                                {vehiculo.modelo}
                                             </td>
                                             <td class="px-6 py-3">
-                                                <BotonEliminar />
+                                                {vehiculo.tipoAuto}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                {vehiculo.tipoMotor}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                {vehiculo.anoFabricacion}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                {vehiculo.numeroAsientos}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                {vehiculo.kilometraje}
                                             </td>
                                         </tr>
                                     ))
-                                } */}
+                                }
                             </tbody>
                         </table>
                     </div>

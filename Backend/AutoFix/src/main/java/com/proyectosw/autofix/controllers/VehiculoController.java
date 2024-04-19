@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/vehiculo")
+@CrossOrigin("*")
 public class VehiculoController {
     @Autowired
     VehiculoService vehiculoService;
@@ -23,13 +24,20 @@ public class VehiculoController {
     }
 
     // [1]
+    @GetMapping("/")
+    public ResponseEntity<List<VehiculoEntity>> obtenerVehiculos() {
+        List<VehiculoEntity> vehiculos = vehiculoService.obtenerVehiculos();
+        return ResponseEntity.ok(vehiculos);
+    }
+
+    // [1]
     @PutMapping("/")
     public ResponseEntity<VehiculoEntity> actualizarVehiculo(@RequestParam String patente, @RequestParam Integer kilometraje) {
         VehiculoEntity vehiculo = vehiculoService.actualizarVehiculo(patente, kilometraje);
         return ResponseEntity.ok(vehiculo);
     }
 
-    // [0]
+    // [1]
     @GetMapping("/tiempo-reparacion-por-marca")
     public ResponseEntity<List<TiempoReparacionPorMarca>> reporteTiempoReparacionPorMarca() {
         List<TiempoReparacionPorMarca> tiempoReparacionesPorMarca = vehiculoService.reporteTiempoReparacionPorMarca();

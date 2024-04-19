@@ -1,8 +1,23 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import BotonNuevo from './BotonNuevo';
-import BotonEliminar from "./BotonEliminar";
+import registroService from "../services/registro.service";
 
 export default function Reparaciones() {
+    const [registros, serRegistros] = useState([]);
+
+    async function buscarRegistros() {
+        try {
+            const response = await registroService.obtenerRegistros();
+            serRegistros(response.data);
+        } catch (error) {
+            console.error('Error al obtener los registros:', error);
+        }
+    }
+
+    useEffect(() => {
+        buscarRegistros();
+    }, [])
+
     return (
         <div className="flex h-4/5 m-9 p-12 bg-gray-100 shadow-md border border-gray-300 rounded-md">   
             <div className="flex flex-col w-full">
@@ -36,24 +51,27 @@ export default function Reparaciones() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {
-                                    bonos.map((bono, index) => (
+                                {
+                                    registros.map((registro, index) => (
                                         <tr key={index} class="bg-white border-b hover:bg-gray-50">
                                             <td scope="row" class="px-6 py-4 font-medium text-gray-900">
-                                                {bono.marca}
+                                                {registro.patente}
                                             </td>
                                             <td class="px-6 py-3">
-                                                {bono.cantidad}
+                                                {registro.fechaIngreso}
                                             </td>
                                             <td class="px-6 py-3">
-                                                $ {bono.valor}
+                                                {registro.fechaSalida}
                                             </td>
                                             <td class="px-6 py-3">
-                                                <BotonEliminar />
+                                                {registro.fechaRetiro}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                $ {registro.montoTotal}
                                             </td>
                                         </tr>
                                     ))
-                                } */}
+                                }
                             </tbody>
                         </table>
                     </div>

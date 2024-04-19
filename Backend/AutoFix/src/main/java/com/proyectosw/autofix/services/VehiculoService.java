@@ -21,6 +21,10 @@ public class VehiculoService {
         return vehiculoRepository.save(vehiculo);
     }
 
+    public List<VehiculoEntity> obtenerVehiculos() {
+        return vehiculoRepository.findAll();
+    }
+
     public VehiculoEntity actualizarVehiculo(String patente, Integer kilometraje) {
         VehiculoEntity vehiculo = vehiculoRepository.findByPatente(patente);
         vehiculo.setKilometraje(kilometraje);

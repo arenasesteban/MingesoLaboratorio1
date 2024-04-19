@@ -35,6 +35,10 @@ public class RegistroService {
         return registroRepository.save(registro);
     }
 
+    public List<RegistroEntity> obtenerRegistros() {
+        return registroRepository.findAll();
+    }
+
     public RegistroEntity calcularTotal(Long idRegistro, int descuentoPorBono) {
         RegistroEntity registro = registroRepository.findByIdRegistro(idRegistro);
         VehiculoEntity vehiculo = vehiculoRepository.findByPatente(registro.getPatente());
