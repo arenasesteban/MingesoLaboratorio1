@@ -7,7 +7,7 @@ export default function PromedioReparacion() {
                 <div className="flex justify-between items-center border-b border-gray-300 pb-4">
                     <div className="flex items-center text-gray-700">
                         <h1 className="text-3xl font-bold uppercase pr-4 mr-2 border-r border-gray-400">Reporte</h1>
-                        <h6 className="text-2xl font-light">Tiempo promedio de reparación de un vehiculo por marca</h6>
+                        <h2 className="text-2xl font-light ml-2">Tiempo promedio de reparación de un vehiculo por marca</h2>
                     </div>
                 </div>
                 <div className="mt-6 overflow-auto shadow">

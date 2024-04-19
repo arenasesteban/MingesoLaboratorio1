@@ -7,7 +7,7 @@ export default function ReparacionTipoMotor() {
                 <div className="flex justify-between items-center border-b border-gray-300 pb-4">
                     <div className="flex items-center text-gray-700">
                         <h1 className="text-3xl font-bold uppercase pr-4 mr-2 border-r border-gray-400">Reporte</h1>
-                        <h6 className="text-2xl font-light">Número de reparaciones por cada tipo de motor</h6>
+                        <h2 className="text-2xl font-light ml-2">Número de reparaciones por cada tipo de motor</h2>
                     </div>
                 </div>
                 <div className="mt-6 overflow-auto shadow">
