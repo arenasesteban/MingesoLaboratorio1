@@ -9,7 +9,7 @@ export default function SideBar() {
     };
 
     return (
-        <aside class="bg-cyan-600 h-screen flex flex-col py-2 shadow-lg shadow-cyan-800">
+        <aside class="bg-cyan-600 h-screen flex flex-col py-2 shadow shadow-gray-700">
             <div class="flex justify-center">
                 <img src="src\assets\autofix.png" alt="" class="h-auto w-80" />
             </div>
