@@ -9,6 +9,9 @@ import PromedioReparacion from './components/PromedioReparacion';
 import ReparacionTipoMotor from './components/ReparacionTipoMotor';
 import ReparacionTipoVehiculo from './components/ReparacionTipoVehiculo';
 import Bonos from './components/Bonos';
+import VehiculosFormulario from './components/VehiculosFormulario';
+import ReparacionesFormulario from './components/ReparacionesFormulario';
+import BonosFormulario from './components/BonosFormulario';
 
 export default function App() {
     return (
@@ -17,7 +20,7 @@ export default function App() {
                 <div className="col-span-2">
                     <SideBar />
                 </div>
-                <div className="col-span-8">
+                <div className="col-span-8 h-screen">
                     <NavBar />
                     <Routes>
                         <Route path="/" element={<Inicio />}></Route>
@@ -27,6 +30,9 @@ export default function App() {
                         <Route path="/reparacion-tipo-motor" element={<ReparacionTipoMotor />}></Route>
                         <Route path="/reparacion-tipo-vehiculo" element={<ReparacionTipoVehiculo />}></Route>
                         <Route path="/bonos" element={<Bonos />}></Route>
+                        <Route path="/vehiculos-formulario" element={<VehiculosFormulario />}></Route>
+                        <Route path="/reparaciones-formulario" element={<ReparacionesFormulario />}></Route>
+                        <Route path="/bonos-formulario" element={<BonosFormulario />}></Route>
                     </Routes>
                 </div>
             </div>
