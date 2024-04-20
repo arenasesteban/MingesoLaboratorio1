@@ -1,6 +1,22 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
+import vehiculoService from "../services/vehiculo.service";
 
 export default function PromedioReparacion() {
+    const [promediosReparaciones, setPromediosReparaciones] = useState([]);
+
+    async function buscarPromediosReparaciones() {
+        try {
+            const response = await vehiculoService.obtenerPromedioReparacion();
+            setPromediosReparaciones(response.data);
+        } catch (error) {
+            console.error('Error al obtener los registros:', error);
+        }
+    }
+
+    useEffect(() => {
+        buscarPromediosReparaciones();
+    }, [])
+
     return (
         <div className="flex h-4/5 m-9 p-12 bg-gray-100 shadow-md border border-gray-300 rounded-md">   
             <div className="flex flex-col gap-4 w-full">
@@ -24,24 +40,21 @@ export default function PromedioReparacion() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {
-                                    bonos.map((bono, index) => (
+                                {
+                                    promediosReparaciones.map((promedioReparacion, index) => (
                                         <tr key={index} class="bg-white border-b hover:bg-gray-50">
                                             <td scope="row" class="px-6 py-4 font-medium text-gray-900">
-                                                {bono.marca}
+                                                {promedioReparacion.marca}
                                             </td>
-                                            <td class="px-6 py-3">
-                                                {bono.cantidad}
-                                            </td>
-                                            <td class="px-6 py-3">
-                                                $ {bono.valor}
-                                            </td>
-                                            <td class="px-6 py-3">
-                                                <BotonEliminar />
+                                            <td className="px-6 py-3">
+                                                {promedioReparacion.tiempoPromedioReparacion > 1
+                                                    ? `${promedioReparacion.tiempoPromedioReparacion} días`
+                                                    : `${promedioReparacion.tiempoPromedioReparacion} día`
+                                                }
                                             </td>
                                         </tr>
                                     ))
-                                } */}
+                                }
                             </tbody>
                         </table>
                     </div>

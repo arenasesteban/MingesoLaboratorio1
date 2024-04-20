@@ -6,4 +6,8 @@ function obtenerVehiculos() {
     return axios.get(VEHICULO_API_URL);
 }
 
-export default { obtenerVehiculos };
+function obtenerPromedioReparacion() {
+    return axios.get(VEHICULO_API_URL + "tiempo-reparacion-por-marca");
+}
+
+export default { obtenerVehiculos, obtenerPromedioReparacion };

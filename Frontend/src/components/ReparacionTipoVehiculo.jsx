@@ -1,6 +1,23 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
+import reparacionService from "../services/reparacion.service";
 
 export default function ReparacionTipoVehiculo() {
+    const [reparacionesTipoVehiculo, setReparacionesTipoVehiculo] = useState([]);
+
+    async function buscarReparacionesTipoVehiculo() {
+        try {
+            const response = await reparacionService.obtenerRepracionTipoVehiculo();
+            setReparacionesTipoVehiculo(response.data);
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error al obtener los registros:', error);
+        }
+    }
+
+    useEffect(() => {
+        buscarReparacionesTipoVehiculo();
+    }, [])
+    
     return (
         <div className="flex h-4/5 m-9 p-12 bg-gray-100 shadow-md border border-gray-300 rounded-md">   
             <div className="flex flex-col gap-4 w-full">
@@ -27,24 +44,21 @@ export default function ReparacionTipoVehiculo() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {
-                                    bonos.map((bono, index) => (
+                                {
+                                    reparacionesTipoVehiculo.map((reparacionTipoVehiculo, index) => (
                                         <tr key={index} class="bg-white border-b hover:bg-gray-50">
                                             <td scope="row" class="px-6 py-4 font-medium text-gray-900">
-                                                {bono.marca}
+                                                {reparacionTipoVehiculo.tipoReparacion}
                                             </td>
                                             <td class="px-6 py-3">
-                                                {bono.cantidad}
+                                                {reparacionTipoVehiculo.numeroTiposAutos}
                                             </td>
                                             <td class="px-6 py-3">
-                                                $ {bono.valor}
-                                            </td>
-                                            <td class="px-6 py-3">
-                                                <BotonEliminar />
+                                                $ {reparacionTipoVehiculo.montoTotal}
                                             </td>
                                         </tr>
                                     ))
-                                } */}
+                                }
                             </tbody>
                         </table>
                     </div>
