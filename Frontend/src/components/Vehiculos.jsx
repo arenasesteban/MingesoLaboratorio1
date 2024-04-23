@@ -84,7 +84,7 @@ export default function Vehiculos() {
                                                 {vehiculo.numeroAsientos}
                                             </td>
                                             <td class="px-6 py-3">
-                                                {vehiculo.kilometraje}
+                                                {vehiculo.kilometraje} km
                                             </td>
                                         </tr>
                                     ))

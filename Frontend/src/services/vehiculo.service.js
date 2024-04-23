@@ -2,6 +2,10 @@ import axios from "axios";
 
 const VEHICULO_API_URL = "http://localhost:8090/vehiculo/";
 
+function registrarVehiculo(vehiculo) {
+    return axios.post(VEHICULO_API_URL, vehiculo)
+}
+
 function obtenerVehiculos() {
     return axios.get(VEHICULO_API_URL);
 }
@@ -10,4 +14,4 @@ function obtenerPromedioReparacion() {
     return axios.get(VEHICULO_API_URL + "tiempo-reparacion-por-marca");
 }
 
-export default { obtenerVehiculos, obtenerPromedioReparacion };
+export default { registrarVehiculo, obtenerVehiculos, obtenerPromedioReparacion };

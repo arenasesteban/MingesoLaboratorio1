@@ -42,7 +42,7 @@ export default function ReparacionTipoMotor() {
                                         Diesel
                                     </th>
                                     <th scope="col" className="px-6 py-4">
-                                        Hibrido
+                                        Híbrido
                                     </th>
                                     <th scope="col" className="px-6 py-4">
                                         Eléctrico
