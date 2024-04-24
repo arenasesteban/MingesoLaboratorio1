@@ -1,6 +1,5 @@
 package com.proyectosw.autofix.controllers;
 
-import com.proyectosw.autofix.dtos.PatenteMotor;
 import com.proyectosw.autofix.dtos.TiempoReparacionPorMarca;
 import com.proyectosw.autofix.entities.VehiculoEntity;
 import com.proyectosw.autofix.services.VehiculoService;
@@ -36,12 +35,6 @@ public class VehiculoController {
     public ResponseEntity<VehiculoEntity> actualizarVehiculo(@RequestParam String patente, @RequestParam Integer kilometraje) {
         VehiculoEntity vehiculo = vehiculoService.actualizarVehiculo(patente, kilometraje);
         return ResponseEntity.ok(vehiculo);
-    }
-
-    @GetMapping("/patentes-motor")
-    public ResponseEntity<List<PatenteMotor>> obtenerPatentesMotor() {
-        List<PatenteMotor> patentes = vehiculoService.obtenerPatentesMotor();
-        return ResponseEntity.ok(patentes);
     }
 
     // [1]

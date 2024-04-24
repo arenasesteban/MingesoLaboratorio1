@@ -1,6 +1,5 @@
 package com.proyectosw.autofix.services;
 
-import com.proyectosw.autofix.dtos.PatenteMotor;
 import com.proyectosw.autofix.dtos.TiempoReparacionPorMarca;
 import com.proyectosw.autofix.entities.VehiculoEntity;
 import com.proyectosw.autofix.repositories.VehiculoRepository;
@@ -24,17 +23,6 @@ public class VehiculoService {
 
     public List<VehiculoEntity> obtenerVehiculos() {
         return vehiculoRepository.findAll();
-    }
-
-    public List<PatenteMotor> obtenerPatentesMotor() {
-        List<VehiculoEntity> vehiculos = vehiculoRepository.findAll();
-        List<PatenteMotor> patentesMotor = new ArrayList<>();
-
-        for(VehiculoEntity vehiculo : vehiculos) {
-            PatenteMotor patenteMotor = new PatenteMotor(vehiculo.getPatente(), vehiculo.getTipoMotor());
-            patentesMotor.add(patenteMotor);
-        }
-        return patentesMotor;
     }
 
     public VehiculoEntity actualizarVehiculo(String patente, Integer kilometraje) {

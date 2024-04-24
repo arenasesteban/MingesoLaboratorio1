@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/Inicio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/Inicio.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/ReparacionesFormulario.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/ReparacionesFormulario.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/VehiculosFormulario.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/VehiculosFormulario.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +45,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AutofixApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.AutofixApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Esteban Usach/2024.1/MINGESO/MingesoLaboratorio1/Backend&quot;,
@@ -121,7 +116,8 @@
       <workItem from="1713840584352" duration="4068000" />
       <workItem from="1713884062586" duration="1743000" />
       <workItem from="1713890191904" duration="22453000" />
-      <workItem from="1713925457980" duration="1250000" />
+      <workItem from="1713925457980" duration="3600000" />
+      <workItem from="1713981160317" duration="2146000" />
     </task>
     <servers />
   </component>
