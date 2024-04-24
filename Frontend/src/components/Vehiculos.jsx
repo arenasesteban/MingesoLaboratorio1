@@ -80,7 +80,7 @@ export default function Vehiculos() {
                                             <td class="px-6 py-3">
                                                 {vehiculo.anoFabricacion}
                                             </td>
-                                            <td class="px-6 py-3">
+                                            <td class="px-6 py-3"> 
                                                 {vehiculo.numeroAsientos}
                                             </td>
                                             <td class="px-6 py-3">

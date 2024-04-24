@@ -19,6 +19,6 @@ const bonos = [
       cantidad: 7,
       valor: 40000
     }
-  ];
+];
   
 export default bonos;

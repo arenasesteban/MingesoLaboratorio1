@@ -1,46 +1,48 @@
 const reparaciones = [
     {
-        numero: 1,
-        reparacion: "Reparaciones del Sistema de Frenos",
+        numeroReparacion: 1,
+        tipoReparacion: "Reparaciones del Sistema de Frenos",
     },
     {
-        numero: 2,
-        reparacion: "Servicio del Sistema de Refrigeración",
+        numeroReparacion: 2,
+        tipoReparacion: "Servicio del Sistema de Refrigeración",
     },
     {
-        numero: 3,
-        reparacion: "Reparaciones del Motor"
+        numeroReparacion: 3,
+        tipoReparacion: "Reparaciones del Motor"
     },
     {
-        numero: 4,
-        reparacion: "Reparaciones de la Transmisión"
+        numeroReparacion: 4,
+        tipoReparacion: "Reparaciones de la Transmisión"
     },
     {
-        numero: 5,
-        reparacion: "Reparaci+on del Sistema Eléctrico"
+        numeroReparacion: 5,
+        tipoReparacion: "Reparación del Sistema Eléctrico"
     },
     {
-        numero: 6,
-        reparacion: "Reparaciones del Sistema de Escape"
+        numeroReparacion: 6,
+        tipoReparacion: "Reparaciones del Sistema de Escape"
     },
     {
-        numero: 7,
-        reparacion: "Reparación de Neumáticos y Ruedas"
+        numeroReparacion: 7,
+        tipoReparacion: "Reparación de Neumáticos y Ruedas"
     },
     {
-        numero: 8,
-        reparacion: "Reparaciones de la Suspensión y la Dirección"
+        numeroReparacion: 8,
+        tipoReparacion: "Reparaciones de la Suspensión y la Dirección"
     },
     {
-        numero: 9,
-        reparacion: "Reparación del Sistema de Aire Acondicionado y Calefacción"
+        numeroReparacion: 9,
+        tipoReparacion: "Reparación del Sistema de Aire Acondicionado y Calefacción"
     },
     {
-        numero: 10,
-        reparacion: "Reparaciones del Sistema de Combustible"
+        numeroReparacion: 10,
+        tipoReparacion: "Reparaciones del Sistema de Combustible"
     },
     {
-        numero: 11,
-        reparacion: "Reparación y Reemplazo de Parabrisas y Cristales"
+        numeroReparacion: 11,
+        tipoReparacion: "Reparación y Reemplazo de Parabrisas y Cristales"
     }
 ]
+
+export default reparaciones;

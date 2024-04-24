@@ -94,7 +94,7 @@ export default function VehiculosFormulario() {
                             <input type="number" id="kilometraje" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setKilometriaje(e.target.value)} required />
                         </div>
                         <div className="col-span-2 flex justify-end">
-                            <BotonRegistrar onClick={manejarRegistroVehiculo}/>
+                            <BotonRegistrar onClick={manejarRegistroVehiculo} tipoAccion="Registrar"/>
                         </div>
                     </div>
                 </form>

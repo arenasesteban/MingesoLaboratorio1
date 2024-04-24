@@ -3,14 +3,14 @@ import BotonNuevo from './BotonNuevo';
 import registroService from "../services/registro.service";
 
 export default function Reparaciones() {
-    const [registros, serRegistros] = useState([]);
+    const [registros, setRegistros] = useState([]);
 
     async function buscarRegistros() {
         try {
             const response = await registroService.obtenerRegistros();
-            serRegistros(response.data);
+            setRegistros(response.data);
         } catch (error) {
-            console.error('Error al obtener los registros:', error);
+            console.error("Error al obtener los registros: ", error);
         }
     }
 

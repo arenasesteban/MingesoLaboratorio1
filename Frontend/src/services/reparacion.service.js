@@ -2,12 +2,17 @@ import axios from "axios";
 
 const REPARACION_API_URL = "http://localhost:8090/reparacion/";
 
+function crearReparacion(reparaciones, idRegistro, tipoMotor) {
+    console.log("PArametors: ", reparaciones, idRegistro, tipoMotor);
+    return axios.post(REPARACION_API_URL, reparaciones, { params: { idRegistro: idRegistro, tipoMotor: tipoMotor}});
+}
+
 function obtenerRepracionTipoVehiculo() {
-    return axios.get(REPARACION_API_URL + "reparaciones-por-tipo-auto")
+    return axios.get(REPARACION_API_URL + "reparaciones-por-tipo-auto");
 }
 
 function obtenerReparacionTipoMotor() {
-    return axios.get(REPARACION_API_URL + "reparaciones-por-tipo-motor")
+    return axios.get(REPARACION_API_URL + "reparaciones-por-tipo-motor");
 }
 
-export default { obtenerRepracionTipoVehiculo, obtenerReparacionTipoMotor };
+export default { crearReparacion, obtenerRepracionTipoVehiculo, obtenerReparacionTipoMotor };
