@@ -34,7 +34,7 @@ export default function App() {
                         <Route path="/vehiculos-formulario" element={<VehiculosFormulario />}></Route>
                         <Route path="/reparaciones-formulario" element={<ReparacionesFormulario />}></Route>
                         <Route path="/bonos-formulario" element={<BonosFormulario />}></Route>
-                        <Route path="/detalle" element={<Detalle />}></Route>
+                        <Route path="/detalle/:idRegistro/:bono" element={<Detalle />}></Route>
                     </Routes>
                 </div>
             </div>

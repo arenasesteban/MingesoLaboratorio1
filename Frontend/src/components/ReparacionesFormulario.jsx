@@ -88,7 +88,7 @@ export default function ReparacionesFormulario() {
             manejarRegistrarReparaciones(response.data.idRegistro)
 
             alert("[ÉXITO]");
-            navigate(`/detalle/edit/${response.data.idRegistro}/${bono}`);
+            navigate(`/detalle/${response.data.idRegistro}/${bono}`);
         } catch (error) {
             console.log(error);
             alert("[ERROR]")

@@ -10,11 +10,11 @@ export default function Detalle() {
 
     async function buscarInformacion(){ 
         try {
-            const detalleResponse = await detalleService.obtenerDetalle(idRegistro);
-            setDetalle(detalleResponse.data);
-
             const registroResponse = await registroService.calcularTotal(idRegistro, bono);
             setRegistro(registroResponse.data);
+
+            const detalleResponse = await detalleService.obtenerDetalle(idRegistro);
+            setDetalle(detalleResponse.data);
         } catch (error) {
             console.log(error);
         }
@@ -32,7 +32,31 @@ export default function Detalle() {
                         <h1 className="text-3xl font-bold uppercase pr-4 mr-2">Detalle reparación</h1>
                     </div>
                 </div>
-                
+                <div>
+                    <div>
+                        <h2>Reparaciones</h2>
+                        <span>{detalle.reparaciones}</span>
+                    </div>
+                    <div>
+                        <h2>Recargos</h2>
+                        <span>{detalle.recargos}</span>
+                    </div>
+                    <div>
+                        <h2>Descuentos</h2>
+                        <span>{detalle.descuentos}</span>
+                    </div>
+                    <div>
+                        <span>{detalle.reparaciones + detalle.recargos - detalle.descuentos}</span>
+                    </div>
+                    <div>
+                        <h2>IVA</h2>
+                        <span>{detalle.iva}</span>
+                    </div>
+                    <div>
+                        <h2>Monto total</h2>
+                        <span>{registro.montoTotal}</span>
+                    </div>
+                </div>
             </div>
         </div>
     )
