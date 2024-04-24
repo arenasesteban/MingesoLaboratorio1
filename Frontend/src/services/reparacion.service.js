@@ -3,7 +3,6 @@ import axios from "axios";
 const REPARACION_API_URL = "http://localhost:8090/reparacion/";
 
 function crearReparacion(reparaciones, idRegistro, tipoMotor) {
-    console.log("PArametors: ", reparaciones, idRegistro, tipoMotor);
     return axios.post(REPARACION_API_URL, reparaciones, { params: { idRegistro: idRegistro, tipoMotor: tipoMotor}});
 }
 

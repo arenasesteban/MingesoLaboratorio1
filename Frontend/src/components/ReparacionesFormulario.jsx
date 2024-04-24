@@ -8,21 +8,19 @@ import reparacionService from "../services/reparacion.service";
 import { useNavigate } from "react-router-dom";
 
 export default function ReparacionesFormulario() {
-    const [patentesMotor, setPatentesMotor] = useState([]);
+    const [vehiculos, setVehiculos] = useState([]);
 
-    async function buscarPatentesMotor() {
+    async function buscarVehiculos() {
         try {
-            const response = await vehiculoService.obtenerPatentesMotor();
-
-            console.log(response.data);
-            setPatentesMotor(response.data);
+            const response = await vehiculoService.obtenerVehiculos();
+            setVehiculos(response.data);
         } catch (error) {
-            console.log("Error al obtener las patentes: ", error);
+            console.error('Error al obtener los vehículos:', error);
         }
     }
 
     useEffect(() => {
-        buscarPatentesMotor();
+        buscarVehiculos();
     }, [])
 
     const [reparacionesDisponibles, setReparacionesDisponibles] = useState(reparaciones);
@@ -56,8 +54,8 @@ export default function ReparacionesFormulario() {
         setbonosDisponibles(bonosDisponibles);
     }
 
-    const [patente, setPatente] = useState();
-    const [tipoMotor, setTipoMotor] = useState();
+    const [patente, setPatente] = useState("");
+    const [tipoMotor, setTipoMotor] = useState("");
 
     const [kilometraje, setKilometriaje] = useState("");
     const [fechaIngreso, setFechaIngreso] = useState("");
@@ -74,7 +72,7 @@ export default function ReparacionesFormulario() {
         e.preventDefault();
 
         try {
-            const response = await registroService.crearRegistro({
+            const responseRegistro = await registroService.crearRegistro({
                 fechaIngreso,
                 horaIngreso,
                 fechaSalida,
@@ -83,35 +81,19 @@ export default function ReparacionesFormulario() {
                 horaRetiro,
                 patente
             });
+            console.log("Response - Crear registro: ", responseRegistro.data);
 
-            manejarKilometraje();
-            manejarRegistrarReparaciones(response.data.idRegistro)
+            const responseVehiculo = await vehiculoService.actualizarVehiculo(patente, kilometraje);
+            console.log("Response - Actualizar vehiculo", responseVehiculo.data);
+
+            const responseReparacion = await reparacionService.crearReparacion(reparacionesSeleccionadas, responseRegistro.data.idRegistro, tipoMotor);
+            console.log("Response - Crear reparación", responseReparacion.data);
 
             alert("[ÉXITO]");
-            navigate(`/detalle/${response.data.idRegistro}/${bono}`);
+            navigate(`/detalle/${responseRegistro.data.idRegistro}/${bono}`);
         } catch (error) {
             console.log(error);
             alert("[ERROR]")
-        }
-    }
-
-    async function manejarKilometraje() {
-        try {
-            const response = await vehiculoService.actualizarVehiculo(patente, kilometraje);
-
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    async function manejarRegistrarReparaciones(idRegistro) {
-        try {
-            const response = await reparacionService.crearReparacion(reparacionesSeleccionadas, idRegistro, tipoMotor);
-
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);
         }
     }
 
@@ -125,7 +107,7 @@ export default function ReparacionesFormulario() {
                     </div>
                 </div>
                 <form className="mt-6">
-                    <div className="grid gap-4 grid-cols-3">
+                    <div className="grid gap-4 grid-cols-2">
                         <div>
                             <label for="patente" class="block mb-2 font-medium text-gray-700">Patente</label>
                             <select id="patente" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
@@ -133,33 +115,23 @@ export default function ReparacionesFormulario() {
                                 const selectedValue = JSON.parse(e.target.value);
                                 setPatente(selectedValue.patente);
                                 setTipoMotor(selectedValue.tipoMotor);
+                                setMarca(selectedValue.marca);
+                                manejarBonosDisponibles(selectedValue.marca);
                             }} required>
                                 <option>Buscar patente</option>
                                 {
-                                    patentesMotor.map((patenteMotor, index) => (
-                                        <option key={index} value={JSON.stringify(patenteMotor)}>
-                                            {patenteMotor.patente}
+                                    vehiculos.map((vehiculo, index) => (
+                                        <option key={index} value={JSON.stringify(vehiculo)}>
+                                            {vehiculo.patente}
                                         </option>
                                     ))
                                 }
                             </select>
                         </div>
                         <div>
-                            <label for="marca" class="block mb-2 font-medium text-gray-700">Marca</label>
-                            <input 
-                                type="text" id="marca" className="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" 
-                                onChange={e => {
-                                    const nuevaMarca = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1).toLowerCase();
-                                    setMarca(nuevaMarca);
-                                    manejarBonosDisponibles(nuevaMarca);
-                                }} required />
-                        </div>
-                        <div>
                             <label for="kilometraje" class="block mb-2 font-medium text-gray-700">Kilometraje</label>
                             <input type="number" id="kilometraje" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setKilometriaje(e.target.value)} required />
                         </div>
-                    </div>
-                    <div className="grid gap-4 grid-cols-2 mt-4">
                         <div>
                             <label for="patente" class="block mb-2 font-medium text-gray-700">Reparaciones disponibles</label>
                             <select id="patente" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" onChange={(e) => (e.target.value !== "" ? manejarSeleccionarReparacion(e.target.value) : null)} required>
