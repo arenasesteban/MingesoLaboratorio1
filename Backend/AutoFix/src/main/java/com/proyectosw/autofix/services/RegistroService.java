@@ -94,8 +94,8 @@ public class RegistroService {
             descuento = switch (tipoAuto) {
                 case "Gasolina" -> .05;
                 case "Diesel" -> .07;
-                case "Hibrido" -> .1;
-                case "Electrico" -> .08;
+                case "Híbrido" -> .1;
+                case "Eléctrico" -> .08;
                 default -> descuento;
             };
         }
@@ -103,8 +103,8 @@ public class RegistroService {
             descuento = switch (tipoAuto) {
                 case "Gasolina" -> .1;
                 case "Diesel" -> .12;
-                case "Hibrido" -> .15;
-                case "Electrico" -> .13;
+                case "Híbrido" -> .15;
+                case "Eléctrico" -> .13;
                 default -> descuento;
             };
         }
@@ -112,8 +112,8 @@ public class RegistroService {
             descuento = switch (tipoAuto) {
                 case "Gasolina" -> .15;
                 case "Diesel" -> .17;
-                case "Hibrido" -> .2;
-                case "Electrico" -> .18;
+                case "Híbrido" -> .2;
+                case "Eléctrico" -> .18;
                 default -> descuento;
             };
         }
@@ -121,8 +121,8 @@ public class RegistroService {
             descuento = switch (tipoAuto) {
                 case "Gasolina" -> .2;
                 case "Diesel" -> .22;
-                case "Hibrido" -> .25;
-                case "Electrico" -> .23;
+                case "Híbrido" -> .25;
+                case "Eléctrico" -> .23;
                 default -> descuento;
             };
         }

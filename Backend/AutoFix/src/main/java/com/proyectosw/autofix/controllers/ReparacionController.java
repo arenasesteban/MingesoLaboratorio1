@@ -19,8 +19,8 @@ public class ReparacionController {
 
     // [1]
     @PostMapping("/")
-    public ResponseEntity<List<ReparacionEntity>> crearReparacion(@RequestBody List<ReparacionEntity> reparaciones, @RequestParam Long idRegistro) {
-        List<ReparacionEntity> reparacionesNuevo = reparacionService.crearReparacion(reparaciones, idRegistro);
+    public ResponseEntity<List<ReparacionEntity>> crearReparacion(@RequestBody List<ReparacionEntity> reparaciones, @RequestParam Long idRegistro, @RequestParam String tipoMotor) {
+        List<ReparacionEntity> reparacionesNuevo = reparacionService.crearReparacion(reparaciones, idRegistro, tipoMotor);
         return ResponseEntity.ok(reparacionesNuevo);
     }
 

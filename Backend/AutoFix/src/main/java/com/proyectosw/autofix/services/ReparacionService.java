@@ -19,10 +19,112 @@ public class ReparacionService {
     @Autowired
     RegistroService registroService;
 
-    public List<ReparacionEntity> crearReparacion(List<ReparacionEntity> reparaciones, Long idRegistro) {
+    public List<ReparacionEntity> crearReparacion(List<ReparacionEntity> reparaciones, Long idRegistro, String tipoMotor) {
         List<ReparacionEntity> reparacionesGuardados = new ArrayList<>();
+        int monto = 0;
 
         for(ReparacionEntity reparacion : reparaciones) {
+            if(reparacion.getNumeroReparacion() == 1) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 120000;
+                    case "Diesel" -> 120000;
+                    case "Híbrido" -> 180000;
+                    case "Eléctrico" -> 220000;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 2) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 130000;
+                    case "Diesel" -> 130000;
+                    case "Híbrido" -> 190000;
+                    case "Eléctrico" -> 230000;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 3) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 350000;
+                    case "Diesel" -> 450000;
+                    case "Híbrido" -> 700000;
+                    case "Eléctrico" -> 800000;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 4) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 210000;
+                    case "Diesel" -> 21000;
+                    case "Híbrido" -> 300000;
+                    case "Eléctrico" -> 300000;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 5) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 150000;
+                    case "Diesel" -> 150000;
+                    case "Híbrido" -> 200000;
+                    case "Eléctrico" -> 250000;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 6) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 100000;
+                    case "Diesel" -> 120000;
+                    case "Híbrido" -> 450000;
+                    case "Eléctrico" -> 0;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 7) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 100000;
+                    case "Diesel" -> 100000;
+                    case "Híbrido" -> 100000;
+                    case "Eléctrico" -> 100000;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 8) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 180000;
+                    case "Diesel" -> 180000;
+                    case "Híbrido" -> 210000;
+                    case "Eléctrico" -> 250000;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 9) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 150000;
+                    case "Diesel" -> 150000;
+                    case "Híbrido" -> 180000;
+                    case "Eléctrico" -> 180000;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 10) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 130000;
+                    case "Diesel" -> 140000;
+                    case "Híbrido" -> 220000;
+                    case "Eléctrico" -> 0;
+                    default -> 0;
+                };
+            }
+            else if(reparacion.getNumeroReparacion() == 11) {
+                monto = switch (tipoMotor) {
+                    case "Gasolina" -> 80000;
+                    case "Diesel" -> 80000;
+                    case "Híbrido" -> 80000;
+                    case "Eléctrico" -> 80000;
+                    default -> 0;
+                };
+            }
+
+            reparacion.setPrecio(monto);
             reparacion.setIdRegistro(idRegistro);
             ReparacionEntity reparacionGuardado = reparacionRespository.save(reparacion);
             reparacionesGuardados.add(reparacionGuardado);

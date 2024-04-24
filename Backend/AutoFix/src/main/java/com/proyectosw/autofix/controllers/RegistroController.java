@@ -22,7 +22,7 @@ public class RegistroController {
         return ResponseEntity.ok(registroNuevo);
     }
 
-    // [0]
+    // [1]
     @GetMapping("/")
     public ResponseEntity<List<RegistroEntity>> obtenerRegistros() {
         List<RegistroEntity> registros = registroService.obtenerRegistros();
