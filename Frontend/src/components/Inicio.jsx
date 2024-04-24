@@ -8,7 +8,7 @@ export default function Inicio() {
                     <div className="text-3xl font-bold text-gray-700 uppercase">
                         <h1>¿Qué hacemos hoy?</h1>
                     </div>
-                </div>
+                </div>  
             </div>
         </div>
     );

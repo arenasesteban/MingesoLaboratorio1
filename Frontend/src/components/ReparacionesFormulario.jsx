@@ -5,6 +5,7 @@ import bonos from "../data/bonos"
 import BotonRegistrar from "./BotonRegistrar";
 import registroService from "../services/registro.service";
 import reparacionService from "../services/reparacion.service";
+import { useNavigate } from "react-router-dom";
 
 export default function ReparacionesFormulario() {
     const [patentesMotor, setPatentesMotor] = useState([]);
@@ -12,6 +13,7 @@ export default function ReparacionesFormulario() {
     async function buscarPatentesMotor() {
         try {
             const response = await vehiculoService.obtenerPatentesMotor();
+
             console.log(response.data);
             setPatentesMotor(response.data);
         } catch (error) {
@@ -66,7 +68,11 @@ export default function ReparacionesFormulario() {
     const [horaRetiro, setHoraRetiro] = useState("");
     const [bono, setBono] = useState(0);
 
-    async function manejarCrearRegistro() {
+    const navigate = useNavigate();
+
+    async function manejarCrearRegistro(e) {
+        e.preventDefault();
+
         try {
             const response = await registroService.crearRegistro({
                 fechaIngreso,
@@ -80,7 +86,9 @@ export default function ReparacionesFormulario() {
 
             manejarKilometraje();
             manejarRegistrarReparaciones(response.data.idRegistro)
+
             alert("[ÉXITO]");
+            navigate(`/detalle/edit/${response.data.idRegistro}/${bono}`);
         } catch (error) {
             console.log(error);
             alert("[ERROR]")
@@ -90,6 +98,7 @@ export default function ReparacionesFormulario() {
     async function manejarKilometraje() {
         try {
             const response = await vehiculoService.actualizarVehiculo(patente, kilometraje);
+
             console.log(response.data);
         } catch (error) {
             console.log(error);
@@ -99,6 +108,7 @@ export default function ReparacionesFormulario() {
     async function manejarRegistrarReparaciones(idRegistro) {
         try {
             const response = await reparacionService.crearReparacion(reparacionesSeleccionadas, idRegistro, tipoMotor);
+
             console.log(response.data);
         } catch (error) {
             console.log(error);

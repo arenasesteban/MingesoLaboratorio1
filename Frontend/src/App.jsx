@@ -12,6 +12,7 @@ import Bonos from './components/Bonos';
 import VehiculosFormulario from './components/VehiculosFormulario';
 import ReparacionesFormulario from './components/ReparacionesFormulario';
 import BonosFormulario from './components/BonosFormulario';
+import Detalle from './components/Detalle';
 
 export default function App() {
     return (
@@ -33,6 +34,7 @@ export default function App() {
                         <Route path="/vehiculos-formulario" element={<VehiculosFormulario />}></Route>
                         <Route path="/reparaciones-formulario" element={<ReparacionesFormulario />}></Route>
                         <Route path="/bonos-formulario" element={<BonosFormulario />}></Route>
+                        <Route path="/detalle" element={<Detalle />}></Route>
                     </Routes>
                 </div>
             </div>
