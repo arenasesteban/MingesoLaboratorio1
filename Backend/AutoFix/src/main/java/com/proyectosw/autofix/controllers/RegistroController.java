@@ -1,5 +1,6 @@
 package com.proyectosw.autofix.controllers;
 
+import com.proyectosw.autofix.entities.DetalleEntity;
 import com.proyectosw.autofix.entities.RegistroEntity;
 import com.proyectosw.autofix.services.RegistroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,8 @@ public class RegistroController {
 
     // [1]
     @GetMapping("/calcular-total")
-    public ResponseEntity<RegistroEntity> calcularTotal(@RequestParam Long idRegistro, @RequestParam int descuentoPorBono) {
-        RegistroEntity registroActualizado = registroService.calcularTotal(idRegistro, descuentoPorBono);
-        return ResponseEntity.ok(registroActualizado);
+    public ResponseEntity<DetalleEntity> calcularTotal(@RequestParam Long idRegistro, @RequestParam int descuentoPorBono) {
+        DetalleEntity detalle = registroService.calcularTotal(idRegistro, descuentoPorBono);
+        return ResponseEntity.ok(detalle);
     }
 }

@@ -1,5 +1,6 @@
 package com.proyectosw.autofix.services;
 
+import com.proyectosw.autofix.entities.DetalleEntity;
 import com.proyectosw.autofix.entities.RegistroEntity;
 import com.proyectosw.autofix.entities.ReparacionEntity;
 import com.proyectosw.autofix.entities.VehiculoEntity;
@@ -39,7 +40,7 @@ public class RegistroService {
         return registroRepository.findAll();
     }
 
-    public RegistroEntity calcularTotal(Long idRegistro, int descuentoPorBono) {
+    public DetalleEntity calcularTotal(Long idRegistro, int descuentoPorBono) {
         RegistroEntity registro = registroRepository.findByIdRegistro(idRegistro);
         VehiculoEntity vehiculo = vehiculoRepository.findByPatente(registro.getPatente());
 
@@ -70,9 +71,9 @@ public class RegistroService {
 
         registro.setMontoTotal(montoTotal);
 
-        detalleService.crearDetalle(sumaReparaciones, recargos, descuentos, iva, idRegistro);
+        registroRepository.save(registro);
 
-        return registroRepository.save(registro);
+        return detalleService.crearDetalle(sumaReparaciones, recargos, descuentos, iva, idRegistro);
     }
 
     public int calcularTotalReparaciones(Long idRegistro) {

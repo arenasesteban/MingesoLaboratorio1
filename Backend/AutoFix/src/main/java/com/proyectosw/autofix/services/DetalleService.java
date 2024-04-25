@@ -10,8 +10,8 @@ public class DetalleService {
     @Autowired
     DetalleRepository detalleRepository;
 
-    public void crearDetalle(Integer sumaReparaciones, Integer recargos, Integer descuentos, Integer iva, Long idRegistro) {
-        detalleRepository.save(new DetalleEntity(sumaReparaciones, recargos, descuentos, iva, idRegistro));
+    public DetalleEntity crearDetalle(Integer sumaReparaciones, Integer recargos, Integer descuentos, Integer iva, Long idRegistro) {
+        return detalleRepository.save(new DetalleEntity(sumaReparaciones, recargos, descuentos, iva, idRegistro));
     }
 
     public DetalleEntity obtenerDetalle(Long idRegistro) {
