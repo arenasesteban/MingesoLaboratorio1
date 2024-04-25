@@ -2,19 +2,19 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom";
 import registroService from "../services/registro.service";
 import detalleService from "../services/detalle.service";
+import BotonRegistrar from "./BotonRegistrar";
 
 export default function Detalle() {
+    console.log("")
+
     const { idRegistro, bono } = useParams();
-    const [registro, setRegistro] = useState("");
     const [detalle, setDetalle] = useState("");
 
-    async function buscarInformacion(){ 
+    async function buscarInformacion() {
         try {
             const registroResponse = await registroService.calcularTotal(idRegistro, bono);
-            setRegistro(registroResponse.data);
-
-            const detalleResponse = await detalleService.obtenerDetalle(idRegistro);
-            setDetalle(detalleResponse.data);
+            setDetalle(registroResponse.data);
+            console.log("Registro response: ", registroResponse.data);
         } catch (error) {
             console.log(error);
         }
@@ -22,7 +22,13 @@ export default function Detalle() {
 
     useEffect(() => {
         buscarInformacion();
-    }, [])
+    }, [idRegistro]);
+
+    const navigate = useNavigate();
+
+    const manejarOnClickNavigate = () => {
+        navigate("/reparaciones");
+    }
 
     return (
         <div className="flex h-4/5 m-9 p-12 bg-gray-100 shadow-md border border-gray-300 rounded-md">   
@@ -32,29 +38,39 @@ export default function Detalle() {
                         <h1 className="text-3xl font-bold uppercase pr-4 mr-2">Detalle reparación</h1>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <h2>Reparaciones</h2>
-                        <span>{detalle.reparaciones}</span>
-                    </div>
-                    <div>
-                        <h2>Recargos</h2>
-                        <span>{detalle.recargos}</span>
-                    </div>
-                    <div>
-                        <h2>Descuentos</h2>
-                        <span>{detalle.descuentos}</span>
-                    </div>
-                    <div>
-                        <span>{detalle.reparaciones + detalle.recargos - detalle.descuentos}</span>
-                    </div>
-                    <div>
-                        <h2>IVA</h2>
-                        <span>{detalle.iva}</span>
-                    </div>
-                    <div>
-                        <h2>Monto total</h2>
-                        <span>{registro.montoTotal}</span>
+                <div className="flex justify-center mt-6">
+                    <div className="bg-white py-4 px-2 border rounded-md shadow">
+                        <div className="flex justify-between space-x-56 bg-gray-100 mx-2 px-10 py-4 rounded-md">
+                            <p className="font-bold text-gray-700 uppercase">Operación</p>
+                            <p className="font-bold text-gray-700 uppercase">Monto</p>
+                        </div>
+                        <div className="flex justify-between space-x-56 px-12 py-4">
+                            <p className="font-bold text-gray-700">Reparaciones</p>
+                            <p className="text-gray-700">$ {detalle.reparaciones}</p>
+                        </div>
+                        <div className="flex justify-between space-x-56 px-12 py-4">
+                            <p className="font-bold text-gray-700">Recargos</p>
+                            <p className="text-gray-700">$ {detalle.recargos}</p>
+                        </div>
+                        <div className="flex justify-between space-x-56 px-12 py-4">
+                            <p className="font-bold text-gray-700">Descuento</p>
+                            <p className="text-gray-700">$ {detalle.descuentos}</p>
+                        </div>
+                        <div className="flex justify-between space-x-56 bg-gray-100 mx-2 px-10 py-4 rounded-md">
+                            <p className="font-bold text-gray-700">Total</p>
+                            <p className="text-gray-700">$ {detalle.reparaciones + detalle.recargos - detalle.descuentos}</p>
+                        </div>
+                        <div className="flex justify-between space-x-56 px-12 py-4">  
+                            <p className="font-bold text-gray-700">IVA</p>
+                            <p className="text-gray-700">$ {detalle.iva}</p>
+                        </div>
+                        <div className="flex justify-between space-x-56 bg-gray-100 mx-2 px-10 py-4 rounded-md">
+                            <p className="font-bold text-gray-700">Monto total</p>
+                            <p className="text-gray-700">$ {detalle.reparaciones + detalle.recargos - detalle.descuentos + detalle.iva}</p>
+                        </div>
+                        <div className="flex justify-center mt-4 mx-2">
+                            <BotonRegistrar onClick={manejarOnClickNavigate} tipoAccion={"Cerrar detalle"}/>   
+                        </div> 
                     </div>
                 </div>
             </div>

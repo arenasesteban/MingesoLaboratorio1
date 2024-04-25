@@ -90,7 +90,7 @@ export default function ReparacionesFormulario() {
             console.log("Response - Crear reparación", responseReparacion.data);
 
             alert("[ÉXITO]");
-            navigate(`/detalle/${responseRegistro.data.idRegistro}/${bono}`);
+            navigate(`/reparaciones/registrar/detalle/${responseRegistro.data.idRegistro}/${bono}`);
         } catch (error) {
             console.log(error);
             alert("[ERROR]")

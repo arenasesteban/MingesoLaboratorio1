@@ -1,9 +1,16 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import BotonNuevo from './BotonNuevo';
 import BotonEliminar from './BotonEliminar';
 import bonos from "../data/bonos";
 
 export default function Bonos() {
+    const navigate = useNavigate();
+
+    const manejarOnClickNavigate = () => {
+        navigate("/bonos/bonos-formulario");
+    }
+
     return (
         <div className="flex h-4/5 m-9 p-12 bg-gray-100 shadow-md border border-gray-300 rounded-md">   
             <div className="flex flex-col w-full">
@@ -11,7 +18,7 @@ export default function Bonos() {
                     <div className="text-3xl font-bold text-gray-700 uppercase">
                         <h1>Administración de Bonos</h1>
                     </div>
-                    <BotonNuevo enlace="/bonos-formulario" tipoElemento={"Nuevo bono"}/>
+                    <BotonNuevo onClick={manejarOnClickNavigate} tipoElemento={"Nuevo bono"}/>
                 </div>
                 <div className="mt-6 overflow-auto shadow">
                     <div>

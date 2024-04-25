@@ -26,15 +26,15 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<Inicio />}></Route>
                         <Route path="/vehiculos" element={<Vehiculos />}></Route>
+                        <Route path="/vehiculos/registro" element={<VehiculosFormulario />}></Route>
                         <Route path="/reparaciones" element={<Reparaciones />}></Route>
-                        <Route path="/promedio-reparacion" element={<PromedioReparacion />}></Route>
-                        <Route path="/reparacion-tipo-motor" element={<ReparacionTipoMotor />}></Route>
-                        <Route path="/reparacion-tipo-vehiculo" element={<ReparacionTipoVehiculo />}></Route>
+                        <Route path="/reparaciones/registrar" element={<ReparacionesFormulario />}></Route>
+                        <Route path="/reparaciones/registrar/detalle/:idRegistro/:bono" element={<Detalle />}></Route>
+                        <Route path="/reporte/promedio-reparacion" element={<PromedioReparacion />}></Route>
+                        <Route path="/reporte/reparacion-tipo-motor" element={<ReparacionTipoMotor />}></Route>
+                        <Route path="/reporte/reparacion-tipo-vehiculo" element={<ReparacionTipoVehiculo />}></Route>
                         <Route path="/bonos" element={<Bonos />}></Route>
-                        <Route path="/vehiculos-formulario" element={<VehiculosFormulario />}></Route>
-                        <Route path="/reparaciones-formulario" element={<ReparacionesFormulario />}></Route>
-                        <Route path="/bonos-formulario" element={<BonosFormulario />}></Route>
-                        <Route path="/detalle/:idRegistro/:bono" element={<Detalle />}></Route>
+                        <Route path="/bonos/bonos-formulario" element={<BonosFormulario />}></Route>
                     </Routes>
                 </div>
             </div>

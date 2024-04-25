@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import BotonNuevo from './BotonNuevo';
 import registroService from "../services/registro.service";
 
@@ -18,6 +19,12 @@ export default function Reparaciones() {
         buscarRegistros();
     }, [])
 
+    const navigate = useNavigate();
+
+    const manejarOnClickNavigate = () => {
+        navigate("/reparaciones/registrar");
+    }
+
     return (
         <div className="flex h-4/5 m-9 p-12 bg-gray-100 shadow-md border border-gray-300 rounded-md">   
             <div className="flex flex-col w-full">
@@ -25,7 +32,7 @@ export default function Reparaciones() {
                     <div className="text-3xl font-bold text-gray-700 uppercase">
                         <h1>Historial de reparaciones</h1>
                     </div>
-                    <BotonNuevo enlace="/reparaciones-formulario" tipoElemento={"Nueva reparación"}/>
+                    <BotonNuevo onClick={manejarOnClickNavigate} tipoElemento={"Nueva reparación"}/>
                 </div>
                 <div className="mt-6 overflow-auto shadow">
                     <div>
