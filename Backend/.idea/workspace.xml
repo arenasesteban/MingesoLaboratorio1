@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/Bonos.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/Bonos.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/BotonEliminar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/BotonEliminar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/BotonNuevo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/BotonNuevo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/Detalle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/Detalle.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/Reparaciones.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/Reparaciones.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/controllers/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/controllers/RegistroController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/src/components/ReparacionesFormulario.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/ReparacionesFormulario.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/Vehiculos.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/Vehiculos.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/services/detalle.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/services/detalle.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/services/registro.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/services/registro.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/src/data/bonos.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/data/bonos.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +121,8 @@
       <workItem from="1713890191904" duration="22453000" />
       <workItem from="1713925457980" duration="3600000" />
       <workItem from="1713981160317" duration="5813000" />
-      <workItem from="1713991554508" duration="12430000" />
+      <workItem from="1713991554508" duration="14193000" />
+      <workItem from="1714057776688" duration="317000" />
     </task>
     <servers />
   </component>

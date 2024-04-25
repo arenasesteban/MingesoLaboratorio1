@@ -1,6 +1,6 @@
 package com.proyectosw.autofix.services;
 
-import com.proyectosw.autofix.entities.DetalleEntity;
+import com.proyectosw.autofix.dtos.Detalle;
 import com.proyectosw.autofix.entities.RegistroEntity;
 import com.proyectosw.autofix.entities.ReparacionEntity;
 import com.proyectosw.autofix.entities.VehiculoEntity;
@@ -29,9 +29,6 @@ public class RegistroService {
     @Autowired
     ReparacionRespository reparacionRespository;
 
-    @Autowired
-    DetalleService detalleService;
-
     public RegistroEntity crearRegistro(RegistroEntity registro) {
         return registroRepository.save(registro);
     }
@@ -40,28 +37,18 @@ public class RegistroService {
         return registroRepository.findAll();
     }
 
-    public DetalleEntity calcularTotal(Long idRegistro, int descuentoPorBono) {
+    public Detalle calcularTotal(Long idRegistro, int descuentoPorBono) {
         RegistroEntity registro = registroRepository.findByIdRegistro(idRegistro);
         VehiculoEntity vehiculo = vehiculoRepository.findByPatente(registro.getPatente());
 
         int sumaReparaciones = calcularTotalReparaciones(registro.getIdRegistro());
 
-        System.out.println(sumaReparaciones);
-
         double recargoPorKilometraje = sumaReparaciones * recargoPorKilometraje(vehiculo.getKilometraje(), vehiculo.getTipoAuto());
         double recargoPorAntiguedad = sumaReparaciones * recargoPorAntiguedad(vehiculo.getAnoFabricacion(), vehiculo.getTipoAuto());
         double recargoPorRestrasoRecogida = sumaReparaciones * recargoPorRetrasoRecogida(registro.getFechaSalida(), registro.getFechaRetiro());
 
-        System.out.println(recargoPorKilometraje);
-        System.out.println(recargoPorAntiguedad);
-        System.out.println(recargoPorRestrasoRecogida);
-
         double descuentoPorNumeroReparacion = sumaReparaciones * descuentoPorNumeroReparaciones(registro.getPatente(), vehiculo.getTipoMotor());
         double descuentoPorDiaAtencion = sumaReparaciones * descuentoPorDiaAtencion(registro.getFechaIngreso(), registro.getHoraIngreso());
-
-        System.out.println(descuentoPorNumeroReparacion);
-        System.out.println(descuentoPorDiaAtencion);
-        System.out.println(descuentoPorBono);
 
         int recargos = (int) (recargoPorKilometraje + recargoPorAntiguedad + recargoPorRestrasoRecogida);
         int descuentos = (int) (descuentoPorNumeroReparacion + descuentoPorDiaAtencion + descuentoPorBono);
@@ -73,7 +60,7 @@ public class RegistroService {
 
         registroRepository.save(registro);
 
-        return detalleService.crearDetalle(sumaReparaciones, recargos, descuentos, iva, idRegistro);
+        return new Detalle(sumaReparaciones, recargos, descuentos, iva, montoTotal);
     }
 
     public int calcularTotalReparaciones(Long idRegistro) {
