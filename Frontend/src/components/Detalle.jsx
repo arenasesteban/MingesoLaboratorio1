@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom";
 import registroService from "../services/registro.service";
-import detalleService from "../services/detalle.service";
 import BotonRegistrar from "./BotonRegistrar";
 
 export default function Detalle() {
@@ -66,7 +65,7 @@ export default function Detalle() {
                         </div>
                         <div className="flex justify-between space-x-56 bg-gray-100 mx-2 px-10 py-4 rounded-md">
                             <p className="font-bold text-gray-700">Monto total</p>
-                            <p className="text-gray-700">$ {detalle.reparaciones + detalle.recargos - detalle.descuentos + detalle.iva}</p>
+                            <p className="text-gray-700">$ {detalle.montoTotal}</p>
                         </div>
                         <div className="flex justify-center mt-4 mx-2">
                             <BotonRegistrar onClick={manejarOnClickNavigate} tipoAccion={"Cerrar detalle"}/>   

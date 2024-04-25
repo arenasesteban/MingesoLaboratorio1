@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import BotonNuevo from './BotonNuevo';
 import BotonEliminar from './BotonEliminar';
-import bonos from "../data/bonos";
+import { BonoContext } from '../context/bonoContext';
 
 export default function Bonos() {
+    const { bonos, eliminarBono } = useContext(BonoContext);
+    
     const navigate = useNavigate();
 
     const manejarOnClickNavigate = () => {
@@ -53,7 +55,7 @@ export default function Bonos() {
                                                 $ {bono.valor}
                                             </td>
                                             <td class="px-6 py-3">
-                                                <BotonEliminar />
+                                                <BotonEliminar onClick={() => eliminarBono(index)}/>
                                             </td>
                                         </tr>
                                     ))

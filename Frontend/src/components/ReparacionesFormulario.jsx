@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import vehiculoService from "../services/vehiculo.service";
-import reparaciones from "../data/reparaciones";
-import bonos from "../data/bonos"
+import reparaciones from "../data/reparacionesData";
 import BotonRegistrar from "./BotonRegistrar";
 import registroService from "../services/registro.service";
 import reparacionService from "../services/reparacion.service";
 import { useNavigate } from "react-router-dom";
+import { BonoContext } from "../context/bonoContext";
 
 export default function ReparacionesFormulario() {
     const [vehiculos, setVehiculos] = useState([]);
@@ -46,11 +46,12 @@ export default function ReparacionesFormulario() {
         setReparacionesSeleccionadas(nuevasReparacionesSeleccionadas);
     }
 
+
     const [marca, setMarca] = useState("");
     const [bonosDisponibles, setbonosDisponibles] = useState([]);
 
     const manejarBonosDisponibles = (marca) => {
-        const bonosDisponibles = bonos.filter(bono => bono.marca === marca);
+        const bonosDisponibles = bonos.filter(bono => bono.marca === marca && bono.cantidad > 0);
         setbonosDisponibles(bonosDisponibles);
     }
 
@@ -66,6 +67,7 @@ export default function ReparacionesFormulario() {
     const [horaRetiro, setHoraRetiro] = useState("");
     const [bono, setBono] = useState(0);
 
+    const { bonos, modificarBono } = useContext(BonoContext);
     const navigate = useNavigate();
 
     async function manejarCrearRegistro(e) {
@@ -90,6 +92,8 @@ export default function ReparacionesFormulario() {
             console.log("Response - Crear reparación", responseReparacion.data);
 
             alert("[ÉXITO]");
+
+            modificarBono(marca, bono);
             navigate(`/reparaciones/registrar/detalle/${responseRegistro.data.idRegistro}/${bono}`);
         } catch (error) {
             console.log(error);

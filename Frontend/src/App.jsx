@@ -13,6 +13,7 @@ import VehiculosFormulario from './components/VehiculosFormulario';
 import ReparacionesFormulario from './components/ReparacionesFormulario';
 import BonosFormulario from './components/BonosFormulario';
 import Detalle from './components/Detalle';
+import { BonoProvider } from './context/BonoProvider';
 
 export default function App() {
     return (
@@ -23,19 +24,21 @@ export default function App() {
                 </div>
                 <div className="col-span-8 h-screen">
                     <NavBar />
-                    <Routes>
-                        <Route path="/" element={<Inicio />}></Route>
-                        <Route path="/vehiculos" element={<Vehiculos />}></Route>
-                        <Route path="/vehiculos/registro" element={<VehiculosFormulario />}></Route>
-                        <Route path="/reparaciones" element={<Reparaciones />}></Route>
-                        <Route path="/reparaciones/registrar" element={<ReparacionesFormulario />}></Route>
-                        <Route path="/reparaciones/registrar/detalle/:idRegistro/:bono" element={<Detalle />}></Route>
-                        <Route path="/reporte/promedio-reparacion" element={<PromedioReparacion />}></Route>
-                        <Route path="/reporte/reparacion-tipo-motor" element={<ReparacionTipoMotor />}></Route>
-                        <Route path="/reporte/reparacion-tipo-vehiculo" element={<ReparacionTipoVehiculo />}></Route>
-                        <Route path="/bonos" element={<Bonos />}></Route>
-                        <Route path="/bonos/bonos-formulario" element={<BonosFormulario />}></Route>
-                    </Routes>
+                    <BonoProvider>
+                        <Routes>
+                            <Route path="/" element={<Inicio />}></Route>
+                            <Route path="/vehiculos" element={<Vehiculos />}></Route>
+                            <Route path="/vehiculos/registro" element={<VehiculosFormulario />}></Route>
+                            <Route path="/reparaciones" element={<Reparaciones />}></Route>
+                            <Route path="/reparaciones/registrar" element={<ReparacionesFormulario />}></Route>
+                            <Route path="/reparaciones/registrar/detalle/:idRegistro/:bono" element={<Detalle />}></Route>
+                            <Route path="/reporte/promedio-reparacion" element={<PromedioReparacion />}></Route>
+                            <Route path="/reporte/reparacion-tipo-motor" element={<ReparacionTipoMotor />}></Route>
+                            <Route path="/reporte/reparacion-tipo-vehiculo" element={<ReparacionTipoVehiculo />}></Route>
+                            <Route path="/bonos" element={<Bonos />}></Route>
+                            <Route path="/bonos/bonos-formulario" element={<BonosFormulario />}></Route>
+                        </Routes>
+                    </BonoProvider>
                 </div>
             </div>
         </BrowserRouter>
