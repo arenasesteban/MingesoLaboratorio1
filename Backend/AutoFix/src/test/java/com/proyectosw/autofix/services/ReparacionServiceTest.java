@@ -1,19 +1,20 @@
 package com.proyectosw.autofix.services;
 
-import com.proyectosw.autofix.entities.RegistroEntity;
+import com.proyectosw.autofix.dtos.ReparacionPorTipoAuto;
+import com.proyectosw.autofix.dtos.ReparacionPorTipoMotor;
 import com.proyectosw.autofix.entities.ReparacionEntity;
-import com.proyectosw.autofix.entities.VehiculoEntity;
 import com.proyectosw.autofix.repositories.ReparacionRespository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class ReparacionServiceTest {
@@ -52,41 +53,69 @@ public class ReparacionServiceTest {
         idRegistros.add(reparacionId.getIdRegistro());
         idRegistros.add(reparacionB.getIdRegistro());
 
-        VehiculoEntity vehiculoA = new VehiculoEntity();
-        vehiculoA.setPatente("LJSY77");
-        vehiculoA.setMarca("Hyundai");
-        vehiculoA.setModelo("Accent");
-        vehiculoA.setTipoAuto("Sedan");
-        vehiculoA.setAnoFabricacion(2019);
-        vehiculoA.setTipoMotor("Gasolina");
-        vehiculoA.setNumeroAsientos(5);
-        vehiculoA.setKilometraje(42000);
-
-        RegistroEntity registroA = new RegistroEntity();
-        registroA.setFechaIngreso(LocalDate.parse("10-04-2020"));
-        registroA.setHoraIngreso(LocalTime.parse("15:00"));
-        registroA.setFechaSalida(LocalDate.parse("11-04-2020"));
-        registroA.setHoraSalida(LocalTime.parse("12:30"));
-        registroA.setFechaRetiro(LocalDate.parse("12-04-2020"));
-        registroA.setHoraRetiro(LocalTime.parse("16:15"));
-        registroA.setPatente("LJSY77");
-        registroA.setIdRegistro(1L);
-
-        RegistroEntity registroB = new RegistroEntity();
-        registroB.setFechaIngreso(LocalDate.parse("06-07-2023"));
-        registroB.setHoraIngreso(LocalTime.parse("11:45"));
-        registroB.setFechaSalida(LocalDate.parse("07-07-2023"));
-        registroB.setHoraSalida(LocalTime.parse("13:00"));
-        registroB.setFechaRetiro(LocalDate.parse("08-07-2023"));
-        registroB.setHoraRetiro(LocalTime.parse("18:00"));
-        registroB.setPatente("LJSY77");
-        registroB.setIdRegistro(2L);
-
         Mockito.when(reparacionRespository.save(reparacionA)).thenReturn(reparacionId);
         Mockito.when(reparacionRespository.findIdRegistroByNumeroReparacion(1)).thenReturn(idRegistros);
         Mockito.when(reparacionRespository.findFirstByIdRegistro(idRegistros.get(0))).thenReturn(reparacionId);
         Mockito.when(registroService.obtenerNumeroTiposAutos(idRegistros)).thenReturn(1);
         Mockito.when(reparacionRespository.sumPrecioByNumeroReparacion(1)).thenReturn(240000);
-        Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina")).thenReturn(1);
+        Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina")).thenReturn(2);
+        Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel")).thenReturn(0);
+        Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido")).thenReturn(0);
+        Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Electrico")).thenReturn(0);
+    }
+
+    @Test
+    public void testCrearReparacion() {
+        ReparacionEntity reparacion = new ReparacionEntity();
+        reparacion.setNumeroReparacion(1);
+        reparacion.setTipoReparacion("Reparaciones del Sistema de Frenos");
+        reparacion.setPrecio(120000);
+        reparacion.setIdRegistro(1L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacion);
+
+        List<ReparacionEntity> reparacionesTest = reparacionService.crearReparacion(reparaciones, 1L);
+
+        assertEquals(reparaciones.get(0).getIdRegistro(), reparacionesTest.get(0).getIdRegistro());
+        assertEquals(1L, reparacionesTest.get(0).getIdReparacion());
+        System.out.println("Reparaciones creadas = " + reparacionesTest);
+    }
+
+    // CAMBIAR
+    @Test
+    public void testReporteReparacionPorTipoAuto() {
+        ReparacionPorTipoAuto reparacionPorTipoAuto = new ReparacionPorTipoAuto();
+        reparacionPorTipoAuto.setNumeroTiposAutos(1);
+        reparacionPorTipoAuto.setTipoReparacion("Reparaciones del Sistema de Frenos");
+        reparacionPorTipoAuto.setMontoTotal(240000);
+
+        List<ReparacionPorTipoAuto> reparacionesPorTipoAuto = new ArrayList<>();
+        reparacionesPorTipoAuto.add(reparacionPorTipoAuto);
+
+        List<ReparacionPorTipoAuto> reparacionesPorTipoAutoTest = reparacionService.reporteReparacionPorTipoAuto();
+
+        assertEquals(reparacionesPorTipoAuto, reparacionesPorTipoAutoTest);
+        System.out.println("Reparaciones por tipo de auto = " + reparacionesPorTipoAutoTest);
+    }
+
+    // CAMBIAR
+    @Test
+    public void testReporteReparacionTipoMotor() {
+        ReparacionPorTipoMotor reparacionPorTipoMotor = new ReparacionPorTipoMotor();
+        reparacionPorTipoMotor.setTipoReparacion("Reparaciones del Sistema de Frenos");
+        reparacionPorTipoMotor.setCantidadGasolina(2);
+        reparacionPorTipoMotor.setCantidadDiesel(0);
+        reparacionPorTipoMotor.setCantidadHibrido(0);
+        reparacionPorTipoMotor.setCantidadElectrico(0);
+        reparacionPorTipoMotor.setMontoTotal(240000);
+
+        List<ReparacionPorTipoMotor> reparacionesPorTipoMotor = new ArrayList<>();
+        reparacionesPorTipoMotor.add(reparacionPorTipoMotor);
+
+        List<ReparacionPorTipoMotor> reparacionesPorTipoMotorTest = reparacionService.reporteReparacionPorTipoMotor();
+
+        assertEquals(reparacionesPorTipoMotor, reparacionesPorTipoMotorTest);
+        System.out.println("Reparaciones por tipo de motor = " + reparacionesPorTipoMotorTest);
     }
 }

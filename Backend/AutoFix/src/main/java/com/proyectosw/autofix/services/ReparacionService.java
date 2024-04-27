@@ -32,38 +32,44 @@ public class ReparacionService {
         return reparacionesGuardados;
     }
 
+    // CAMBIAR
     public List<ReparacionPorTipoAuto> reporteReparacionPorTipoAuto() {
         List<ReparacionPorTipoAuto> reparacionesPorTipoAuto = new ArrayList<>();
 
         for(int numeroReparacion = 1; numeroReparacion <= 11; numeroReparacion++) {
             List<Long> idRegistros = reparacionRespository.findIdRegistroByNumeroReparacion(numeroReparacion);
 
-            String tipoReparacion = reparacionRespository.findFirstByIdRegistro(idRegistros.get(0)).getTipoReparacion();
-            int numeroTiposAutos = registroService.obtenerNumeroTiposAutos(idRegistros);
-            int montoTotal = reparacionRespository.sumPrecioByNumeroReparacion(numeroReparacion);
+            if(!idRegistros.isEmpty()) {
+                String tipoReparacion = reparacionRespository.findFirstByIdRegistro(idRegistros.get(0)).getTipoReparacion();
+                int numeroTiposAutos = registroService.obtenerNumeroTiposAutos(idRegistros);
+                int montoTotal = reparacionRespository.sumPrecioByNumeroReparacion(numeroReparacion);
 
-            ReparacionPorTipoAuto reparacionPorTipoAuto = new ReparacionPorTipoAuto(tipoReparacion, numeroTiposAutos, montoTotal);
-            reparacionesPorTipoAuto.add(reparacionPorTipoAuto);
+                ReparacionPorTipoAuto reparacionPorTipoAuto = new ReparacionPorTipoAuto(tipoReparacion, numeroTiposAutos, montoTotal);
+                reparacionesPorTipoAuto.add(reparacionPorTipoAuto);
+            }
         }
 
         return reparacionesPorTipoAuto;
     }
 
+    // CAMBIAR
     public List<ReparacionPorTipoMotor> reporteReparacionPorTipoMotor() {
         List<ReparacionPorTipoMotor> reparacionesTipoMotor = new ArrayList<>();
 
         for(int numeroReparacion = 1; numeroReparacion <= 11; numeroReparacion++) {
             List<Long> idRegistros = reparacionRespository.findIdRegistroByNumeroReparacion(numeroReparacion);
 
-            String tipoReparacion = reparacionRespository.findFirstByIdRegistro(idRegistros.get(0)).getTipoReparacion();
-            int cantidadGasolina = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina");
-            int cantidadDiesel = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel");
-            int cantidadHibrido = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido");
-            int cantidadElectrico = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Electrico");
-            int montoTotal = reparacionRespository.sumPrecioByNumeroReparacion(numeroReparacion);
+            if(!idRegistros.isEmpty()) {
+                String tipoReparacion = reparacionRespository.findFirstByIdRegistro(idRegistros.get(0)).getTipoReparacion();
+                int cantidadGasolina = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina");
+                int cantidadDiesel = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel");
+                int cantidadHibrido = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido");
+                int cantidadElectrico = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Electrico");
+                int montoTotal = reparacionRespository.sumPrecioByNumeroReparacion(numeroReparacion);
 
-            ReparacionPorTipoMotor reparacionPorTipoMotor = new ReparacionPorTipoMotor(tipoReparacion, cantidadGasolina, cantidadDiesel, cantidadHibrido, cantidadElectrico, montoTotal);
-            reparacionesTipoMotor.add(reparacionPorTipoMotor);
+                ReparacionPorTipoMotor reparacionPorTipoMotor = new ReparacionPorTipoMotor(tipoReparacion, cantidadGasolina, cantidadDiesel, cantidadHibrido, cantidadElectrico, montoTotal);
+                reparacionesTipoMotor.add(reparacionPorTipoMotor);
+            }
         }
 
         return reparacionesTipoMotor;
