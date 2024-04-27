@@ -74,12 +74,12 @@ public class RegistroService {
         return sumaReparaciones;
     }
 
-    public double descuentoPorNumeroReparaciones(String patente, String tipoAuto) {
+    public double descuentoPorNumeroReparaciones(String patente, String tipoMotor) {
         int numeroReparaciones = contarReparaciones(patente);
         double descuento = .0;
 
         if(numeroReparaciones >= 1 && numeroReparaciones <= 2) {
-            descuento = switch (tipoAuto) {
+            descuento = switch (tipoMotor) {
                 case "Gasolina" -> .05;
                 case "Diesel" -> .07;
                 case "Híbrido" -> .1;
@@ -88,7 +88,7 @@ public class RegistroService {
             };
         }
         else if(numeroReparaciones >= 3 && numeroReparaciones <= 5) {
-            descuento = switch (tipoAuto) {
+            descuento = switch (tipoMotor) {
                 case "Gasolina" -> .1;
                 case "Diesel" -> .12;
                 case "Híbrido" -> .15;
@@ -97,7 +97,7 @@ public class RegistroService {
             };
         }
         else if(numeroReparaciones >= 6 && numeroReparaciones <= 9) {
-            descuento = switch (tipoAuto) {
+            descuento = switch (tipoMotor) {
                 case "Gasolina" -> .15;
                 case "Diesel" -> .17;
                 case "Híbrido" -> .2;
@@ -106,7 +106,7 @@ public class RegistroService {
             };
         }
         else if(numeroReparaciones >= 10) {
-            descuento = switch (tipoAuto) {
+            descuento = switch (tipoMotor) {
                 case "Gasolina" -> .2;
                 case "Diesel" -> .22;
                 case "Híbrido" -> .25;
@@ -122,8 +122,8 @@ public class RegistroService {
         DayOfWeek diaSemanaIngreso = fechaIngreso.getDayOfWeek();
         double descuento = .0;
 
-        if (diaSemanaIngreso.compareTo(DayOfWeek.THURSDAY) <= 0) {
-            if(!horaIngreso.isBefore(LocalTime.of(9, 0)) && !horaIngreso.isAfter(LocalTime.of(12, 0))) {
+        if (diaSemanaIngreso == DayOfWeek.MONDAY || diaSemanaIngreso == DayOfWeek.THURSDAY) {
+            if (!horaIngreso.isBefore(LocalTime.of(9, 0)) && !horaIngreso.isAfter(LocalTime.of(12, 0))) {
                 descuento = .1;
             }
         }
@@ -132,65 +132,65 @@ public class RegistroService {
     }
 
     public double recargoPorKilometraje(Integer kilometraje, String tipoAuto) {
-        double descuento = .0;
+        double recargo = .0;
 
         if(kilometraje >= 5001 && kilometraje <= 12000) {
-            descuento = switch (tipoAuto) {
+            recargo = switch (tipoAuto) {
                 case "Sedan", "Hatchback" -> .03;
                 case "SUV", "Pickup", "Furgoneta" -> .05;
-                default -> descuento;
+                default -> recargo;
             };
         }
         else if(kilometraje >= 12001 && kilometraje <= 25000) {
-            descuento = switch (tipoAuto) {
+            recargo = switch (tipoAuto) {
                 case "Sedan", "Hatchback" -> .07;
                 case "SUV", "Pickup", "Furgoneta" -> .09;
-                default -> descuento;
+                default -> recargo;
             };
         }
         else if(kilometraje >= 25001 && kilometraje <= 40000) {
-            descuento = switch (tipoAuto) {
+            recargo = switch (tipoAuto) {
                 case "Sedan", "Hatchback", "SUV", "Pickup", "Furgoneta" -> .12;
-                default -> descuento;
+                default -> recargo;
             };
         }
         else if(kilometraje > 40000) {
-            descuento = switch (tipoAuto) {
+            recargo = switch (tipoAuto) {
                 case "Sedan", "Hatchback", "SUV", "Pickup", "Furgoneta" -> .20;
-                default -> descuento;
+                default -> recargo;
             };
         }
 
-        return descuento;
+        return recargo;
     }
 
     public double recargoPorAntiguedad(int anoFabricacion, String tipoAuto) {
         int anoAntiguedad = 2024 - anoFabricacion;
-        double descuento = .0;
+        double recargo = .0;
 
         if(anoAntiguedad >= 6 && anoAntiguedad <= 10) {
-            descuento = switch (tipoAuto) {
+            recargo = switch (tipoAuto) {
                 case "Sedan", "Hatchback" -> .05;
                 case "SUV", "Pickup", "Furgoneta" -> .07;
-                default -> descuento;
+                default -> recargo;
             };
         }
         else if(anoAntiguedad >= 11 && anoAntiguedad <= 15) {
-            descuento = switch (tipoAuto) {
+            recargo = switch (tipoAuto) {
                 case "Sedan", "Hatchback" -> .09;
                 case "SUV", "Pickup", "Furgoneta" -> .11;
-                default -> descuento;
+                default -> recargo;
             };
         }
         else if(anoAntiguedad >= 16) {
-            descuento = switch (tipoAuto) {
+            recargo = switch (tipoAuto) {
                 case "Sedan", "Hatchback" -> .15;
                 case "SUV", "Pickup", "Furgoneta" -> .20;
-                default -> descuento;
+                default -> recargo;
             };
         }
 
-        return descuento;
+        return recargo;
     }
 
     public double recargoPorRetrasoRecogida(LocalDate fechaSalida, LocalDate fechaRetiro) {
@@ -210,6 +210,7 @@ public class RegistroService {
         return cantidadReparaciones;
     }
 
+    // CAMBIAR
     public int obtenerNumeroTiposAutos(List<Long> idRegistros) {
         List<String> tiposAutos = new ArrayList<>();
 
@@ -225,6 +226,7 @@ public class RegistroService {
         return tiposAutos.size();
     }
 
+    // CAMBIAR
     public int obtenerNumeroPorTiposMotores(List<Long> idRegistros, String tipoMotor) {
         List<String> patentes = new ArrayList<>();
         int numeroAutos = 0;
