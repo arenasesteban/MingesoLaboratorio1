@@ -51,7 +51,7 @@ export default function ReparacionesFormulario() {
     const [bonosDisponibles, setbonosDisponibles] = useState([]);
 
     const manejarBonosDisponibles = (marca) => {
-        const bonosDisponibles = bonos.filter(bono => bono.marca === marca && bono.cantidad > 0);
+        const bonosDisponibles = bonos.filter(bono => bono.marca === marca);
         setbonosDisponibles(bonosDisponibles);
     }
 
@@ -69,6 +69,38 @@ export default function ReparacionesFormulario() {
 
     const { bonos, modificarBono } = useContext(BonoContext);
     const navigate = useNavigate();
+
+    const calcularPrecioReparaciones = (reparaciones, tipoMotor) => {
+        const reparacionesConPrecio = []
+        let precio = 0;
+
+        for(const reparacion of reparaciones) {
+            switch (tipoMotor) {
+                case "Gasolina":
+                    precio = reparacion.gasolina;
+                    break;
+                case "Diesel":
+                    precio = reparacion.diesel;
+                    break;
+                case "Híbrido":
+                    precio = reparacion.hibrido;
+                    break;
+                case "Eléctrico":
+                    precio = reparacion.electrico;
+                    break;
+            }
+
+            const reparacionObjeto = {
+                numeroReparacion: reparacion.numeroReparacion,
+                tipoReparacion: reparacion.tipoReparacion,
+                precio,
+            };
+    
+            reparacionesConPrecio.push(reparacionObjeto);
+        }
+
+        return reparacionesConPrecio;
+    }
 
     async function manejarCrearRegistro(e) {
         e.preventDefault();
@@ -88,12 +120,15 @@ export default function ReparacionesFormulario() {
             const responseVehiculo = await vehiculoService.actualizarVehiculo(patente, kilometraje);
             console.log("Response - Actualizar vehiculo", responseVehiculo.data);
 
-            const responseReparacion = await reparacionService.crearReparacion(reparacionesSeleccionadas, responseRegistro.data.idRegistro, tipoMotor);
+            const reparacionesConPrecio = calcularPrecioReparaciones(reparacionesSeleccionadas, tipoMotor);
+            const responseReparacion = await reparacionService.crearReparacion(reparacionesConPrecio, responseRegistro.data.idRegistro);
             console.log("Response - Crear reparación", responseReparacion.data);
 
-            alert("[ÉXITO]");
+            if(bono > 0) {
+                modificarBono(marca, bono);
+            }
 
-            modificarBono(marca, bono);
+            alert("[ÉXITO]");
             navigate(`/reparaciones/registrar/detalle/${responseRegistro.data.idRegistro}/${bono}`);
         } catch (error) {
             console.log(error);
