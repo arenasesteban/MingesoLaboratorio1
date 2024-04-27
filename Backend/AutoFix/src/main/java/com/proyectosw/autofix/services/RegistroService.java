@@ -136,41 +136,27 @@ public class RegistroService {
 
         if(kilometraje >= 5001 && kilometraje <= 12000) {
             descuento = switch (tipoAuto) {
-                case "Sedan" -> .03;
-                case "Hatchback" -> .03;
-                case "SUV" -> .05;
-                case "Pickup" -> .05;
-                case "Furgoneta" -> .05;
+                case "Sedan", "Hatchback" -> .03;
+                case "SUV", "Pickup", "Furgoneta" -> .05;
                 default -> descuento;
             };
         }
         else if(kilometraje >= 12001 && kilometraje <= 25000) {
             descuento = switch (tipoAuto) {
-                case "Sedan" -> .07;
-                case "Hatchback" -> .07;
-                case "SUV" -> .09;
-                case "Pickup" -> .09;
-                case "Furgoneta" -> .09;
+                case "Sedan", "Hatchback" -> .07;
+                case "SUV", "Pickup", "Furgoneta" -> .09;
                 default -> descuento;
             };
         }
         else if(kilometraje >= 25001 && kilometraje <= 40000) {
             descuento = switch (tipoAuto) {
-                case "Sedan" -> .12;
-                case "Hatchback" -> .12;
-                case "SUV" -> .12;
-                case "Pickup" -> .12;
-                case "Furgoneta" -> .12;
+                case "Sedan", "Hatchback", "SUV", "Pickup", "Furgoneta" -> .12;
                 default -> descuento;
             };
         }
         else if(kilometraje > 40000) {
             descuento = switch (tipoAuto) {
-                case "Sedan" -> .20;
-                case "Hatchback" -> .20;
-                case "SUV" -> .20;
-                case "Pickup" -> .20;
-                case "Furgoneta" -> .20;
+                case "Sedan", "Hatchback", "SUV", "Pickup", "Furgoneta" -> .20;
                 default -> descuento;
             };
         }
@@ -184,31 +170,22 @@ public class RegistroService {
 
         if(anoAntiguedad >= 6 && anoAntiguedad <= 10) {
             descuento = switch (tipoAuto) {
-                case "Sedan" -> .05;
-                case "Hatchback" -> .05;
-                case "SUV" -> .07;
-                case "Pickup" -> .07;
-                case "Furgoneta" -> .07;
+                case "Sedan", "Hatchback" -> .05;
+                case "SUV", "Pickup", "Furgoneta" -> .07;
                 default -> descuento;
             };
         }
         else if(anoAntiguedad >= 11 && anoAntiguedad <= 15) {
             descuento = switch (tipoAuto) {
-                case "Sedan" -> .09;
-                case "Hatchback" -> .09;
-                case "SUV" -> .11;
-                case "Pickup" -> .11;
-                case "Furgoneta" -> .11;
+                case "Sedan", "Hatchback" -> .09;
+                case "SUV", "Pickup", "Furgoneta" -> .11;
                 default -> descuento;
             };
         }
         else if(anoAntiguedad >= 16) {
             descuento = switch (tipoAuto) {
-                case "Sedan" -> .15;
-                case "Hatchback" -> .15;
-                case "SUV" -> .20;
-                case "Pickup" -> .20;
-                case "Furgoneta" -> .20;
+                case "Sedan", "Hatchback" -> .15;
+                case "SUV", "Pickup", "Furgoneta" -> .20;
                 default -> descuento;
             };
         }
