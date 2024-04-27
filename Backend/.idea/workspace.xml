@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/services/ReparacionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/services/ReparacionServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "JUnit.VehiculoServiceTest.executor": "Coverage",
+    "JUnit.VehiculoServiceTest.executor": "Run",
     "JUnit.VehiculoServiceTest.testObtenerVehiculos.executor": "Run",
     "JUnit.VehiculoServiceTest.testRegistrarVehiculo.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -75,7 +74,7 @@
       <recent name="D:\Esteban Usach\2024.1\MINGESO\MingesoLaboratorio1\Backend\autofix\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VehiculoServiceTest">
+  <component name="RunManager" selected="Spring Boot.AutofixApplication">
     <configuration name="VehiculoServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
@@ -182,7 +181,8 @@
       <workItem from="1713991554508" duration="14193000" />
       <workItem from="1714057776688" duration="2884000" />
       <workItem from="1714082585103" duration="1837000" />
-      <workItem from="1714173575478" duration="17752000" />
+      <workItem from="1714173575478" duration="17951000" />
+      <workItem from="1714226444359" duration="1483000" />
     </task>
     <servers />
   </component>
