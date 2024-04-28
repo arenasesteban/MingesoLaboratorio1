@@ -79,8 +79,8 @@ public class VehiculoServiceTest {
         Mockito.when(vehiculoRepository.findDistinctMarca()).thenReturn(marcas);
         Mockito.when(vehiculoRepository.findPatenteByMarca("Hyundai")).thenReturn(patentesMarcasA);
         Mockito.when(vehiculoRepository.findPatenteByMarca("Chevrolet")).thenReturn(patentesMarcasB);
-        Mockito.when(registroService.calcularPromedioTiempoReparacion(patentesMarcasA)).thenReturn(2L);
-        Mockito.when(registroService.calcularPromedioTiempoReparacion(patentesMarcasB)).thenReturn(5L);
+        Mockito.when(registroService.calcularPromedioTiempoReparacion(patentesMarcasA)).thenReturn(2);
+        Mockito.when(registroService.calcularPromedioTiempoReparacion(patentesMarcasB)).thenReturn(5);
     }
 
     @Test

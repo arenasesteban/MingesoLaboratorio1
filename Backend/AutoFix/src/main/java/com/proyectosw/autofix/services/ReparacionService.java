@@ -32,7 +32,6 @@ public class ReparacionService {
         return reparacionesGuardados;
     }
 
-    // CAMBIAR
     public List<ReparacionPorTipoAuto> reporteReparacionPorTipoAuto() {
         List<ReparacionPorTipoAuto> reparacionesPorTipoAuto = new ArrayList<>();
 
@@ -52,7 +51,6 @@ public class ReparacionService {
         return reparacionesPorTipoAuto;
     }
 
-    // CAMBIAR
     public List<ReparacionPorTipoMotor> reporteReparacionPorTipoMotor() {
         List<ReparacionPorTipoMotor> reparacionesTipoMotor = new ArrayList<>();
 

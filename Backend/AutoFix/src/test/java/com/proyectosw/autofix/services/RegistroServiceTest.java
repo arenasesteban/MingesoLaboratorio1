@@ -1,5 +1,6 @@
 package com.proyectosw.autofix.services;
 
+import com.proyectosw.autofix.dtos.Detalle;
 import com.proyectosw.autofix.entities.RegistroEntity;
 import com.proyectosw.autofix.entities.ReparacionEntity;
 import com.proyectosw.autofix.entities.VehiculoEntity;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.internal.util.concurrent.DetachedThreadLocal;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
@@ -117,7 +119,10 @@ public class RegistroServiceTest {
 
         Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("LJSY77", LocalDate.now().minusMonths(12).minusDays(1)))
                 .thenReturn(registrosA);
-        // Mockito.when(registroRepository.findPatenteByIdRegistro(1L)).thenReturn("LJSY77");
+        Mockito.when(registroRepository.findPatenteByIdRegistro(1L)).thenReturn("LJSY77");
+        Mockito.when(registroRepository.findPatenteByIdRegistro(2L)).thenReturn("LJSY77");
+        Mockito.when(vehiculoRepository.countTipoMotor("LJSY77", "Gasolina")).thenReturn(1);
+        Mockito.when(registroRepository.findRegistroEntitiesByPatente("LJSY77")).thenReturn(registrosA);
     }
 
     @Test
@@ -174,7 +179,17 @@ public class RegistroServiceTest {
 
     @Test
     public void testCalcularTotal() {
+        Detalle detalle = new Detalle();
+        detalle.setReparaciones(270000);
+        detalle.setRecargos(67500);
+        detalle.setDescuentos(27000);
+        detalle.setIva(58995);
+        detalle.setMontoTotal(369495);
+        
+        Detalle detalleTest = registroService.calcularTotal(1L, 0);
 
+        assertEquals(detalle, detalleTest);
+        System.out.println("Detalle registro = " + detalleTest);
     }
 
     @Test
@@ -197,6 +212,657 @@ public class RegistroServiceTest {
         System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
     }
 
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso0() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .1;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Gasolina");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso1() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .12;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Diesel");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso2() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacion = new ReparacionEntity();
+        reparacion.setIdReparacion(1L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacion);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .05;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Gasolina");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso3() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacion = new ReparacionEntity();
+        reparacion.setIdReparacion(1L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacion);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .07;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Diesel");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso4() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacion = new ReparacionEntity();
+        reparacion.setIdReparacion(1L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacion);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .1;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Híbrido");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso5() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacion = new ReparacionEntity();
+        reparacion.setIdReparacion(1L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacion);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .08;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Eléctrico");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso6() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .15;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Gasolina");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso7() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .17;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Diesel");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso8() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .17;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Diesel");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso9() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .2;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Híbrido");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso10() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .18;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Eléctrico");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso11() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionG = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionH = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionI = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionJ = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+        reparaciones.add(reparacionG);
+        reparaciones.add(reparacionH);
+        reparaciones.add(reparacionI);
+        reparaciones.add(reparacionJ);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .2;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Gasolina");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso12() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionG = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionH = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionI = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionJ = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+        reparaciones.add(reparacionG);
+        reparaciones.add(reparacionH);
+        reparaciones.add(reparacionI);
+        reparaciones.add(reparacionJ);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .22;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Diesel");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso13() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionG = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionH = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionI = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionJ = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+        reparaciones.add(reparacionG);
+        reparaciones.add(reparacionH);
+        reparaciones.add(reparacionI);
+        reparaciones.add(reparacionJ);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .25;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Híbrido");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
+    @Test
+    public void testDescuentoPorNumeroReparacionesCaso14() {
+        RegistroEntity registro = new RegistroEntity();
+        registro.setIdRegistro(1L);
+
+        List<RegistroEntity> registros = new ArrayList<>();
+        registros.add(registro);
+
+        ReparacionEntity reparacionA = new ReparacionEntity();
+        reparacionA.setIdReparacion(1L);
+
+        ReparacionEntity reparacionB = new ReparacionEntity();
+        reparacionB.setIdReparacion(2L);
+
+        ReparacionEntity reparacionC = new ReparacionEntity();
+        reparacionC.setIdReparacion(3L);
+
+        ReparacionEntity reparacionD = new ReparacionEntity();
+        reparacionD.setIdReparacion(4L);
+
+        ReparacionEntity reparacionE = new ReparacionEntity();
+        reparacionE.setIdReparacion(5L);
+
+        ReparacionEntity reparacionF = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionG = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionH = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionI = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        ReparacionEntity reparacionJ = new ReparacionEntity();
+        reparacionF.setIdReparacion(6L);
+
+        List<ReparacionEntity> reparaciones = new ArrayList<>();
+        reparaciones.add(reparacionA);
+        reparaciones.add(reparacionB);
+        reparaciones.add(reparacionC);
+        reparaciones.add(reparacionD);
+        reparaciones.add(reparacionE);
+        reparaciones.add(reparacionF);
+        reparaciones.add(reparacionG);
+        reparaciones.add(reparacionH);
+        reparaciones.add(reparacionI);
+        reparaciones.add(reparacionJ);
+
+        Mockito.when(registroRepository.findByPatenteAndFechaSalidaAfter("BKLF54", LocalDate.now().minusMonths(12).minusDays(1)))
+                .thenReturn(registros);
+        Mockito.when(reparacionRepository.findByIdRegistro(registro.getIdRegistro())).thenReturn(reparaciones);
+
+        double descuento = .23;
+
+        double descuentoPorNumeroReparacionesTest = registroService.descuentoPorNumeroReparaciones("BKLF54", "Eléctrico");
+
+        assertEquals(descuento, descuentoPorNumeroReparacionesTest);
+        System.out.println("Descuento por numero reparaciones = " + descuentoPorNumeroReparacionesTest);
+    }
+
     @Test
     public void testDescuentoPorDiaAtencion() {
         double descuento = .1;
@@ -208,7 +874,7 @@ public class RegistroServiceTest {
     }
 
     @Test
-    public void testRecargoPorKilometraje() {
+    public void testRecargoPorKilometrajeCaso1() {
         double recargo = .03;
 
         double recargoTest = registroService.recargoPorKilometraje(6000, "Sedan");
@@ -218,10 +884,109 @@ public class RegistroServiceTest {
     }
 
     @Test
-    public void testRecargoPorAntiguedad() {
+    public void testRecargoPorKilometrajeCaso2() {
+        double recargo = .07;
+
+        double recargoTest = registroService.recargoPorKilometraje(13000, "Sedan");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por kilometraje = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorKilometrajeCaso3() {
+        double recargo = .12;
+
+        double recargoTest = registroService.recargoPorKilometraje(26000, "Sedan");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por kilometraje = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorKilometrajeCaso4() {
+        double recargo = .2;
+
+        double recargoTest = registroService.recargoPorKilometraje(41000, "Sedan");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por kilometraje = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorKilometrajeCaso5() {
+        double recargo = .05;
+
+        double recargoTest = registroService.recargoPorKilometraje(6000, "SUV");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por kilometraje = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorKilometrajeCaso6() {
+        double recargo = .09;
+
+        double recargoTest = registroService.recargoPorKilometraje(13000, "SUV");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por kilometraje = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorAntiguedadCaso1() {
         double recargo = .05;
 
         double recargoTest = registroService.recargoPorAntiguedad(2018, "Sedan");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por antiguedad = " + recargoTest);
+    }
+    @Test
+    public void testRecargoPorAntiguedadCaso2() {
+        double recargo = .09;
+
+        double recargoTest = registroService.recargoPorAntiguedad(2013, "Sedan");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por antiguedad = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorAntiguedadCaso3() {
+        double recargo = .15;
+
+        double recargoTest = registroService.recargoPorAntiguedad(2008, "Sedan");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por antiguedad = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorAntiguedadCaso4() {
+        double recargo = .07;
+
+        double recargoTest = registroService.recargoPorAntiguedad(2018, "SUV");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por antiguedad = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorAntiguedadCaso5() {
+        double recargo = .11;
+
+        double recargoTest = registroService.recargoPorAntiguedad(2013, "SUV");
+
+        assertEquals(recargo, recargoTest);
+        System.out.println("Recargo por antiguedad = " + recargoTest);
+    }
+
+    @Test
+    public void testRecargoPorAntiguedadCaso6() {
+        double recargo = .20;
+
+        double recargoTest = registroService.recargoPorAntiguedad(2008, "SUV");
 
         assertEquals(recargo, recargoTest);
         System.out.println("Recargo por antiguedad = " + recargoTest);
@@ -238,12 +1003,53 @@ public class RegistroServiceTest {
     }
 
     @Test
-    public void contarReparaciones() {
+    public void testContarReparaciones() {
         int cantidadReparaciones = 3;
 
         int cantidadReparacionesTest = registroService.contarReparaciones("LJSY77");
 
         assertEquals(cantidadReparaciones, cantidadReparacionesTest);
         System.out.println("Cantidad de reparaciones = " + cantidadReparacionesTest);
+    }
+
+    @Test
+    public void testObtenerNumeroTiposAutos() {
+        List<Long> idRegistros = new ArrayList<>();
+        idRegistros.add(1L);
+        idRegistros.add(2L);
+
+        int tiposAutos = 1;
+
+        int tiposAutosTest = registroService.obtenerNumeroTiposAutos(idRegistros);
+
+        assertEquals(tiposAutos, tiposAutosTest);
+        System.out.println("Cantidad tipos de autos = " + tiposAutos);
+    }
+
+    @Test
+    public void testObtenerNumeroPorTiposMotores() {
+        List<Long> idRegistros = new ArrayList<>();
+        idRegistros.add(1L);
+        idRegistros.add(2L);
+
+        int numeroAutos = 1;
+
+        int numeroAutosTest = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina");
+
+        assertEquals(numeroAutos, numeroAutosTest);
+        System.out.println("Cantidad de autos = " + numeroAutosTest);
+    }
+
+    @Test
+    public void testCalcularPromedioTiempoReparacion() {
+        List<String> patentes = new ArrayList<>();
+        patentes.add("LJSY77");
+
+        double promedioTiempoReparacion = 1;
+
+        double promedioTiempoReparacionTest = registroService.calcularPromedioTiempoReparacion(patentes);
+
+        assertEquals(promedioTiempoReparacion, promedioTiempoReparacionTest);
+        System.out.println("Promedio tiempo de reparacion = " + promedioTiempoReparacionTest);
     }
 }

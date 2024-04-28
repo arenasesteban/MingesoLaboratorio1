@@ -37,7 +37,7 @@ public class VehiculoService {
 
         for(String marca : marcas) {
             List<String> patentes = vehiculoRepository.findPatenteByMarca(marca);
-            long tiempoPromedioReparacion = registroService.calcularPromedioTiempoReparacion(patentes);
+            int tiempoPromedioReparacion = registroService.calcularPromedioTiempoReparacion(patentes);
 
             TiempoReparacionPorMarca tiempoReparacionPorMarca = new TiempoReparacionPorMarca(marca, tiempoPromedioReparacion);
             tiempoReparacionesPorMarca.add(tiempoReparacionPorMarca);

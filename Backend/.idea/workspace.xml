@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/services/RegistroServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/services/RegistroServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +44,14 @@
   "keyToString": {
     "JUnit.RegistroServiceTest.contarReparaciones.executor": "Run",
     "JUnit.RegistroServiceTest.executor": "Coverage",
+    "JUnit.RegistroServiceTest.testCalcularTotal.executor": "Run",
     "JUnit.RegistroServiceTest.testCalcularTotalReparaciones.executor": "Run",
     "JUnit.RegistroServiceTest.testCrearRegistro.executor": "Run",
     "JUnit.RegistroServiceTest.testDescuentoPorDiaAtencion.executor": "Run",
     "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparaciones.executor": "Run",
+    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso2.executor": "Run",
+    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso3.executor": "Run",
+    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4.executor": "Run",
     "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesGasolina.executor": "Run",
     "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesSedan.executor": "Run",
     "JUnit.RegistroServiceTest.testObtenerRegistros.executor": "Run",
@@ -80,7 +82,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -95,7 +100,7 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.com.proyectosw.autofix.services in autofix">
-    <configuration name="RegistroServiceTest.testDescuentoPorDiaAtencion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
         <pattern>
@@ -105,13 +110,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
       <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.RegistroServiceTest" />
-      <option name="METHOD_NAME" value="testDescuentoPorDiaAtencion" />
+      <option name="METHOD_NAME" value="testDescuentoPorNumeroReparacionesCaso2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistroServiceTest.testDescuentoPorNumeroReparaciones" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
         <pattern>
@@ -121,13 +126,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
       <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.RegistroServiceTest" />
-      <option name="METHOD_NAME" value="testDescuentoPorNumeroReparaciones" />
+      <option name="METHOD_NAME" value="testDescuentoPorNumeroReparacionesCaso3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistroServiceTest.testObtenerRegistros" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
         <pattern>
@@ -137,7 +142,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
       <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.RegistroServiceTest" />
-      <option name="METHOD_NAME" value="testObtenerRegistros" />
+      <option name="METHOD_NAME" value="testDescuentoPorNumeroReparacionesCaso4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -183,9 +188,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.com.proyectosw.autofix.services in autofix" />
-        <item itemvalue="JUnit.RegistroServiceTest.testObtenerRegistros" />
-        <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparaciones" />
-        <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorDiaAtencion" />
+        <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4" />
+        <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso2" />
+        <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso3" />
         <item itemvalue="JUnit.RegistroServiceTest.testRecargoPorKilometraje" />
       </list>
     </recent_temporary>
@@ -236,7 +241,8 @@
       <workItem from="1714082585103" duration="1837000" />
       <workItem from="1714173575478" duration="17951000" />
       <workItem from="1714226444359" duration="3419000" />
-      <workItem from="1714231227746" duration="12254000" />
+      <workItem from="1714231227746" duration="12562000" />
+      <workItem from="1714271787988" duration="10080000" />
     </task>
     <servers />
   </component>
@@ -258,7 +264,7 @@
     <SUITE FILE_PATH="coverage/Backend$RegistroServiceTest.ic" NAME="RegistroServiceTest Coverage Results" MODIFIED="1714241687082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Backend$com_proyectosw_autofix_services_in_autofix.ic" NAME="com.proyectosw.autofix.services in autofix Coverage Results" MODIFIED="1714244653040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Backend$com_proyectosw_autofix_services_in_autofix.ic" NAME="com.proyectosw.autofix.services in autofix Coverage Results" MODIFIED="1714286706011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
   </component>

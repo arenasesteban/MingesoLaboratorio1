@@ -156,7 +156,7 @@ public class RegistroService {
         }
         else if(kilometraje > 40000) {
             recargo = switch (tipoAuto) {
-                case "Sedan", "Hatchback", "SUV", "Pickup", "Furgoneta" -> .20;
+                case "Sedan", "Hatchback", "SUV", "Pickup", "Furgoneta" -> .2;
                 default -> recargo;
             };
         }
@@ -209,8 +209,6 @@ public class RegistroService {
 
         return cantidadReparaciones;
     }
-
-    // CAMBIAR
     public int obtenerNumeroTiposAutos(List<Long> idRegistros) {
         List<String> tiposAutos = new ArrayList<>();
 
@@ -225,8 +223,6 @@ public class RegistroService {
 
         return tiposAutos.size();
     }
-
-    // CAMBIAR
     public int obtenerNumeroPorTiposMotores(List<Long> idRegistros, String tipoMotor) {
         List<String> patentes = new ArrayList<>();
         int numeroAutos = 0;
@@ -243,7 +239,7 @@ public class RegistroService {
         return numeroAutos;
     }
 
-    public long calcularPromedioTiempoReparacion(List<String> patentes) {
+    public int calcularPromedioTiempoReparacion(List<String> patentes) {
         long sumaDiasReparacion = 0L;
         int cantidadRegistros = 0;
 
@@ -257,10 +253,6 @@ public class RegistroService {
             cantidadRegistros += registros.size();
         }
 
-        if(cantidadRegistros != 0) {
-            return sumaDiasReparacion / (long) cantidadRegistros;
-        }
-
-        return -1;
+        return (int) (sumaDiasReparacion / cantidadRegistros);
     }
 }
