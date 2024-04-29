@@ -146,7 +146,7 @@ export default function ReparacionesFormulario() {
                     </div>
                 </div>
                 <form className="mt-6">
-                    <div className="grid gap-4 grid-cols-2">
+                    <div className="grid gap-4 grid-cols-3">
                         <div>
                             <label for="patente" class="block mb-2 font-medium text-gray-700">Patente</label>
                             <select id="patente" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
@@ -170,6 +170,20 @@ export default function ReparacionesFormulario() {
                         <div>
                             <label for="kilometraje" class="block mb-2 font-medium text-gray-700">Kilometraje</label>
                             <input type="number" id="kilometraje" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setKilometriaje(e.target.value)} required />
+                        </div>
+                        <div>
+                            <label for="bono" class="block mb-2 font-medium text-gray-700">Bono</label>
+                            <select id="bono" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" onChange={e => setBono(e.target.value)} required>
+                                <option value="">Seleccionar opción</option>
+                                <option value="0">No aplicar</option>
+                                {
+                                    bonosDisponibles.map((bono, index) => (
+                                        <option key={index} value={bono.valor}>
+                                            $ {bono.valor}
+                                        </option>
+                                    ))
+                                }
+                            </select>
                         </div>
                         <div>
                             <label for="patente" class="block mb-2 font-medium text-gray-700">Reparaciones disponibles</label>
@@ -197,6 +211,7 @@ export default function ReparacionesFormulario() {
                                 }
                             </select>
                         </div>
+                        <div></div>
                         <div>
                             <label for="fechaIngreso" class="block mb-2 font-medium text-gray-700">Fecha ingreso</label>
                             <input type="date" id="fechaIngreso" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setFechaIngreso(e.target.value)} required />
@@ -205,6 +220,7 @@ export default function ReparacionesFormulario() {
                             <label for="horaIngreso" class="block mb-2 font-medium text-gray-700">Hora ingreso</label>
                             <input type="time" id="horaIngreso" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setHoraIngreso(e.target.value)} required />
                         </div>
+                        <div></div>
                         <div>
                             <label for="fechaSalida" class="block mb-2 font-medium text-gray-700">Fecha salida</label>
                             <input type="date" id="fechaSalida" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setFechaSalida(e.target.value)} required />
@@ -213,6 +229,7 @@ export default function ReparacionesFormulario() {
                             <label for="horaSalida" class="block mb-2 font-medium text-gray-700">Hora salida</label>
                             <input type="time" id="horaSalida" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setHoraSalida(e.target.value)} required />
                         </div>
+                        <div></div>
                         <div>
                             <label for="fechaRetiro" class="block mb-2 font-medium text-gray-700">Fecha retiro</label>
                             <input type="date" id="fechaRetiro" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setFechaRetiro(e.target.value)} required />
@@ -220,20 +237,6 @@ export default function ReparacionesFormulario() {
                         <div>
                             <label for="horaRetiro" class="block mb-2 font-medium text-gray-700">Hora retiro</label>
                             <input type="time" id="horaRetiro" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" onChange={e => setHoraRetiro(e.target.value)} required />
-                        </div>
-                        <div>
-                            <label for="bono" class="block mb-2 font-medium text-gray-700">Bono</label>
-                            <select id="bono" class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" onChange={e => setBono(e.target.value)} required>
-                                <option value="">Seleccionar opción</option>
-                                <option value="0">No aplicar</option>
-                                {
-                                    bonosDisponibles.map((bono, index) => (
-                                        <option key={index} value={bono.valor}>
-                                            $ {bono.valor}
-                                        </option>
-                                    ))
-                                }
-                            </select>
                         </div>
                         <div className="flex items-end justify-end">
                             <BotonRegistrar onClick={manejarCrearRegistro} tipoAccion="Registrar"/>
