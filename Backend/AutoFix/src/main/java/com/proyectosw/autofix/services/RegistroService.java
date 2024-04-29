@@ -116,7 +116,6 @@ public class RegistroService {
             };
         }
 
-        System.out.println("D reparaciones = " + descuento);
         return descuento;
     }
 
@@ -130,7 +129,6 @@ public class RegistroService {
             }
         }
 
-        System.out.println("D atencion = " + descuento);
         return descuento;
     }
 
@@ -164,7 +162,6 @@ public class RegistroService {
             };
         }
 
-        System.out.println("R kilometraje = " + recargo);
         return recargo;
     }
 
@@ -194,13 +191,12 @@ public class RegistroService {
             };
         }
 
-        System.out.println("R antiguedad = " + recargo);
         return recargo;
     }
 
     public double recargoPorRetrasoRecogida(LocalDate fechaSalida, LocalDate fechaRetiro) {
         int retraso = Period.between(fechaSalida, fechaRetiro).getDays();
-        System.out.println("R retraso = " + retraso);
+
         return retraso * .05;
     }
 
@@ -208,14 +204,11 @@ public class RegistroService {
         LocalDate fechaInicio = fechaFinal.minusMonths(12).minusDays(1);
         List<Long> idRegistros = registroRepository.findByPatenteAndFechaReparacionAnterior(patente, fechaInicio, fechaFinal);
         int cantidadReparaciones = 0;
-        System.out.println("IdRegistros = " + idRegistros);
-        System.out.println("fechaFinal = " + fechaFinal);
-        System.out.println("fechaInicio = " + fechaInicio);
 
         for(Long idRegistro : idRegistros) {
             cantidadReparaciones += reparacionRespository.findByIdRegistro(idRegistro).size();
         }
-        System.out.println("Cantidad reparaciones = " + cantidadReparaciones);
+
         return cantidadReparaciones;
     }
 
