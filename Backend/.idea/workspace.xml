@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="" />
+    <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +76,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.AutofixApplication.executor": "Run",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Esteban Usach/2024.1/MINGESO/payroll-backend",
     "node.js.detected.package.eslint": "true",
@@ -241,7 +245,7 @@
       <workItem from="1714226444359" duration="3419000" />
       <workItem from="1714231227746" duration="12562000" />
       <workItem from="1714271787988" duration="10130000" />
-      <workItem from="1714422663265" duration="574000" />
+      <workItem from="1714422663265" duration="2844000" />
     </task>
     <servers />
   </component>

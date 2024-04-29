@@ -12,7 +12,8 @@ import java.util.List;
 public interface RegistroRepository extends JpaRepository<RegistroEntity, Long> {
     RegistroEntity findByIdRegistro(Long idRegistro);
 
-    List<RegistroEntity> findByPatenteAndFechaSalidaAfter(String patente, LocalDate fechaInicio);
+    @Query("SELECT r.idRegistro FROM RegistroEntity r WHERE r.patente = :patente AND r.fechaIngreso >= :fechaA AND r.fechaIngreso < :fechaB")
+    List<Long> findByPatenteAndFechaReparacionAnterior(String patente, LocalDate fechaA, LocalDate fechaB);
 
     @Query("SELECT r.patente FROM RegistroEntity r WHERE r.idRegistro = :idRegistro")
     String findPatenteByIdRegistro(Long idRegistro);

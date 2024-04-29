@@ -8,6 +8,7 @@ import com.proyectosw.autofix.repositories.RegistroRepository;
 import com.proyectosw.autofix.repositories.ReparacionRespository;
 import com.proyectosw.autofix.repositories.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import java.time.DayOfWeek;
@@ -47,7 +48,7 @@ public class RegistroService {
         double recargoPorAntiguedad = sumaReparaciones * recargoPorAntiguedad(vehiculo.getAnoFabricacion(), vehiculo.getTipoAuto());
         double recargoPorRestrasoRecogida = sumaReparaciones * recargoPorRetrasoRecogida(registro.getFechaSalida(), registro.getFechaRetiro());
 
-        double descuentoPorNumeroReparacion = sumaReparaciones * descuentoPorNumeroReparaciones(registro.getPatente(), vehiculo.getTipoMotor());
+        double descuentoPorNumeroReparacion = sumaReparaciones * descuentoPorNumeroReparaciones(registro.getPatente(), vehiculo.getTipoMotor(), registro.getFechaIngreso());
         double descuentoPorDiaAtencion = sumaReparaciones * descuentoPorDiaAtencion(registro.getFechaIngreso(), registro.getHoraIngreso());
 
         int recargos = (int) (recargoPorKilometraje + recargoPorAntiguedad + recargoPorRestrasoRecogida);
@@ -74,8 +75,8 @@ public class RegistroService {
         return sumaReparaciones;
     }
 
-    public double descuentoPorNumeroReparaciones(String patente, String tipoMotor) {
-        int numeroReparaciones = contarReparaciones(patente);
+    public double descuentoPorNumeroReparaciones(String patente, String tipoMotor, LocalDate fechaIngreso) {
+        int numeroReparaciones = contarReparaciones(patente, fechaIngreso);
         double descuento = .0;
 
         if(numeroReparaciones >= 1 && numeroReparaciones <= 2) {
@@ -115,6 +116,7 @@ public class RegistroService {
             };
         }
 
+        System.out.println("D reparaciones = " + descuento);
         return descuento;
     }
 
@@ -128,6 +130,7 @@ public class RegistroService {
             }
         }
 
+        System.out.println("D atencion = " + descuento);
         return descuento;
     }
 
@@ -161,6 +164,7 @@ public class RegistroService {
             };
         }
 
+        System.out.println("R kilometraje = " + recargo);
         return recargo;
     }
 
@@ -190,25 +194,31 @@ public class RegistroService {
             };
         }
 
+        System.out.println("R antiguedad = " + recargo);
         return recargo;
     }
 
     public double recargoPorRetrasoRecogida(LocalDate fechaSalida, LocalDate fechaRetiro) {
         int retraso = Period.between(fechaSalida, fechaRetiro).getDays();
+        System.out.println("R retraso = " + retraso);
         return retraso * .05;
     }
 
-    public int contarReparaciones(String patente) {
-        LocalDate fechaInicio = LocalDate.now().minusMonths(12).minusDays(1);
-        List<RegistroEntity> registros = registroRepository.findByPatenteAndFechaSalidaAfter(patente, fechaInicio);
+    public int contarReparaciones(String patente, LocalDate fechaFinal) {
+        LocalDate fechaInicio = fechaFinal.minusMonths(12).minusDays(1);
+        List<Long> idRegistros = registroRepository.findByPatenteAndFechaReparacionAnterior(patente, fechaInicio, fechaFinal);
         int cantidadReparaciones = 0;
+        System.out.println("IdRegistros = " + idRegistros);
+        System.out.println("fechaFinal = " + fechaFinal);
+        System.out.println("fechaInicio = " + fechaInicio);
 
-        for(RegistroEntity registro : registros) {
-            cantidadReparaciones += reparacionRespository.findByIdRegistro(registro.getIdRegistro()).size();
+        for(Long idRegistro : idRegistros) {
+            cantidadReparaciones += reparacionRespository.findByIdRegistro(idRegistro).size();
         }
-
+        System.out.println("Cantidad reparaciones = " + cantidadReparaciones);
         return cantidadReparaciones;
     }
+
     public int obtenerNumeroTiposAutos(List<Long> idRegistros) {
         List<String> tiposAutos = new ArrayList<>();
 

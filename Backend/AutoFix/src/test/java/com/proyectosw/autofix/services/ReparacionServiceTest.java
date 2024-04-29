@@ -82,7 +82,6 @@ public class ReparacionServiceTest {
         System.out.println("Reparaciones creadas = " + reparacionesTest);
     }
 
-    // CAMBIAR
     @Test
     public void testReporteReparacionPorTipoAuto() {
         ReparacionPorTipoAuto reparacionPorTipoAuto = new ReparacionPorTipoAuto();
@@ -99,7 +98,6 @@ public class ReparacionServiceTest {
         System.out.println("Reparaciones por tipo de auto = " + reparacionesPorTipoAutoTest);
     }
 
-    // CAMBIAR
     @Test
     public void testReporteReparacionTipoMotor() {
         ReparacionPorTipoMotor reparacionPorTipoMotor = new ReparacionPorTipoMotor();
