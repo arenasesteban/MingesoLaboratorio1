@@ -58,6 +58,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>autofix-backend</finalName>
 	</build>
-
 </project>
