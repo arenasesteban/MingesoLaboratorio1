@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/services/registro.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/services/registro.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/services/reparacion.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/services/reparacion.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/services/vehiculo.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/services/vehiculo.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +69,7 @@
     "JUnit.VehiculoServiceTest.testObtenerVehiculos.executor": "Run",
     "JUnit.VehiculoServiceTest.testRegistrarVehiculo.executor": "Run",
     "JUnit.com.proyectosw.autofix.services in autofix.executor": "Run",
+    "JUnit.services in autofix.executor": "Coverage",
     "Maven.autofix [install].executor": "Run",
     "Maven.autofix [package].executor": "Run",
     "Maven.autofix [test].executor": "Run",
@@ -85,7 +82,7 @@
     "Spring Boot.AutofixApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Esteban Usach/2024.1/MINGESO/MingesoLaboratorio1/Backend",
+    "last_opened_file_path": "D:/Esteban Usach/2024.1/MINGESO/ayudantia-mingeso/gestion-estudiantes-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -141,22 +138,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="autofix" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.RegistroServiceTest" />
-      <option name="METHOD_NAME" value="testDescuentoPorNumeroReparacionesCaso2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
@@ -187,6 +168,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="services in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="autofix" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/services" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AutofixApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="autofix" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.proyectosw.autofix.AutofixApplication" />
@@ -196,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.services in autofix" />
         <item itemvalue="JUnit.com.proyectosw.autofix.services in autofix" />
         <item itemvalue="JUnit.RegistroServiceTest.testContarReparaciones" />
         <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparaciones" />
         <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4" />
-        <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso2" />
       </list>
     </recent_temporary>
   </component>
@@ -254,7 +243,9 @@
       <workItem from="1714271787988" duration="10130000" />
       <workItem from="1714422663265" duration="4624000" />
       <workItem from="1714431483056" duration="6645000" />
-      <workItem from="1714444655458" duration="2230000" />
+      <workItem from="1714444655458" duration="2939000" />
+      <workItem from="1714447723803" duration="536000" />
+      <workItem from="1714448288244" duration="648000" />
     </task>
     <servers />
   </component>
@@ -273,6 +264,7 @@
     <SUITE FILE_PATH="coverage/Backend$VehiculoServiceTest.ic" NAME="VehiculoServiceTest Coverage Results" MODIFIED="1714232576641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Backend$services_in_autofix.ic" NAME="services in autofix Coverage Results" MODIFIED="1714447825753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Backend$RegistroServiceTest.ic" NAME="RegistroServiceTest Coverage Results" MODIFIED="1714241687082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>

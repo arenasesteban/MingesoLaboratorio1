@@ -1,18 +1,10 @@
-# Use the official Node.js runtime as the base image
-FROM node 
+FROM nginx:alpine
 
-# Set the working directory in the container
-WORKDIR /app
+COPY ../dist /usr/share/nginx/html
+COPY /nginx/conf.d /etc/nginx/conf.d
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the entire application code to the container
-COPY . .
-
+# Expose port 3000 for the Nginx server
 EXPOSE 3000
 
-CMD [ "npm", "run", "dev"]
+# Start Nginx when the container runs
+CMD ["nginx", "-g", "daemon off;"]
