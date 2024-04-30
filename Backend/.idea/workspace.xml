@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/AutofixApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/AutofixApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +30,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -43,8 +46,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.AutofixApplicationTests.executor": "Run",
     "JUnit.RegistroServiceTest.contarReparaciones.executor": "Run",
-    "JUnit.RegistroServiceTest.executor": "Coverage",
+    "JUnit.RegistroServiceTest.executor": "Run",
     "JUnit.RegistroServiceTest.testCalcularTotal.executor": "Run",
     "JUnit.RegistroServiceTest.testCalcularTotalReparaciones.executor": "Run",
     "JUnit.RegistroServiceTest.testContarReparaciones.executor": "Run",
@@ -61,15 +65,16 @@
     "JUnit.RegistroServiceTest.testRecargoPorKilometraje.executor": "Run",
     "JUnit.RegistroServiceTest.testRecargoPorRetrasoRecogida.executor": "Run",
     "JUnit.ReparacionServiceTest and 1 more.executor": "Coverage",
-    "JUnit.ReparacionServiceTest.executor": "Coverage",
+    "JUnit.ReparacionServiceTest.executor": "Run",
     "JUnit.ReparacionServiceTest.testCrearReparacion.executor": "Run",
     "JUnit.ReparacionServiceTest.testReporteReparacionPorTipoAuto.executor": "Run",
     "JUnit.ReparacionServiceTest.testReporteReparacionTipoMotor.executor": "Run",
-    "JUnit.VehiculoServiceTest.executor": "Coverage",
+    "JUnit.VehiculoServiceTest.executor": "Run",
     "JUnit.VehiculoServiceTest.testObtenerVehiculos.executor": "Run",
     "JUnit.VehiculoServiceTest.testRegistrarVehiculo.executor": "Run",
     "JUnit.com.proyectosw.autofix.services in autofix.executor": "Run",
     "JUnit.services in autofix.executor": "Coverage",
+    "Maven.autofix [clean].executor": "Run",
     "Maven.autofix [install].executor": "Run",
     "Maven.autofix [package].executor": "Run",
     "Maven.autofix [test].executor": "Run",
@@ -82,13 +87,13 @@
     "Spring Boot.AutofixApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Esteban Usach/2024.1/MINGESO/ayudantia-mingeso/gestion-estudiantes-backend",
+    "last_opened_file_path": "D:/Esteban Usach/2024.1/MINGESO/payroll-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "configurable.group.appearance",
@@ -105,8 +110,23 @@
       <recent name="D:\Esteban Usach\2024.1\MINGESO\MingesoLaboratorio1\Backend\autofix\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.AutofixApplication">
-    <configuration name="RegistroServiceTest.testContarReparaciones" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.services in autofix">
+    <configuration name="AutofixApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="autofix" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.proyectosw.autofix.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.proyectosw.autofix" />
+      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.AutofixApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistroServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
         <pattern>
@@ -116,13 +136,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
       <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.RegistroServiceTest" />
-      <option name="METHOD_NAME" value="testContarReparaciones" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistroServiceTest.testDescuentoPorNumeroReparaciones" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReparacionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
         <pattern>
@@ -131,14 +150,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.RegistroServiceTest" />
-      <option name="METHOD_NAME" value="testDescuentoPorNumeroReparaciones" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.ReparacionServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VehiculoServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
         <pattern>
@@ -147,23 +165,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.RegistroServiceTest" />
-      <option name="METHOD_NAME" value="testDescuentoPorNumeroReparacionesCaso4" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.proyectosw.autofix.services in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="autofix" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.VehiculoServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -186,10 +189,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.services in autofix" />
-        <item itemvalue="JUnit.com.proyectosw.autofix.services in autofix" />
-        <item itemvalue="JUnit.RegistroServiceTest.testContarReparaciones" />
-        <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparaciones" />
-        <item itemvalue="JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4" />
+        <item itemvalue="JUnit.RegistroServiceTest" />
+        <item itemvalue="JUnit.ReparacionServiceTest" />
+        <item itemvalue="JUnit.VehiculoServiceTest" />
+        <item itemvalue="JUnit.AutofixApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +248,7 @@
       <workItem from="1714431483056" duration="6645000" />
       <workItem from="1714444655458" duration="2939000" />
       <workItem from="1714447723803" duration="536000" />
-      <workItem from="1714448288244" duration="648000" />
+      <workItem from="1714448288244" duration="5122000" />
     </task>
     <servers />
   </component>
