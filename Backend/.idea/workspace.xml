@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/AutofixApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/AutofixApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +46,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.AutofixApplicationTests.executor": "Run",
+    "JUnit.RegistroControllerTest.calcularTotal.executor": "Run",
+    "JUnit.RegistroControllerTest.crearRegistro.executor": "Run",
+    "JUnit.RegistroControllerTest.obtenerRegistros.executor": "Run",
     "JUnit.RegistroServiceTest.contarReparaciones.executor": "Run",
     "JUnit.RegistroServiceTest.executor": "Run",
     "JUnit.RegistroServiceTest.testCalcularTotal.executor": "Run",
@@ -64,15 +66,24 @@
     "JUnit.RegistroServiceTest.testRecargoPorAntiguedad.executor": "Run",
     "JUnit.RegistroServiceTest.testRecargoPorKilometraje.executor": "Run",
     "JUnit.RegistroServiceTest.testRecargoPorRetrasoRecogida.executor": "Run",
+    "JUnit.ReparacionControllerTest.crearReparacion.executor": "Run",
     "JUnit.ReparacionServiceTest and 1 more.executor": "Coverage",
     "JUnit.ReparacionServiceTest.executor": "Run",
     "JUnit.ReparacionServiceTest.testCrearReparacion.executor": "Run",
     "JUnit.ReparacionServiceTest.testReporteReparacionPorTipoAuto.executor": "Run",
     "JUnit.ReparacionServiceTest.testReporteReparacionTipoMotor.executor": "Run",
+    "JUnit.VehiculoControllerTest.actualizarVehiculo.executor": "Run",
+    "JUnit.VehiculoControllerTest.executor": "Run",
+    "JUnit.VehiculoControllerTest.obtenerVehiculos.executor": "Run",
+    "JUnit.VehiculoControllerTest.registarVehiculo.executor": "Run",
+    "JUnit.VehiculoControllerTest.reporteTiempoReparacionPorMarca.executor": "Run",
     "JUnit.VehiculoServiceTest.executor": "Run",
     "JUnit.VehiculoServiceTest.testObtenerVehiculos.executor": "Run",
     "JUnit.VehiculoServiceTest.testRegistrarVehiculo.executor": "Run",
+    "JUnit.autofix in autofix.executor": "Coverage",
     "JUnit.com.proyectosw.autofix.services in autofix.executor": "Run",
+    "JUnit.controllers in autofix.executor": "Coverage",
+    "JUnit.java in autofix.executor": "Coverage",
     "JUnit.services in autofix.executor": "Coverage",
     "Maven.autofix [clean].executor": "Run",
     "Maven.autofix [install].executor": "Run",
@@ -110,71 +121,59 @@
       <recent name="D:\Esteban Usach\2024.1\MINGESO\MingesoLaboratorio1\Backend\autofix\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.services in autofix">
-    <configuration name="AutofixApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.java in autofix">
+    <configuration name="RegistroControllerTest.calcularTotal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.proyectosw.autofix.*" />
+          <option name="PATTERN" value="com.proyectosw.autofix.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.proyectosw.autofix" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.AutofixApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.controllers.RegistroControllerTest" />
+      <option name="METHOD_NAME" value="calcularTotal" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistroServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReparacionControllerTest.crearReparacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
+          <option name="PATTERN" value="com.proyectosw.autofix.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.RegistroServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.controllers.ReparacionControllerTest" />
+      <option name="METHOD_NAME" value="crearReparacion" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReparacionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="autofix" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.ReparacionServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VehiculoServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="autofix" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.VehiculoServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="services in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="autofix in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/services" />
+      <dir value="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="controllers in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="autofix" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/autofix/src/test/java/com/proyectosw/autofix/controllers" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="autofix" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/autofix/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,11 +187,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.services in autofix" />
-        <item itemvalue="JUnit.RegistroServiceTest" />
-        <item itemvalue="JUnit.ReparacionServiceTest" />
-        <item itemvalue="JUnit.VehiculoServiceTest" />
-        <item itemvalue="JUnit.AutofixApplicationTests" />
+        <item itemvalue="JUnit.java in autofix" />
+        <item itemvalue="JUnit.autofix in autofix" />
+        <item itemvalue="JUnit.ReparacionControllerTest.crearReparacion" />
+        <item itemvalue="JUnit.controllers in autofix" />
+        <item itemvalue="JUnit.RegistroControllerTest.calcularTotal" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +247,7 @@
       <workItem from="1714431483056" duration="6645000" />
       <workItem from="1714444655458" duration="2939000" />
       <workItem from="1714447723803" duration="536000" />
-      <workItem from="1714448288244" duration="5122000" />
+      <workItem from="1714448288244" duration="11346000" />
     </task>
     <servers />
   </component>
@@ -261,18 +260,20 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Backend$ReparacionServiceTest_and_1_more.ic" NAME="ReparacionServiceTest and 1 more Coverage Results" MODIFIED="1714232647752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Backend$controllers_in_autofix.ic" NAME="controllers in autofix Coverage Results" MODIFIED="1714467299245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Backend$ReparacionServiceTest.ic" NAME="ReparacionServiceTest Coverage Results" MODIFIED="1714233158877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Backend$VehiculoServiceTest.ic" NAME="VehiculoServiceTest Coverage Results" MODIFIED="1714232576641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Backend$services_in_autofix.ic" NAME="services in autofix Coverage Results" MODIFIED="1714447825753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Backend$services_in_autofix.ic" NAME="services in autofix Coverage Results" MODIFIED="1714463358019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Backend$RegistroServiceTest.ic" NAME="RegistroServiceTest Coverage Results" MODIFIED="1714241687082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Backend$com_proyectosw_autofix_services_in_autofix.ic" NAME="com.proyectosw.autofix.services in autofix Coverage Results" MODIFIED="1714427206866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Backend$java_in_autofix.ic" NAME="java in autofix Coverage Results" MODIFIED="1714468331780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
