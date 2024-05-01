@@ -34,42 +34,36 @@ public class ReparacionService {
 
     public List<ReparacionPorTipoAuto> reporteReparacionPorTipoAuto() {
         List<ReparacionPorTipoAuto> reparacionesPorTipoAuto = new ArrayList<>();
+        List<String> tiposReparaciones = reparacionRespository.findDistinctTipoReparacion();
 
-        for(int numeroReparacion = 1; numeroReparacion <= 11; numeroReparacion++) {
-            List<Long> idRegistros = reparacionRespository.findIdRegistroByNumeroReparacion(numeroReparacion);
+        for(String tipoReparacion : tiposReparaciones) {
+            List<Long> idRegistros = reparacionRespository.findIdRegistroByTipoReparacion(tipoReparacion);
+            int numeroTiposAutos = registroService.obtenerNumeroTiposAutos(idRegistros);
+            int montoTotal = reparacionRespository.sumPrecioByTipoReparacion(tipoReparacion);
 
-            if(!idRegistros.isEmpty()) {
-                String tipoReparacion = reparacionRespository.findFirstByIdRegistro(idRegistros.get(0)).getTipoReparacion();
-                int numeroTiposAutos = registroService.obtenerNumeroTiposAutos(idRegistros);
-                int montoTotal = reparacionRespository.sumPrecioByNumeroReparacion(numeroReparacion);
-
-                ReparacionPorTipoAuto reparacionPorTipoAuto = new ReparacionPorTipoAuto(tipoReparacion, numeroTiposAutos, montoTotal);
-                reparacionesPorTipoAuto.add(reparacionPorTipoAuto);
-            }
+            ReparacionPorTipoAuto reparacionPorTipoAuto = new ReparacionPorTipoAuto(tipoReparacion, numeroTiposAutos, montoTotal);
+            reparacionesPorTipoAuto.add(reparacionPorTipoAuto);
         }
-
+        System.out.println("REPORTE - REPARACIONES POR TIPO AUTO: " + reparacionesPorTipoAuto);
         return reparacionesPorTipoAuto;
     }
 
     public List<ReparacionPorTipoMotor> reporteReparacionPorTipoMotor() {
         List<ReparacionPorTipoMotor> reparacionesTipoMotor = new ArrayList<>();
+        List<String> tiposReparaciones = reparacionRespository.findDistinctTipoReparacion();
 
-        for(int numeroReparacion = 1; numeroReparacion <= 11; numeroReparacion++) {
-            List<Long> idRegistros = reparacionRespository.findIdRegistroByNumeroReparacion(numeroReparacion);
+        for(String tipoReparacion : tiposReparaciones) {
+            List<Long> idRegistros = reparacionRespository.findIdRegistroByTipoReparacion(tipoReparacion);
+            int cantidadGasolina = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina");
+            int cantidadDiesel = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel");
+            int cantidadHibrido = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido");
+            int cantidadElectrico = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Electrico");
+            int montoTotal = reparacionRespository.sumPrecioByTipoReparacion(tipoReparacion);
 
-            if(!idRegistros.isEmpty()) {
-                String tipoReparacion = reparacionRespository.findFirstByIdRegistro(idRegistros.get(0)).getTipoReparacion();
-                int cantidadGasolina = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina");
-                int cantidadDiesel = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel");
-                int cantidadHibrido = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido");
-                int cantidadElectrico = registroService.obtenerNumeroPorTiposMotores(idRegistros, "Electrico");
-                int montoTotal = reparacionRespository.sumPrecioByNumeroReparacion(numeroReparacion);
-
-                ReparacionPorTipoMotor reparacionPorTipoMotor = new ReparacionPorTipoMotor(tipoReparacion, cantidadGasolina, cantidadDiesel, cantidadHibrido, cantidadElectrico, montoTotal);
-                reparacionesTipoMotor.add(reparacionPorTipoMotor);
-            }
+            ReparacionPorTipoMotor reparacionPorTipoMotor = new ReparacionPorTipoMotor(tipoReparacion, cantidadGasolina, cantidadDiesel, cantidadHibrido, cantidadElectrico, montoTotal);
+            reparacionesTipoMotor.add(reparacionPorTipoMotor);
         }
-
+        System.out.println("REPORTE - REPARACIONES POR TIPO MOTOR: " + reparacionesTipoMotor);
         return reparacionesTipoMotor;
     }
 }

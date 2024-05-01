@@ -10,15 +10,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
+import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@ActiveProfiles("test")
 public class ReparacionServiceTest {
     @InjectMocks
     ReparacionService reparacionService;
@@ -55,11 +54,15 @@ public class ReparacionServiceTest {
         idRegistros.add(reparacionId.getIdRegistro());
         idRegistros.add(reparacionB.getIdRegistro());
 
+        List<String> tiposReparaciones = new ArrayList<>();
+        tiposReparaciones.add("Reparaciones del Sistema de Frenos");
+
         Mockito.when(reparacionRespository.save(reparacionA)).thenReturn(reparacionId);
-        Mockito.when(reparacionRespository.findIdRegistroByNumeroReparacion(1)).thenReturn(idRegistros);
+        Mockito.when(reparacionRespository.findDistinctTipoReparacion()).thenReturn(tiposReparaciones);
+        Mockito.when(reparacionRespository.findIdRegistroByTipoReparacion("Reparaciones del Sistema de Frenos")).thenReturn(idRegistros);
         Mockito.when(reparacionRespository.findFirstByIdRegistro(idRegistros.get(0))).thenReturn(reparacionId);
         Mockito.when(registroService.obtenerNumeroTiposAutos(idRegistros)).thenReturn(1);
-        Mockito.when(reparacionRespository.sumPrecioByNumeroReparacion(1)).thenReturn(240000);
+        Mockito.when(reparacionRespository.sumPrecioByTipoReparacion("Reparaciones del Sistema de Frenos")).thenReturn(240000);
         Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Gasolina")).thenReturn(2);
         Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel")).thenReturn(0);
         Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido")).thenReturn(0);

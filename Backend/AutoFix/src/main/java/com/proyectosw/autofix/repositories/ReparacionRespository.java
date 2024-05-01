@@ -13,9 +13,12 @@ public interface ReparacionRespository extends JpaRepository<ReparacionEntity, L
 
     ReparacionEntity findFirstByIdRegistro(Long idRegistro);
 
-    @Query("SELECT r.idRegistro FROM ReparacionEntity r WHERE r.numeroReparacion = :numeroReparacion")
-    List<Long> findIdRegistroByNumeroReparacion(Integer numeroReparacion);
+    @Query("SELECT SUM(r.precio) FROM ReparacionEntity r WHERE r.tipoReparacion = :tipoReparacion")
+    int sumPrecioByTipoReparacion(String tipoReparacion);
 
-    @Query("SELECT SUM(r.precio) FROM ReparacionEntity r WHERE r.numeroReparacion = :numeroReparacion")
-    int sumPrecioByNumeroReparacion(Integer numeroReparacion);
+    @Query("SELECT DISTINCT r.tipoReparacion FROM ReparacionEntity r")
+    List<String> findDistinctTipoReparacion();
+
+    @Query("SELECT r.idRegistro FROM ReparacionEntity r WHERE r.tipoReparacion = :tipoReparacion")
+    List<Long> findIdRegistroByTipoReparacion(String tipoReparacion);
 }
