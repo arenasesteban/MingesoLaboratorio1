@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="" />
+    <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047/storage_v2/_src_/database/AutoFixDB.xGoS2Q/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/src/services/registro.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/services/registro.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/src/services/reparacion.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/services/reparacion.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/src/services/vehiculo.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/services/vehiculo.service.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +42,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -38,63 +56,65 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.RegistroServiceTest.contarReparaciones.executor": "Run",
-    "JUnit.RegistroServiceTest.executor": "Coverage",
-    "JUnit.RegistroServiceTest.testCalcularTotal.executor": "Run",
-    "JUnit.RegistroServiceTest.testCalcularTotalReparaciones.executor": "Run",
-    "JUnit.RegistroServiceTest.testContarReparaciones.executor": "Run",
-    "JUnit.RegistroServiceTest.testCrearRegistro.executor": "Run",
-    "JUnit.RegistroServiceTest.testDescuentoPorDiaAtencion.executor": "Run",
-    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparaciones.executor": "Run",
-    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso2.executor": "Run",
-    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso3.executor": "Run",
-    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4.executor": "Run",
-    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesGasolina.executor": "Run",
-    "JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesSedan.executor": "Run",
-    "JUnit.RegistroServiceTest.testObtenerRegistros.executor": "Run",
-    "JUnit.RegistroServiceTest.testRecargoPorAntiguedad.executor": "Run",
-    "JUnit.RegistroServiceTest.testRecargoPorKilometraje.executor": "Run",
-    "JUnit.RegistroServiceTest.testRecargoPorRetrasoRecogida.executor": "Run",
-    "JUnit.ReparacionServiceTest and 1 more.executor": "Coverage",
-    "JUnit.ReparacionServiceTest.executor": "Coverage",
-    "JUnit.ReparacionServiceTest.testCrearReparacion.executor": "Run",
-    "JUnit.ReparacionServiceTest.testReporteReparacionPorTipoAuto.executor": "Run",
-    "JUnit.ReparacionServiceTest.testReporteReparacionTipoMotor.executor": "Run",
-    "JUnit.VehiculoServiceTest.executor": "Coverage",
-    "JUnit.VehiculoServiceTest.testObtenerVehiculos.executor": "Run",
-    "JUnit.VehiculoServiceTest.testRegistrarVehiculo.executor": "Run",
-    "JUnit.autofix in autofix.executor": "Coverage",
-    "JUnit.com.proyectosw.autofix.services in autofix.executor": "Run",
-    "JUnit.java in autofix.executor": "Coverage",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.AutofixApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Esteban Usach/2024.1/MINGESO/MingesoLaboratorio1 - correcion/Backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.RegistroServiceTest.contarReparaciones.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.RegistroServiceTest.testCalcularTotal.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testCalcularTotalReparaciones.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testContarReparaciones.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testCrearRegistro.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testDescuentoPorDiaAtencion.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testDescuentoPorNumeroReparaciones.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso3.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesCaso4.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesGasolina.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testDescuentoPorNumeroReparacionesSedan.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testObtenerRegistros.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testRecargoPorAntiguedad.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testRecargoPorKilometraje.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroServiceTest.testRecargoPorRetrasoRecogida.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReparacionServiceTest and 1 more.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ReparacionServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ReparacionServiceTest.testCrearReparacion.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReparacionServiceTest.testReporteReparacionPorTipoAuto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReparacionServiceTest.testReporteReparacionTipoMotor.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VehiculoServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.VehiculoServiceTest.testObtenerVehiculos.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VehiculoServiceTest.testRegistrarVehiculo.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.autofix in autofix.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.com.proyectosw.autofix.services in autofix.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in autofix.executor&quot;: &quot;Coverage&quot;,
+    &quot;Maven.autofix [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.autofix [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AutofixApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Esteban Usach/2024.1/MINGESO/MingesoLaboratorio1/Backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Esteban Usach\2024.1\MINGESO\MingesoLaboratorio1\Backend\autofix\src\main\resources" />
@@ -231,6 +251,8 @@
       <workItem from="1714422663265" duration="4445000" />
       <workItem from="1714515469599" duration="4743000" />
       <workItem from="1714521718571" duration="530000" />
+      <workItem from="1714522590704" duration="5428000" />
+      <workItem from="1714573671669" duration="845000" />
     </task>
     <servers />
   </component>

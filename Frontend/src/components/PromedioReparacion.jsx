@@ -47,9 +47,11 @@ export default function PromedioReparacion() {
                                                 {promedioReparacion.marca}
                                             </td>
                                             <td className="px-6 py-3">
-                                                {promedioReparacion.tiempoPromedioReparacion > 1
-                                                    ? `${promedioReparacion.tiempoPromedioReparacion} días`
-                                                    : `${promedioReparacion.tiempoPromedioReparacion} día`
+                                                {promedioReparacion.tiempoPromedioReparacion !== -1
+                                                    ? (promedioReparacion.tiempoPromedioReparacion > 1
+                                                        ? `${promedioReparacion.tiempoPromedioReparacion} días`
+                                                        : `${promedioReparacion.tiempoPromedioReparacion} día`)
+                                                    : "Aún no hay reparaciones"
                                                 }
                                             </td>
                                         </tr>

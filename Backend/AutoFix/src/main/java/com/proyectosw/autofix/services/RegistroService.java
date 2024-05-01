@@ -256,6 +256,10 @@ public class RegistroService {
             cantidadRegistros += registros.size();
         }
 
-        return (int) (sumaDiasReparacion / cantidadRegistros);
+        if(cantidadRegistros != 0) {
+            return (int) (sumaDiasReparacion / cantidadRegistros);
+        }
+
+        return -1;
     }
 }
