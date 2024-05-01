@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const REGISTRO_API_URL = "http://localhost:80/registro/";
+const REGISTRO_API_URL = "http://localhost:8090/registro/";
 
 function crearRegistro(registro) {
     return axios.post(REGISTRO_API_URL, registro);

@@ -59,19 +59,19 @@ export default function ReparacionTipoMotor() {
                                             <td scope="row" class="px-6 py-4 font-medium text-gray-900">
                                                 {reparacionTipoMotor.tipoReparacion}
                                             </td>
-                                            <td scope="row" class="px-6 py-4 font-medium text-gray-900">
+                                            <td scope="row" class="px-6 py-4 text-gray-900">
                                                 {reparacionTipoMotor.cantidadGasolina}
                                             </td>
-                                            <td scope="row" class="px-6 py-4 font-medium text-gray-900">
+                                            <td scope="row" class="px-6 py-4 text-gray-900">
                                                 {reparacionTipoMotor.cantidadDiesel}
                                             </td>
-                                            <td scope="row" class="px-6 py-4 font-medium text-gray-900">
+                                            <td scope="row" class="px-6 py-4 text-gray-900">
                                                 {reparacionTipoMotor.cantidadHibrido}
                                             </td>
-                                            <td scope="row" class="px-6 py-4 font-medium text-gray-900">
+                                            <td scope="row" class="px-6 py-4 text-gray-900">
                                                 {reparacionTipoMotor.cantidadElectrico}
                                             </td>
-                                            <td scope="row" class="px-6 py-4 font-medium text-gray-900">
+                                            <td scope="row" class="px-6 py-4 text-gray-900">
                                                 $ {reparacionTipoMotor.montoTotal}
                                             </td>
                                         </tr>
