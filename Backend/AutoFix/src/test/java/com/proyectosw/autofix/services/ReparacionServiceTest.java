@@ -69,6 +69,11 @@ public class ReparacionServiceTest {
         Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Diesel")).thenReturn(0);
         Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Hibrido")).thenReturn(0);
         Mockito.when(registroService.obtenerNumeroPorTiposMotores(idRegistros, "Electrico")).thenReturn(0);
+        Mockito.when(registroService.obtenerNumeroPorTiposAutos(idRegistros, "Sedan")).thenReturn(1);
+        Mockito.when(registroService.obtenerNumeroPorTiposAutos(idRegistros, "Hatchback")).thenReturn(0);
+        Mockito.when(registroService.obtenerNumeroPorTiposAutos(idRegistros, "SUV")).thenReturn(0);
+        Mockito.when(registroService.obtenerNumeroPorTiposAutos(idRegistros, "Pickup")).thenReturn(0);
+        Mockito.when(registroService.obtenerNumeroPorTiposAutos(idRegistros, "Furgoneta")).thenReturn(0);
     }
 
     @Test
@@ -92,7 +97,11 @@ public class ReparacionServiceTest {
     @Test
     public void testReporteReparacionPorTipoAuto() {
         ReparacionPorTipoAuto reparacionPorTipoAuto = new ReparacionPorTipoAuto();
-        reparacionPorTipoAuto.setNumeroTiposAutos(1);
+        reparacionPorTipoAuto.setCantidadSedan(1);
+        reparacionPorTipoAuto.setCantidadHatchback(0);
+        reparacionPorTipoAuto.setCantidadSUV(0);
+        reparacionPorTipoAuto.setCantidadPickup(0);
+        reparacionPorTipoAuto.setCantidadFurgoneta(0);
         reparacionPorTipoAuto.setTipoReparacion("Reparaciones del Sistema de Frenos");
         reparacionPorTipoAuto.setMontoTotal(240000);
 

@@ -9,6 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ReparacionPorTipoAuto {
     private String tipoReparacion;
-    private Integer numeroTiposAutos;
+    private Integer cantidadSedan;
+    private Integer cantidadHatchback;
+    private Integer cantidadSUV;
+    private Integer cantidadPickup;
+    private Integer cantidadFurgoneta;
     private Integer montoTotal;
 }

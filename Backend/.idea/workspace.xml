@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e89f6a7-5e2f-4ddc-991b-a8c885adb214" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8336ad54-e350-4540-b093-0afbcc531047.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/test/java/com/proyectosw/autofix/AutofixApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/test/java/com/proyectosw/autofix/services/RegistroServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/test/java/com/proyectosw/autofix/services/RegistroServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/dtos/ReparacionPorTipoAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/dtos/ReparacionPorTipoAuto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/VehiculoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/repositories/VehiculoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/RegistroService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/ReparacionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/main/java/com/proyectosw/autofix/services/ReparacionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutoFix/src/test/java/com/proyectosw/autofix/services/ReparacionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/test/java/com/proyectosw/autofix/services/ReparacionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoFix/src/test/java/com/proyectosw/autofix/services/VehiculoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AutoFix/src/test/java/com/proyectosw/autofix/services/VehiculoServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +77,7 @@
     "JUnit.VehiculoServiceTest.registrarVehiculo.executor": "Run",
     "JUnit.VehiculoServiceTest.testObtenerVehiculos.executor": "Run",
     "JUnit.VehiculoServiceTest.testRegistrarVehiculo.executor": "Run",
-    "JUnit.autofix in autofix.executor": "Run",
+    "JUnit.autofix in autofix.executor": "Coverage",
     "JUnit.com.proyectosw.autofix.services in autofix.executor": "Run",
     "JUnit.java in autofix.executor": "Coverage",
     "JUnit.services in autofix.executor": "Coverage",
@@ -114,7 +115,39 @@
       <recent name="D:\Esteban Usach\2024.1\MINGESO\MingesoLaboratorio1\Backend\autofix\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.autofix in autofix">
+  <component name="RunManager" selected="JUnit.java in autofix">
+    <configuration name="ReparacionServiceTest.testReporteReparacionPorTipoAuto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="autofix" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
+      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.ReparacionServiceTest" />
+      <option name="METHOD_NAME" value="testReporteReparacionPorTipoAuto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReparacionServiceTest.testReporteReparacionTipoMotor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="autofix" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
+      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.ReparacionServiceTest" />
+      <option name="METHOD_NAME" value="testReporteReparacionTipoMotor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VehiculoServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <extension name="coverage">
@@ -130,38 +163,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VehiculoServiceTest.registrarVehiculo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="autofix" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.VehiculoServiceTest" />
-      <option name="METHOD_NAME" value="registrarVehiculo" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VehiculoServiceTest.testObtenerVehiculos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="autofix" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.proyectosw.autofix.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.proyectosw.autofix.services" />
-      <option name="MAIN_CLASS_NAME" value="com.proyectosw.autofix.services.VehiculoServiceTest" />
-      <option name="METHOD_NAME" value="testObtenerVehiculos" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="autofix in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <option name="TEST_OBJECT" value="directory" />
@@ -170,10 +171,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="services in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="java in autofix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="autofix" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/AutoFix/src/test/java/com/proyectosw/autofix/services" />
+      <dir value="$PROJECT_DIR$/AutoFix/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -187,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in autofix" />
+        <item itemvalue="JUnit.ReparacionServiceTest.testReporteReparacionTipoMotor" />
+        <item itemvalue="JUnit.ReparacionServiceTest.testReporteReparacionPorTipoAuto" />
         <item itemvalue="JUnit.autofix in autofix" />
         <item itemvalue="JUnit.VehiculoServiceTest" />
-        <item itemvalue="JUnit.services in autofix" />
-        <item itemvalue="JUnit.VehiculoServiceTest.registrarVehiculo" />
-        <item itemvalue="JUnit.VehiculoServiceTest.testObtenerVehiculos" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +248,9 @@
       <workItem from="1714515469599" duration="4743000" />
       <workItem from="1714521718571" duration="530000" />
       <workItem from="1714522590704" duration="5428000" />
-      <workItem from="1714573671669" duration="3853000" />
+      <workItem from="1714573671669" duration="4891000" />
+      <workItem from="1714601240626" duration="29000" />
+      <workItem from="1715211873648" duration="2874000" />
     </task>
     <servers />
   </component>
@@ -266,6 +269,7 @@
     <SUITE FILE_PATH="coverage/Backend$VehiculoServiceTest.ic" NAME="VehiculoServiceTest Coverage Results" MODIFIED="1714232576641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Backend$autofix_in_autofix.ic" NAME="autofix in autofix Coverage Results" MODIFIED="1714577791139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Backend$services_in_autofix.ic" NAME="services in autofix Coverage Results" MODIFIED="1714577598403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Backend$RegistroServiceTest.ic" NAME="RegistroServiceTest Coverage Results" MODIFIED="1714241687082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
@@ -273,6 +277,6 @@
     <SUITE FILE_PATH="coverage/Backend$com_proyectosw_autofix_services_in_autofix.ic" NAME="com.proyectosw.autofix.services in autofix Coverage Results" MODIFIED="1714426792475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.proyectosw.autofix.services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Backend$java_in_autofix.ic" NAME="java in autofix Coverage Results" MODIFIED="1714575768768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Backend$java_in_autofix.ic" NAME="java in autofix Coverage Results" MODIFIED="1715216395415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

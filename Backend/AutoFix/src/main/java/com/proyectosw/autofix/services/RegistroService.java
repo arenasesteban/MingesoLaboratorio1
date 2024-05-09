@@ -226,6 +226,23 @@ public class RegistroService {
 
         return tiposAutos.size();
     }
+
+    public int obtenerNumeroPorTiposAutos(List<Long> idRegistros, String tipoAuto) {
+        List<String> patentes = new ArrayList<>();
+        int numeroAutos = 0;
+
+        for(Long idRegistro : idRegistros) {
+            String patente = registroRepository.findPatenteByIdRegistro(idRegistro);
+
+            if(!patentes.contains(patente)) {
+                numeroAutos += vehiculoRepository.countTipoAuto(patente, tipoAuto);
+                patentes.add(patente);
+            }
+        }
+
+        return numeroAutos;
+    }
+
     public int obtenerNumeroPorTiposMotores(List<Long> idRegistros, String tipoMotor) {
         List<String> patentes = new ArrayList<>();
         int numeroAutos = 0;

@@ -36,7 +36,19 @@ export default function ReparacionTipoVehiculo() {
                                         Tipo reparación
                                     </th>
                                     <th scope="col" className="px-6 py-4">
-                                        Número de tipos de vehiculos
+                                        Sedan
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        Hatchback
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        SUV
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        Pickup
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        Furgoneta
                                     </th>
                                     <th scope="col" className="px-6 py-4">
                                         Monto total
@@ -51,7 +63,19 @@ export default function ReparacionTipoVehiculo() {
                                                 {reparacionTipoVehiculo.tipoReparacion}
                                             </td>
                                             <td class="px-6 py-3">
-                                                {reparacionTipoVehiculo.numeroTiposAutos}
+                                                {reparacionTipoVehiculo.cantidadSedan}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                {reparacionTipoVehiculo.cantidadHatchback}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                {reparacionTipoVehiculo.cantidadSUV}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                {reparacionTipoVehiculo.cantidadPickup}
+                                            </td>
+                                            <td class="px-6 py-3">
+                                                {reparacionTipoVehiculo.cantidadFurgoneta}
                                             </td>
                                             <td class="px-6 py-3">
                                                 $ {reparacionTipoVehiculo.montoTotal}
